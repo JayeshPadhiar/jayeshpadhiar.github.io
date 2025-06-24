@@ -1,5 +1,3 @@
-import Button from "./Button";
-
 export default function Contact() {
     return (
         <section id="contact" className="w-full flex flex-col items-start justify-start gap-4 px-8 py-16 border-t-1 border-foreground/10">
@@ -10,7 +8,7 @@ export default function Contact() {
             <div className="flex flex-col items-start justify-start gap-4 w-full">
                 <input type="email" placeholder="Email" className="w-full h-10" />
                 <textarea placeholder="Message" className="w-full h-32" />
-                <Button disabled={true}>Send</Button>
+                <button className="bg-secondary-foreground text-background px-4 py-2 rounded-md" disabled={true}>Send</button>
             </div>
         </section>
     );

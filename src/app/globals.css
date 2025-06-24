@@ -1,23 +1,26 @@
 @import "tailwindcss";
 
-/* background light gray and foreground color dark gray */
+/* Light and dark theme configuration */
 :root {
+  /* Light theme defaults */
   --background: #e0e0e0;
   --foreground: #1e1e1e;
   --secondary-foreground: #ff2400;
+  --button-shadow-light: #bebebe;
+  --button-shadow-dark: #efefef;
+}
+
+:root[data-theme="dark"] {
+  --background: rgb(17 24 39);
+  --foreground: rgb(229 231 235);
+  --secondary-foreground: #ff4040;
+  --button-shadow-light: rgb(23 32 52);
+  --button-shadow-dark: rgb(11 16 26);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-}
-
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: rgb(17 24 39);
-    --foreground: rgb(229 231 235);
-  }
 }
 
 body {
@@ -29,20 +32,21 @@ body {
 
 button {
   border-radius: 10px;
-  background: #e0e0e0;
+  background: var(--background);
   padding: 0.4rem 1rem;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s;
-  border: 0.5px solid #1e1e1e;
+  border: 0.5px solid var(--foreground);
+  color: var(--foreground);
 }
 
 button:hover {
-  box-shadow: 2px 2px 6px #bebebe, -2px -2px 6px #efefef;
+  box-shadow: 2px 2px 6px var(--button-shadow-light), -2px -2px 6px var(--button-shadow-dark);
 }
 
 button:active {
-  box-shadow: inset 2px 2px 6px #bebebe, inset -2px -2px 6px #efefef;
+  box-shadow: inset 2px 2px 6px var(--button-shadow-light), inset -2px -2px 6px var(--button-shadow-dark);
 }
 
 button:disabled {
@@ -52,14 +56,14 @@ button:disabled {
 
 input, textarea {
   border-radius: 10px;
-  background: #e0e0e0;
+  background: var(--background);
   padding: 0.4rem 1rem;
   font-size: 1rem;
   outline: none;
   transition: all .5s;
-  border: 0.5px solid #1e1e1e;
+  border: 0.5px solid var(--foreground);
 }
 
 input:focus, textarea:focus {
-  box-shadow: inset 2px 2px 6px #bebebe, inset -2px -2px 6px #efefef;
+  box-shadow: inset 2px 2px 6px var(--button-shadow-light), inset -2px -2px 6px var(--button-shadow-dark);
 }

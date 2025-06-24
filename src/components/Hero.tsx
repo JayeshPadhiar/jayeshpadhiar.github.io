@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Button from "./Button";
 import { FaEnvelope, FaGithub, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 
 export default function Hero() {
@@ -26,7 +25,7 @@ export default function Hero() {
           <FaPhoneAlt className="w-6 h-6 cursor-pointer hover:text-secondary-foreground" />
         </a>
         <a href="/files/Jayesh_Padhiar_Resume.pdf" target="_blank" rel="noopener noreferrer">
-          <Button>Resume</Button>
+          <button className="bg-secondary-foreground text-background px-4 py-2 rounded-md">Resume</button>
         </a>
       </div>
     </section>
