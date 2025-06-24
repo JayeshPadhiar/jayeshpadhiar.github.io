@@ -12,7 +12,7 @@ export default function Hero() {
       <p className="text-md md:text-sm text-foreground/80 mb-8">
         I create reliable, user-focused web solutions, driven by a passion for meaningful code, innovative side projects, and quiet pursuits like hiking peaks, diving into deep reads, and breathing football.
       </p>
-      <div className="flex flex-row items-center justify-center gap-8">
+      <div className="flex flex-row items-center justify-center gap-8 flex-wrap">
         <a href="https://linkedin.com/in/jayeshpadhiar" target="_blank" rel="noopener noreferrer">
           <FaLinkedin className="w-6 h-6 cursor-pointer hover:text-secondary-foreground" />
         </a>
