@@ -1,26 +1,65 @@
 @import "tailwindcss";
 
+/* background light gray and foreground color dark gray */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #e0e0e0;
+  --foreground: #1e1e1e;
+  --secondary-foreground: #ff2400;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: rgb(17 24 39);
+    --foreground: rgb(229 231 235);
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-roboto-mono);
+  scroll-behavior: smooth;
+}
+
+button {
+  border-radius: 10px;
+  background: #e0e0e0;
+  padding: 0.4rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 0.5px solid #1e1e1e;
+}
+
+button:hover {
+  box-shadow: 2px 2px 6px #bebebe, -2px -2px 6px #efefef;
+}
+
+button:active {
+  box-shadow: inset 2px 2px 6px #bebebe, inset -2px -2px 6px #efefef;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+input, textarea {
+  border-radius: 10px;
+  background: #e0e0e0;
+  padding: 0.4rem 1rem;
+  font-size: 1rem;
+  outline: none;
+  transition: all .5s;
+  border: 0.5px solid #1e1e1e;
+}
+
+input:focus, textarea:focus {
+  box-shadow: inset 2px 2px 6px #bebebe, inset -2px -2px 6px #efefef;
 }
