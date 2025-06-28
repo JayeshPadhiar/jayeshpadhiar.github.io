@@ -4,7 +4,7 @@ import { FaEnvelope, FaGithub, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 
 export default function Hero() {
   return (
-    <section id="hero" className="w-2/6 h-full flex flex-col items-center justify-center p-8 text-center">
+    <section id="hero" className="w-full md:w-2/6 h-full flex flex-col items-center justify-center p-8 text-center">
       <Image src="/images/profile.jpeg" className="rounded-full aspect-square object-cover" alt="Profile" width={140} height={140} />
       <h1 className="text-2xl font-bold mt-4">Jayesh Padhiar</h1>
       <p className="text-sm text-foreground/80 mt-2">Fullstack Developer</p>
