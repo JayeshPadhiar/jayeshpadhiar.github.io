@@ -25,10 +25,6 @@ export default function Header() {
       name: "Projects",
       href: "#projects"
     },
-    /*{
-      name: "Blogs",
-      href: "#blogs"
-    },*/
     {
       name: "Interests",
       href: "#interests"

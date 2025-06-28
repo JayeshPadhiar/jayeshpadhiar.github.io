@@ -20,7 +20,7 @@ export default function Contact() {
 		}
 	]
 	return (
-		<section id="contact" className="w-full flex flex-col md:flex-row items-start justify-start gap-4 px-8 py-16 border-t-1 border-foreground/10 gap-8">
+		<section id="contact" className="w-full flex flex-col md:flex-row items-start justify-start px-8 py-16 border-t-1 border-foreground/10 gap-8">
 			<div className="flex flex-col items-start justify-start gap-4 w-full md:w-1/3 h-full">
 
 				<h1 className="text-2xl font-bold">Contact</h1>
