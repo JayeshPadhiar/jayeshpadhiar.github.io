@@ -9,7 +9,7 @@ export default function Experience() {
             sections: [
                 {
                     id: 1,
-                    period: "Sept 2023 — Present",
+                    period: "July 2023 — Present",
                     title: "Fullstack Developer (SDE-1)",
                     description: [
                         "Developed REST APIs for Digital Access Management system and optimised the existing code to reduce API response time by 20%.",
@@ -22,7 +22,7 @@ export default function Experience() {
                 },
                 {
                     id: 2,
-                    period: "July 2022 — Sept 2023",
+                    period: "July 2022 — July 2023",
                     title: "Frontend Developer (SDE-1)",
                     description: [
                         "Led frontend development for responsive B2B/B2C sites (JioEngage, JioCoupons), driving 50K+ monthly visitors and dynamic CMS content management.",
