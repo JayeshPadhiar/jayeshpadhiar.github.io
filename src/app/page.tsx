@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="h-full flex flex-col items-start justify-start md:flex-row md:items-start md:justify-start overflow-y-auto">
       <Hero />
-      <div className="w-[0.5px] h-full bg-foreground"></div>
+      <div className="w-[0.5px] h-full bg-foreground/20"></div>
       <MainContent>
         <About />
         <Skills />
