@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto_Mono } from "next/font/google";
+import Header from "@/components/Header";
 
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
@@ -20,8 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`h-screen w-screen ${robotoMono.className} antialiased flex flex-row items-start justify-start`}
+        className={`h-screen w-screen ${robotoMono.className} antialiased flex flex-col items-start justify-start`}
       >
+        <Header />
         {children}
       </body>
     </html>

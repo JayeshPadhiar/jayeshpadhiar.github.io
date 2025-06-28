@@ -16,7 +16,7 @@ export default function About() {
 ];
 
     return (
-        <section id="about" className="w-full flex flex-col items-start justify-start gap-8 px-8 py-16 border-t-1 border-foreground/10">
+        <section id="about" className="w-full flex flex-col items-start justify-start gap-8 px-8 py-16">
             <h1 className="text-2xl font-bold">About</h1>
             {contentArray.map((content) => (
                 <p className="text-md text-foreground/80" key={content.id}>
