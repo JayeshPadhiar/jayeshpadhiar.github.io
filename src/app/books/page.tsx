@@ -63,6 +63,12 @@ export default function Books() {
 				description: "Khaled Hosseini's moving tale of friendship, betrayal, and redemption set against the backdrop of Afghanistan's turbulent history.",
 				image: "/images/book-15.jpg"
 			},
+			{
+				title: "Siddhartha",
+				author: "Hermann Hesse",
+				description: "Hermann Hesse's philosophical novel about the spiritual journey of a young man named Siddhartha, who seeks enlightenment through meditation, self-discovery, and the pursuit of wisdom.",
+				image: "/images/book-15.jpg"
+			},
 		],
 		"Non-Fiction": [
 			{
@@ -118,6 +124,12 @@ export default function Books() {
 				author: "Anna Lembke",
 				description: "Dr. Anna Lembke explores the neuroscience of pleasure and pain, addiction, and how to find balance in a dopamine-driven world.",
 				image: "/images/book-11.jpg"
+			},
+			{
+				title: "Almanack of Naval Ravikant",
+				author: "Eric Jorgenson",
+				description: "Eric Jorgenson's collection of quotes from Naval Ravikant, a successful entrepreneur and investor.",
+				image: "/images/book-15.jpg"
 			},
 		]
 	}
