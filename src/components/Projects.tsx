@@ -31,10 +31,10 @@ export default function Projects() {
 
 const ProjectCard = ({ title, description, url }: { title: string, description: string, url: string }) => {
     return (
-        <div className="w-1/3 min-w-[300px] max-w-[400px] flex flex-col items-start justify-start gap-4 px-4 py-4 border-1 border-foreground/20 cursor-pointer align-self-stretch" style={{ borderRadius: "10px" }}>
+        <div className="w-1/3 min-w-[300px] max-w-[400px] flex flex-col items-start justify-start gap-4 px-4 py-4 border-1 border-foreground/20 cursor-pointer" style={{ borderRadius: "10px", alignSelf: "stretch" }}>
             <h1>{title}</h1>
             <p className="text-sm text-foreground/60">{description}</p>
-            <a href={url} target="_blank" rel="noopener noreferrer" className="flex flex-row items-center justify-start gap-2 text-foreground/80 mt-auto">View Project <span><FaArrowRight /></span></a>
+            <a href={url} target="_blank" rel="noopener noreferrer" className="flex flex-row items-center justify-start gap-2 text-foreground/80 mt-auto hover:underline">View Project <span><FaArrowRight /></span></a>
         </div>
     )
 }
