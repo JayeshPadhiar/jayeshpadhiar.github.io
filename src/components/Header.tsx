@@ -18,6 +18,10 @@ export default function Header() {
     /*{
       name: "Projects",
       href: "#projects"
+    },
+    {
+      name: "Blogs",
+      href: "#blogs"
     },*/
     {
       name: "Interests",
@@ -51,8 +55,8 @@ export default function Header() {
             className="p-2 rounded-full hover:bg-foreground/10 transition-colors"
             aria-label="Toggle theme"
           >
-            <FaSun className="w-5 h-5 hidden [data-theme='dark']:block" />
-            <FaMoon className="w-5 h-5 block [data-theme='dark']:hidden" />
+            <FaSun className="w-5 h-5 block [data-theme='light']:hidden" />
+            <FaMoon className="w-5 h-5 hidden [data-theme='dark']:block" />
           </button>
         </ul>
 

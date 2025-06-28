@@ -21,10 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`h-screen w-screen ${robotoMono.className} antialiased flex flex-col items-start justify-start`}
+        className={`h-screen w-screen ${robotoMono.className} antialiased flex flex-col items-start justify-start overflow-hidden`}
       >
         <Header />
-        {children}
+        <div className="w-full h-full flex flex-col items-start justify-start overflow-y-auto">
+          {children}
+        </div>
       </body>
     </html>
   );

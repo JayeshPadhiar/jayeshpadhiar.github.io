@@ -71,7 +71,7 @@ input:focus, textarea:focus {
 
 /* transparent scrollbar */
 ::-webkit-scrollbar {
-  width: 0.2rem;
+  width: 0.2rem !important;
   background: transparent;
 }
 
