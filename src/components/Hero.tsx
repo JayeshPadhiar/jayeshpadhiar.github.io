@@ -4,12 +4,12 @@ import { FaEnvelope, FaGithub, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 
 export default function Hero() {
   return (
-    <section id="hero" className="w-full md:w-2/6 h-full flex flex-col items-center justify-center p-8 text-center">
+    <section id="hero" className="w-full md:w-[32%] md:h-full h-screen flex flex-col items-center justify-center p-8 text-center">
       <Image src="/images/profile.jpeg" className="rounded-full aspect-square object-cover" alt="Profile" width={140} height={140} />
-      <h1 className="text-2xl font-bold mt-4">Jayesh Padhiar</h1>
-      <p className="text-sm text-foreground/80 mt-2">Fullstack Developer</p>
+      <h1 className="text-4xl md:text-2xl font-bold mt-4">Jayesh Padhiar</h1>
+      <p className="text-2xl md:text-sm text-foreground/80 mt-2">Fullstack Developer</p>
       <div className="w-1/5 h-[0.5px] bg-foreground/50 my-4"></div>
-      <p className="text-sm text-foreground/80 mb-8">
+      <p className="text-md md:text-sm text-foreground/80 mb-8">
         I create reliable, user-focused web solutions, driven by a passion for meaningful code, innovative side projects, and quiet pursuits like hiking peaks, diving into deep reads, and breathing football.
       </p>
       <div className="flex flex-row items-center justify-center gap-8">

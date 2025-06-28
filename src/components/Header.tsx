@@ -26,9 +26,9 @@ export default function Header() {
     }
   ]
   return (
-    <header className="w-full p-4 sticky top-0 bg-background z-10">
-        <nav className="w-full flex flex-row items-center justify-center px-16">
-            <ul className="flex flex-row items-center justify-between w-full gap-4">
+    <header className="w-full p-2 md:p-4 sticky top-0 bg-background z-10">
+        <nav className="w-full flex flex-row items-center justify-center md:px-16">
+            <ul className="flex flex-row items-center justify-center md:justify-between w-full md:gap-4 flex-wrap">
                 {tabs.map((tab) => (
                     <li className="cursor-pointer hover:outline-[0.5px] hover:outline-foreground/50 rounded-full px-3 py-1" key={tab.name}>
                         <a href={tab.href}>{tab.name}</a>

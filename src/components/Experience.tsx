@@ -51,7 +51,7 @@ export default function Experience() {
         title: "text-2xl font-bold",
         timelineContainer: "w-full h-full flex flex-col items-start justify-start py-8",
         timelineItem: "w-full h-full flex flex-col items-start justify-start gap-1 border-l-1 border-foreground/20 pl-4 pb-4 relative",
-        dot: "w-2 h-2 bg-foreground rounded-full absolute top-0 left-0 -translate-x-[55%] translate-y-[130%] z-10",
+        dot: "w-2 h-2 bg-foreground rounded-full absolute top-0 left-0 -translate-x-[55%] z-10",
         timelineItemDescriptionList: "text-sm text-foreground/50 list-disc list-outside flex flex-col gap-4 pl-4 mt-4 gap-y-4",
         timelineItemPeriod: "text-sm text-foreground/50 font-bold",
         timelineItemCompany: "text-lg font-bold border-[0.5px] border-foreground/40 rounded-md px-4 py-1 w-fit",
