@@ -18,20 +18,6 @@ const Footer = () => {
 				<p className={styles.copyright}>
 					© {currentYear} Jayesh Padhiar. All rights reserved.
 				</p>
-
-				<div className={styles.socialContainer}>
-					<a href="tel:+917218194049" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
-						<FaPhoneAlt className={styles.icon} />
-					</a>
-
-					<a
-						href="mailto:jayeshpadhiar20@gmail.com"
-						className={styles.iconLink}
-					>
-						<FaEnvelope className={styles.icon} />
-					</a>
-
-				</div>
 			</div>
 		</footer>
 	);

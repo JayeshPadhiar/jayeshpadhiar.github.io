@@ -67,3 +67,14 @@ input, textarea {
 input:focus, textarea:focus {
   box-shadow: inset 2px 2px 6px var(--button-shadow-light), inset -2px -2px 6px var(--button-shadow-dark);
 }
+
+
+/* transparent scrollbar */
+::-webkit-scrollbar {
+  width: 0.2rem;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--foreground)
+}
