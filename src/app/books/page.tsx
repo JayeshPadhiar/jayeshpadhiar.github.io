@@ -135,7 +135,7 @@ export default function Books() {
 	}
 
 	return (
-		<section id="books" className="w-full flex flex-col items-start justify-start gap-4 px-8 py-16">
+		<section id="books" className="w-full flex flex-col items-start justify-start gap-8 px-8 py-16">
 			<h1 className="text-2xl font-bold">Books I've read</h1>
 			{Object.keys(books).map((category) => (
 				<div key={category} className="flex flex-col items-start justify-start gap-4 w-full mb-8">
