@@ -58,11 +58,11 @@ export default function Interests() {
                 {
                     selectedInterest === 1 && (
                         <div className="w-full h-full flex flex-col items-start justify-start gap-4">
-                            <div className="flex flex-col items-start justify-start gap-4">
+                            <div className="flex flex-col items-start justify-start gap-4 w-full">
                                 <h1>I'm currently reading:</h1>
                                 <BookCard title="To Kill a Mockingbird" author="Harper Lee" description="" />
                             </div>
-                            <div className="flex flex-col items-start justify-start gap-4">
+                            <div className="flex flex-col items-start justify-start gap-4 w-full">
                                 <h1>Just finished reading:</h1>
                                 <BookCard title="Days at the Morisaki Bookstore" author="Satoshi Yagisawa" description="" />
                             </div>
