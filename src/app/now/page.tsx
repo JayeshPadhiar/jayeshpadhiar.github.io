@@ -1,98 +1,96 @@
 import MainContent from "@/components/MainContent";
+import { BookCard } from "../books/components/BookCard";
 
 export default function Now() {
 	const now = {
-		lastUpdated: "March 2024",
+		lastUpdated: "June 2025",
 		currentWork: {
 			title: "Current Work",
-			description: "Working as a Fullstack Developer at Jio, focusing on:",
+			description: "Pretending to be a Fullstack Developer at Jio (they haven't caught on yet).",
 			items: [
-				"Building and maintaining high-traffic web applications",
-				"Leading frontend development for B2B/B2C platforms",
-				"Optimizing backend services and API performance",
+				"Breaking and occasionally fixing high-traffic web apps.",
+				"Leading fullstack development for B2B/B2C platforms (mostly by Googling stuff).",
+				"Optimizing backend services and API performance, or at least trying not to make them worse."
 			]
 		},
 		sideProjects: {
 			title: "Side Projects",
-			description: "Currently building and experimenting with:",
+			description: "Building things nobody asked for, but everyone will definitely need (someday).",
 			items: [
-				"Personal portfolio website using Next.js and TypeScript",
-				"Contributing to open-source projects",
-				"Exploring new web technologies and frameworks"
+				"Personal portfolio website using Next.js and TypeScript, because why not?",
+				"Contributing to open-source projects and hoping someone notices.",
+				"Exploring new web technologies and frameworks, mostly to avoid actual work."
 			]
 		},
 		learning: {
 			title: "Learning",
-			description: "Currently expanding my knowledge in:",
+			description: "Currently expanding my knowledge in things I'll probably forget by next week.",
 			items: [
-				"System Design and Architecture",
-				"Cloud Native Technologies",
-				"Advanced TypeScript Patterns"
+				"Data Structures and Algorithms (so I can finally understand those LeetCode memes)."
 			]
 		},
 		reading: {
 			title: "Reading",
-			description: "Books I'm currently reading:",
+			description: "Books I'm currently reading (or at least pretending to read on Zoom calls):",
 			items: [
-				"Technical: [Book Title]",
-				"Non-Fiction: [Book Title]",
-				"Fiction: [Book Title]"
+				<BookCard title="To Kill a Mockingbird" author="Harper Lee" description="A classic novel about the moral growth of a young girl in the American South during the 1930s. Also, there's a bird." />
 			]
 		},
 		health: {
 			title: "Health & Habits",
-			description: "Current focus areas:",
+			description: "Trying to be healthy so I can live long enough to finish my Netflix watchlist.",
 			items: [
-				"Regular exercise and strength training",
-				"Maintaining a consistent sleep schedule",
-				"Practicing mindfulness and meditation"
+				"Regular exercise and strength training (lifting groceries counts, right?)",
+				"Maintaining a consistent sleep schedule (consistently ignoring it, that is).",
+				"Practicing mindfulness and meditation, or just staring at the ceiling."
 			]
 		},
 		personal: {
 			title: "Personal Life",
-			description: "What's keeping me busy outside of work:",
+			description: "What's keeping me busy outside of work (besides existential dread):",
 			items: [
-				"Planning upcoming travels",
-				"Learning a new skill",
-				"Spending time with family and friends"
+				"Planning upcoming travels (to the fridge and back).",
+				"Learning a new skill: perfecting the art of procrastination.",
+				"Spending time with family and friends, mostly convincing them I have a real job."
 			]
 		},
 		upcoming: {
 			title: "Upcoming Goals",
-			description: "What I'm looking forward to:",
+			description: "What I'm looking forward to (besides the weekend):",
 			items: [
-				"Launching new features for current projects",
-				"Completing advanced certifications",
-				"Contributing more to the dev community"
+				"Launching new features for current projects (and hoping nothing breaks).",
+				"Completing advanced certifications (so my LinkedIn looks cooler).",
+				"Contributing more to the dev community, or at least retweeting smart people."
 			]
 		}
 	};
 
 	return (
 		<MainContent>
-			<section className="w-full flex flex-col items-start justify-start gap-8 px-8 py-16">
+			<section className="w-full md:w-1/2 flex flex-col items-start justify-start gap-8 px-8 py-16 mx-auto">
 				<div className="flex flex-col items-start justify-start gap-2">
-					<h1 className="text-2xl font-bold">Now</h1>
-					<p className="text-sm text-foreground/50">Last Updated: {now.lastUpdated}</p>
-					<p className="text-md text-foreground/80 mt-4">
-						A snapshot of what I'm currently focused on, inspired by <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer" className="underline">nownownow.com</a>
-					</p>
+					<h1 className="text-2xl font-bold">So! Currently...</h1>
 				</div>
 
 				{Object.values(now).map((section, index) => {
 					if (typeof section === 'string') return null;
 					return (
-						<div key={section.title} className="flex flex-col items-start justify-start gap-4 w-full">
+						<div key={section.title} className="flex flex-col items-start justify-start gap-2 w-full">
 							<h2 className="text-xl font-bold">{section.title}</h2>
-							<p className="text-md text-foreground/80">{section.description}</p>
-							<ul className="list-disc list-inside space-y-2">
+							<p className="text-md text-foreground/80 mb-2">{section.description}</p>
+							<ul className="list-disc list-inside space-y-1 ml-4">
 								{section.items.map((item, idx) => (
-									<li key={idx} className="text-md text-foreground/80">{item}</li>
+									<li key={idx} className="text-md text-foreground/80 list-outside">{item}</li>
 								))}
 							</ul>
 						</div>
 					);
 				})}
+
+				<p className="text-sm text-foreground/50">Last Updated: {now.lastUpdated}</p>
+				<p className="text-md text-foreground/80 mt-4">
+					This page is inspired by <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer" className="underline">nownownow.com</a>
+				</p>
 			</section>
 		</MainContent>
 	);

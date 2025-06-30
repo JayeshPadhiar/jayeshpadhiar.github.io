@@ -6,7 +6,7 @@ export default function Books() {
 			{
 				title: "To Kill a Mockingbird",
 				author: "Harper Lee",
-				description: "A novel about the moral and spiritual struggles of the main character, Raskolnikov, who murders an empress to free himself from the burden of poverty and guilt.",
+				description: "A classic novel about the moral growth of a young girl in the American South during the 1930s.",
 				image: "/images/book-1.jpg"
 			},
 			{
