@@ -33,7 +33,7 @@ export default function Now() {
 			title: "Reading",
 			description: "Books I'm currently reading (or at least pretending to read on Zoom calls):",
 			items: [
-				<BookCard title="To Kill a Mockingbird" author="Harper Lee" description="A classic novel about the moral growth of a young girl in the American South during the 1930s. Also, there's a bird." />
+				<BookCard title="Frankenstein" author="Mary Shelley" description="" />
 			]
 		},
 		health: {

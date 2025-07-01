@@ -5,12 +5,6 @@ export default function Books() {
 	const books = {
 		"Fiction": [
 			{
-				title: "To Kill a Mockingbird",
-				author: "Harper Lee",
-				description: "A classic novel about the moral growth of a young girl in the American South during the 1930s.",
-				image: "/images/book-1.jpg"
-			},
-			{
 				title: "Crime and Punishment",
 				author: "Fyodor Dostoevsky",
 				description: "A novel about the moral and spiritual struggles of the main character, Raskolnikov, who murders an empress to free himself from the burden of poverty and guilt.",
@@ -137,7 +131,7 @@ export default function Books() {
 
 	return (
 		<MainContent>
-			<section id="books" className="w-full flex flex-col items-start justify-start gap-8 py-16">
+			<section id="books" className="w-full flex flex-col items-start justify-start gap-8 py-16 mx-auto">
 				<h1 className="text-2xl font-bold">Books I've read</h1>
 				{Object.keys(books).map((category) => (
 					<div key={category} className="flex flex-col items-start justify-start gap-4 w-full mb-8">
