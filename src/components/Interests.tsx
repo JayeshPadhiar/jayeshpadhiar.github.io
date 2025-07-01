@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { BookCard } from "@/app/(routes)/books/components/BookCard";
+import { BookCard } from "@/app/(pages)/books/components/BookCard";
 import { FaBook, FaMountain, FaMusic, FaFutbol, FaArrowRight } from "react-icons/fa";
 
 export default function Interests() {

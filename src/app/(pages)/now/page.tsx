@@ -1,5 +1,5 @@
 import MainContent from "@/components/MainContent";
-import { BookCard } from "@/app/(routes)/books/components/BookCard";
+import { BookCard } from "@/app/(pages)/books/components/BookCard";
 
 export default function Now() {
 	const now = {
