@@ -1,4 +1,5 @@
 import { BookCard } from "./components/BookCard";
+import MainContent from "@/components/MainContent";
 
 export default function Books() {
 	const books = {
@@ -135,18 +136,21 @@ export default function Books() {
 	}
 
 	return (
-		<section id="books" className="w-full flex flex-col items-start justify-start gap-8 px-8 py-16">
-			<h1 className="text-2xl font-bold">Books I've read</h1>
-			{Object.keys(books).map((category) => (
-				<div key={category} className="flex flex-col items-start justify-start gap-4 w-full mb-8">
-					<h2 className="text-xl font-bold">{category}</h2>
-					<div className="flex flex-row flex-wrap gap-4 justify-start items-start w-full">
-						{books[category as keyof typeof books].map((book: { title: string, author: string, description: string, image: string }) => (
-							<BookCard key={book.title} title={book.title} author={book.author} description={book.description} />
-						))}
+		<MainContent>
+			<section id="books" className="w-full flex flex-col items-start justify-start gap-8 py-16">
+				<h1 className="text-2xl font-bold">Books I've read</h1>
+				{Object.keys(books).map((category) => (
+					<div key={category} className="flex flex-col items-start justify-start gap-4 w-full mb-8">
+						<h2 className="text-xl font-bold">{category}</h2>
+						<div className="flex flex-row flex-wrap gap-4 justify-start items-start w-full">
+							{books[category as keyof typeof books].map((book: { title: string, author: string, description: string, image: string }) => (
+								<BookCard key={book.title} title={book.title} author={book.author} description={book.description} />
+							))}
+						</div>
 					</div>
-				</div>
-			))}
-		</section>
+				))}
+			</section>
+		</MainContent>
+
 	);
 }

@@ -54,7 +54,7 @@ export default function Experience() {
 
 
     const styles = {
-        container: "w-full flex flex-col items-start justify-start gap-4 px-8 py-16 border-t-1 border-foreground/10",
+        container: "w-full flex flex-col items-start justify-start gap-4 py-16 border-t-1 border-foreground/10",
         title: "text-2xl font-bold",
         timelineContainer: "w-full h-full flex flex-col items-start justify-start py-8",
         timelineItem: "w-full h-full flex flex-col items-start justify-start gap-4 border-l-1 border-foreground/20 pl-4 pb-4 relative",

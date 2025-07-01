@@ -6,7 +6,7 @@ export default function Projects() {
         dark: ['lightgrey', 'green']
     }
     return (
-        <section id="projects" className="w-full flex flex-col items-start justify-start gap-4 px-8 py-16 border-t-1 border-foreground/10">
+        <section id="projects" className="w-full flex flex-col items-start justify-start gap-4 py-16 border-t-1 border-foreground/10">
             <h1 className="text-2xl font-bold">Projects</h1>
 
             <div className="flex flex-row flex-wrap gap-4 justify-start items-start w-full">

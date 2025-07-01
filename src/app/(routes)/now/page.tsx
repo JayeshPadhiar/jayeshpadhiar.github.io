@@ -1,5 +1,5 @@
 import MainContent from "@/components/MainContent";
-import { BookCard } from "../books/components/BookCard";
+import { BookCard } from "@/app/(routes)/books/components/BookCard";
 
 export default function Now() {
 	const now = {
@@ -67,7 +67,7 @@ export default function Now() {
 
 	return (
 		<MainContent>
-			<section className="w-full md:w-1/2 flex flex-col items-start justify-start gap-8 px-8 py-16 mx-auto">
+			<section className="w-full md:w-1/2 flex flex-col items-start justify-start gap-8 py-16 mx-auto">
 				<div className="flex flex-col items-start justify-start gap-2">
 					<h1 className="text-2xl font-bold">So! Currently...</h1>
 				</div>

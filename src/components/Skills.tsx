@@ -35,7 +35,7 @@ export default function Skills() {
     ]   
     
     const styles = {
-        container: "w-full flex flex-col items-start justify-start gap-8 px-8 py-16 border-t-1 border-foreground/10",
+        container: "w-full flex flex-col items-start justify-start gap-8 py-16 border-t-1 border-foreground/10",
         title: "text-2xl font-bold",
         subTitle: "text-lg font-bold",
         skill: "text-sm border-1 border-foreground/10 rounded-full md:px-4 px-2 py-1 w-fit transition-all duration-300 cursor-default",

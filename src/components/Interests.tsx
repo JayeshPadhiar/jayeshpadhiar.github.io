@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { BookCard } from "@/app/books/components/BookCard";
+import { BookCard } from "@/app/(routes)/books/components/BookCard";
 import { FaBook, FaMountain, FaMusic, FaFutbol, FaArrowRight } from "react-icons/fa";
 
 export default function Interests() {
@@ -32,7 +32,7 @@ export default function Interests() {
 
 
     const styles = {
-        container: "w-full flex flex-col md:flex-row items-start justify-center gap-4 px-8 py-16 border-t-1 border-foreground/10",
+        container: "w-full flex flex-col md:flex-row items-start justify-center gap-4 py-16 border-t-1 border-foreground/10",
         title: "text-2xl font-bold",
         description: "text-sm text-foreground/50",
         interestList: "flex flex-row md:flex-col items-start justify-start gap-2 flex-wrap w-full",
