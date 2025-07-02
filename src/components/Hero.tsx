@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FaArrowRight, FaEnvelope, FaGithub, FaLinkedin, FaPhoneAlt, FaQuestion } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 
 export default function Hero() {
   return (
@@ -27,10 +27,10 @@ export default function Hero() {
       </div>
       <div className="flex gap-4 mt-6">
         <a href="/files/Jayesh_Padhiar_Resume.pdf" target="_blank" rel="noopener noreferrer">
-          <button className="bg-secondary-foreground text-background px-6 py-2 rounded-md hover:bg-secondary-foreground/90 transition-colors duration-200">Resume</button>
+          <button>Resume</button>
         </a>
         <a href="/now">
-          <button className="bg-secondary-foreground text-background px-6 py-2 rounded-md hover:bg-secondary-foreground/90 transition-colors duration-200">Currently, I'm...</button>
+          <button>Now</button>
         </a>
       </div>
     </section>

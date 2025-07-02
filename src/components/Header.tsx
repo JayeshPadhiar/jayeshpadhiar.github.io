@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
 
 export default function Header() {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
   const tabs = [
     {
       name: "Home",
