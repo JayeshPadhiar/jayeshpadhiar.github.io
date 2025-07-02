@@ -9,7 +9,7 @@ export default function Header() {
       name: "Home",
       href: "/"
     },
-    {
+    /*{
       name: "About",
       href: "/#about"
     },
@@ -28,6 +28,14 @@ export default function Header() {
     {
       name: "Interests",
       href: "/#interests"
+    },*/
+    {
+      name: "Now",
+      href: "/now"
+    },
+    {
+      name: "Books",
+      href: "/books"
     },
     {
       name: "Contact",
