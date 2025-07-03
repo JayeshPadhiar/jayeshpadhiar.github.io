@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { FaSun, FaMoon } from "react-icons/fa";
 
 export default function Header() {
   const [theme, setTheme] = useState('light');
@@ -62,8 +61,8 @@ export default function Header() {
             </a>
           ))}
 
-          <div className="flex flex-row items-center justify-center gap-2" onClick={toggleTheme}>
-          {theme === 'dark' ? <FaSun className="w-5 h-5"/> : <FaMoon className="w-5 h-5"/>}
+          <div className="flex flex-row items-center justify-center gap-2 cursor-pointer" onClick={toggleTheme}>
+            <i className={`${theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon'}`}></i>
           </div>
       </nav>
     </header>

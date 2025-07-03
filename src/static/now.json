@@ -1,0 +1,69 @@
+{
+  "lastUpdated": "June 2025",
+  "sections": [
+    {
+      "title": "Current Work",
+      "description": "Pretending to be a Fullstack Developer at Jio (they haven't caught on yet).",
+      "items": [
+        "Breaking and occasionally fixing high-traffic web apps.",
+        "Leading fullstack development for B2B/B2C platforms (mostly by Googling stuff).",
+        "Optimizing backend services and API performance, or at least trying not to make them worse."
+      ]
+    },
+    {
+      "title": "Side Projects",
+      "description": "Building things nobody asked for, but everyone will definitely need (someday).",
+      "items": [
+        "Personal portfolio website using Next.js and TypeScript, because why not?",
+        "Contributing to open-source projects and hoping someone notices.",
+        "Exploring new web technologies and frameworks, mostly to avoid actual work."
+      ]
+    },
+    {
+      "title": "Learning",
+      "description": "Currently expanding my knowledge in things I'll probably forget by next week.",
+      "items": [
+        "Data Structures and Algorithms (so I can finally understand those LeetCode memes)."
+      ]
+    },
+    {
+      "title": "Reading",
+      "description": "Books I'm currently reading (or at least pretending to read on Zoom calls):",
+      "items": [
+        {
+            "title": "Frankenstein",
+            "author": "Mary Shelley",
+            "description": "A novel about the creation and tragic consequences of a monster."
+        }
+      ]
+    },
+    {
+      "title": "Health & Habits",
+      "description": "Trying to be healthy so I can live long enough to finish my Netflix watchlist.",
+      "items": [
+        "Regular exercise and strength training (lifting groceries counts, right?)",
+        "Maintaining a consistent sleep schedule (consistently ignoring it, that is).",
+        "Practicing mindfulness and meditation, or just staring at the ceiling."
+      ]
+    },
+    {
+      "title": "Personal Life",
+      "description": "What's keeping me busy outside of work (besides existential dread):",
+      "items": [
+        "Planning upcoming travels (to the fridge and back).",
+        "Learning a new skill: perfecting the art of procrastination.",
+        "Spending time with family and friends, mostly convincing them I have a real job."
+      ]
+    },
+    {
+      "title": "Upcoming Goals",
+      "description": "What I'm looking forward to (besides the weekend):",
+      "items": [
+        "Launching new features for current projects (and hoping nothing breaks).",
+        "Completing advanced certifications (so my LinkedIn looks cooler).",
+        "Contributing more to the dev community, or at least retweeting smart people."
+      ]
+    }
+  ],
+  "attribution": "This page is inspired by <a href='https://nownownow.com/about' class='underline' target='_blank' rel='noopener noreferrer'>nownownow.com</a>"
+}

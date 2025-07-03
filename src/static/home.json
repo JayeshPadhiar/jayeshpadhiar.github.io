@@ -1,0 +1,216 @@
+{
+  "hero": {
+    "image": "/images/profile.jpeg",
+    "name": "Jayesh Padhiar",
+    "title": "Fullstack Developer",
+    "description": "I create reliable, user-focused web solutions, driven by a passion for meaningful code, innovative side projects, and quiet pursuits like hiking peaks, diving into deep reads, and breathing football.",
+    "socialLinks": [
+      {
+        "icon": "fa-brands fa-linkedin",
+        "platform": "LinkedIn",
+        "url": "https://linkedin.com/in/jayeshpadhiar"
+      },
+      {
+        "icon": "fa-brands fa-github",
+        "platform": "GitHub",
+        "url": "https://github.com/jayeshpadhiar"
+      },
+      {
+        "icon": "fa-solid fa-envelope",
+        "platform": "Email",
+        "url": "mailto:jayeshpadhiar20@gmail.com"
+      },
+      {
+        "icon": "fa-solid fa-phone",
+        "platform": "Phone",
+        "url": "tel:+917218194049"
+      }
+    ],
+    "buttons": [
+      {
+        "label": "Resume",
+        "url": "/files/Jayesh_Padhiar_Resume.pdf"
+      },
+      {
+        "label": "Now",
+        "url": "/now"
+      }
+    ]
+  },
+  "about": {
+    "sections": [
+      {
+        "id": 1,
+        "content": "I'm a full-stack developer with a focus on building reliable, scalable web applications. I've worked on high-traffic platforms, real-time systems, and internal tools — mostly using JavaScript, TypeScript, Angular, React, and Node.js. I enjoy being part of teams where code meets real-world impact, and where things are built with care."
+      },
+      {
+        "id": 2,
+        "content": "Outside of work, I like making side projects that solve small, interesting problems — whether it's automating a task, experimenting with design, or just learning something new. I enjoy working across the stack, especially when I get to keep things simple, fast, and intuitive."
+      },
+      {
+        "id": 3,
+        "content": "When I'm not at my desk, you'll probably find me in the mountains, reading something existential, or watching/playing football. I like quiet challenges — whether it's climbing a peak, finishing a long book, or just trying to get better at what I do without rushing the process."
+      },
+      {
+        "id": 4,
+        "content": "That's me, mostly...the rest changes with the next idea."
+      }
+    ]
+  },
+  "skills": [
+    {
+      "id": 1,
+      "title": "Languages",
+      "icon": "fa-solid fa-code",
+      "skills": [
+        "JavaScript",
+        "TypeScript",
+        "Python",
+        "HTML5"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Databases",
+      "icon": "fa-solid fa-database",
+      "skills": [
+        "MongoDB",
+        "SQL",
+        "Redis",
+        "GraphQL"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Frontend",
+      "icon": "fa-solid fa-code",
+      "skills": [
+        "Angular",
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "Bootstrap"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Backend",
+      "icon": "fa-solid fa-server",
+      "skills": [
+        "Node.js",
+        "Express",
+        "Socket.IO",
+        "RabbitMQ"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Tools & Platforms",
+      "icon": "fa-solid fa-toolbox",
+      "skills": [
+        "Git",
+        "Docker",
+        "Postman",
+        "GCP",
+        "AWS",
+        "Figma"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "company": "Jio",
+      "title": "Fullstack Web Developer (SDE-1)",
+      "location": "Mumbai, MH",
+      "sections": [
+        {
+          "id": 1,
+          "period": "July 2023 — Present",
+          "title": "Fullstack Developer (SDE-1)",
+          "description": [
+            "Developed REST APIs for Digital Access Management system and optimised the existing code to reduce API response time by 20%.",
+            "Engineered AI tagging and asset parsing logic to process 1TB+ assets efficiently using Elasticsearch, Kibana, Logstash, and Google Cloud Storage.",
+            "Contributed to the business logic of several gratification engagements, increasing user participation and backend reliability.",
+            "Integrated Redis and RabbitMQ in backend projects, enhancing API response speed and supporting high-throughput, low-latency data processing.",
+            "Implemented WebSocket based real-time communication for multiplayer apps, supporting a high volume of concurrent users seamlessly.",
+            "Mentored 5+ junior developers, delivering KT sessions and implementing Agile methodologies to enhance team productivity and code quality."
+          ]
+        },
+        {
+          "id": 2,
+          "period": "July 2022 — July 2023",
+          "title": "Frontend Developer (SDE-1)",
+          "description": [
+            "Led frontend development for responsive B2B/B2C sites (JioEngage, JioCoupons), driving 50K+ monthly visitors and dynamic CMS content management.",
+            "Developed a multiplayer gratification platform for JioCinema, scaling to 150K+ active users and ensuring seamless user experience.",
+            "Built a cross-browser JavaScript extension for JioPC, reducing bandwidth latency by 40% and improving media streaming via native communication.",
+            "Upgraded codebase from Angular 8 to 14, applying best practices to boost application performance, maintainability, and security."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "company": "Eshopbox",
+      "title": "Fullstack Web Developer (Freelance)",
+      "location": "Pune, MH",
+      "sections": [
+        {
+          "id": 1,
+          "period": "Jan 2021 - July 2021",
+          "title": "Fullstack Web Developer (Freelance)",
+          "description": [
+            "Built a customer portal from scratch using MongoDB, Express, Angular & Node.js.",
+            "Boosted performance by 20% using modular development, efficient schema, and seamless client-server integration."
+          ]
+        }
+      ]
+    }
+  ],
+  "projects": {
+    "featured": [
+      {
+        "title": "Resume Analyzer",
+        "description": "An open-source Resume Analyzer and Ranking tool for recruiters and candidates.",
+        "url": "https://github.com/Yashdew/Assessor"
+      },
+      {
+        "title": "Customer Portal",
+        "description": "AnjularJS based freelance project designed for companies to provide a solution to the users to create and update profile settings.",
+        "url": "https://github.com/JayeshPadhiar/CustomerPortal"
+      },
+      {
+        "title": "Cowin Booking Automation",
+        "description": "A Python Script to automate searching of available vaccination centers in the city and hence booking.",
+        "url": "https://github.com/JayeshPadhiar/CowinVaccineScheduler"
+      }
+    ],
+    "githubUsername": "jayeshpadhiar"
+  },
+  "interests": {
+    "Books": {
+      "icon": "fa-solid fa-book",
+      "currentlyReading": {
+        "title": "Frankenstein",
+        "author": "Mary Shelley"
+      },
+      "recentlyFinished": {
+        "title": "Days at the Morisaki Bookstore",
+        "author": "Satoshi Yagisawa"
+      }
+    },
+    "Music": {
+      "icon": "fa-solid fa-music",
+      "content": "I love exploring new genres, from electronic swing to indie rock. Music is my go-to for focus, relaxation, and inspiration. Currently vibing to electro-swing and classic rock playlists."
+    },
+    "Mountaineering": {
+      "icon": "fa-solid fa-mountain",
+      "content": "I love to go on hikes and explore the mountains. My dream is to climb the Himalayas someday and experience the thrill and peace of high-altitude adventures."
+    },
+    "Football": {
+      "icon": "fa-solid fa-futbol",
+      "content": "I am a huge FC Barcelona fan. Whether it's watching La Liga matches or playing with friends, football is my favorite way to unwind and stay active. Força Barça!"
+    }
+  }
+}

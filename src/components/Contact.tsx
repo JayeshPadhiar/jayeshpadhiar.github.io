@@ -1,20 +1,18 @@
-import { FaEnvelope, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
-
 export default function Contact() {
 
 	const contactDetails = [
 		{
-			icon: <FaEnvelope className="w-5 h-5" />,
+			icon: "fa-solid fa-envelope",
 			link: "mailto:jayeshpadhiar20@gmail.com",
 			label: "jayeshpadhiar20@gmail.com"
 		},
 		{
-			icon: <FaPhoneAlt className="w-5 h-5" />,
+			icon: "fa-solid fa-phone",
 			link: "tel:+917218194049",
 			label: "+91-7218194049"
 		},
 		{
-			icon: <FaLinkedin className="w-5 h-5" />,
+			icon: "fa-brands fa-linkedin",
 			link: "https://www.linkedin.com/in/jayeshpadhiar/",
 			label: "linkedin.com/in/jayeshpadhiar"
 		}
@@ -29,7 +27,7 @@ export default function Contact() {
 				<div className="flex flex-col items-start justify-start gap-4 w-full mt-4">
 					{contactDetails.map((contact) => (
 						<a href={contact.link} target="_blank" rel="noopener noreferrer" key={contact.label} className="flex flex-row items-center justify-start gap-4 break-all">
-							{contact.icon}
+							<i className={contact.icon}></i>
 							<p className="text-sm text-foreground/80">{contact.label}</p>
 						</a>
 					))}
