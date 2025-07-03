@@ -191,14 +191,18 @@
   "interests": {
     "Books": {
       "icon": "fa-solid fa-book",
-      "currentlyReading": {
-        "title": "Frankenstein",
-        "author": "Mary Shelley"
-      },
-      "recentlyFinished": {
-        "title": "Days at the Morisaki Bookstore",
-        "author": "Satoshi Yagisawa"
-      }
+      "currentlyReading": [
+        {
+          "title": "Frankenstein",
+          "author": "Mary Shelley"
+        }
+      ],
+      "recentlyFinished": [
+        {
+          "title": "Days at the Morisaki Bookstore",
+          "author": "Satoshi Yagisawa"
+        }
+      ]
     },
     "Music": {
       "icon": "fa-solid fa-music",
