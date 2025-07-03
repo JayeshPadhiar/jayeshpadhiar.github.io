@@ -1,10 +1,26 @@
+"use client";
 import MainContent from "@/components/MainContent";
 import { BookCard } from "@/app/(pages)/books/components/BookCard";
 import now from "@/static/now.json";
+import { useEffect, useState } from "react";
 
 export default function Now() {
-	const nowData = now;
-	const nowDataSections = nowData.sections;
+
+	const [nowData, setNowData] = useState<any>(now);
+
+	useEffect(() => {
+		const fetchNowData = async () => {
+			try {
+				const response = await fetch("/api/v1/now");
+				const data = await response.json();
+				setNowData(data);
+			} catch (error) {
+				setNowData(now);
+			}
+		};
+		fetchNowData();
+	}, []);
+
 
 	return (
 		<MainContent>
@@ -13,10 +29,10 @@ export default function Now() {
 					<h1 className="text-2xl font-bold">So! Currently...</h1>
 				</div>
 
-				{nowDataSections.map((section, index) => {
+				{nowData?.sections.map((section: any, index: number) => {
 					if (typeof section === 'string') return null;
 					return (
-						<div key={section.title} className="flex flex-col items-start justify-start gap-2 w-full">
+						<div key={index} className="flex flex-col items-start justify-start gap-2 w-full">
 							<h2 className="text-xl font-bold">{section.title || "No title available"}</h2>
 							<p className="text-md text-foreground/80 mb-2">{section.description || "No description available"}</p>
 							<ul className="list-disc list-inside space-y-1 ml-4">
