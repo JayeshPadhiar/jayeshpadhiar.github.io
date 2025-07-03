@@ -31,9 +31,10 @@
       "description": "Books I'm currently reading (or at least pretending to read on Zoom calls):",
       "items": [
         {
-            "title": "Frankenstein",
-            "author": "Mary Shelley",
-            "description": "A novel about the creation and tragic consequences of a monster."
+          "status": "reading",
+          "title": "Frankenstein",
+          "author": "Mary Shelley",
+          "description": "A novel about the creation and tragic consequences of a monster."
         }
       ]
     },

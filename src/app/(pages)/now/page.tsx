@@ -23,7 +23,7 @@ export default function Now() {
 								{section.items?.map((item: string | { title: string, author: string, description: string }, idx: number) => (
 									<li key={idx} className="text-md text-foreground/80 list-outside">
 										{typeof item === 'string' ? item : (
-											<BookCard key={idx} title={item.title} author={item.author} description={item.description} />
+											<BookCard key={idx} title={item.title} author={item.author} description={item.description} status={"reading"} />
 										)}
 									</li>
 								))}
