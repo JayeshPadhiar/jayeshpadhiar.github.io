@@ -14,7 +14,7 @@ export default function SkillSettings({ skills, setSkills }: { skills: any, setS
 		if (key === "delete") {
 			newSkills.splice(index, 1);
 		} else if (key === "add") {
-			newSkills.push({ id: newSkills.length + 1, title: "Skillset", icon: "fa-solid fa-toolbox", skills: [] });
+			newSkills.push({ id: newSkills.length + 1, title: "Skillset", icon: "fa-solid fa-toolbox", skills: [""] });
 		} else {
 			newSkills[index][key] = value;
 		}
@@ -39,7 +39,7 @@ export default function SkillSettings({ skills, setSkills }: { skills: any, setS
 			<div className="flex flex-row w-full gap-2 items-center flex-wrap">
 				{skills?.map((category: { title: string, icon: string, skills: string[] }, categoryIndex: number) => (
 					<div key={categoryIndex} className="flex flex-col w-full gap-2 items-start">
-						<div className="flex flex-row w-full gap-2 items-center">
+						<div className="flex flex-row w-full gap-2 items-center mt-4">
 							<h1 className="text-lg font-bold">{category.title}</h1>
 							<button type="button" className={styles.addButton} onClick={() => changeSkillCategory(categoryIndex, "delete", true)}> <i className="fa-solid fa-trash"></i> Delete Skill Category </button>
 						</div>

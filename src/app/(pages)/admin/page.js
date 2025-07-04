@@ -46,15 +46,6 @@ export default function AdminPage() {
 		selectPage(selectedPage);
 	}, [selectedPage]);
 
-	const styles = {
-		label: "text-sm text-foreground/60 font-bold",
-		input: "py-1 rounded-full border-1 border-foreground/10 w-full text-xs",
-		textarea: "py-1 rounded-full border-1 border-foreground/10 w-full h-24 text-xs no-scrollbar",
-		addButton: "flex justify-center items-center h-8 min-w-8 py-4 bg-foreground/10 rounded-full ml-auto",
-		section: "flex flex-col w-full gap-2 items-start",
-	}
-
-
 	return (
 		<div className="flex flex-row w-full h-full gap-4">
 			<div className="flex flex-col w-[25%] h-full p-8 justify-start items-center">
@@ -96,11 +87,6 @@ export default function AdminPage() {
 					)}
 				</div>
 				<button className="flex justify-center items-center w-[100px] h-12 py-4 bg-foreground/10 rounded-full ml-auto" onClick={() => {
-					console.log(hero);
-					console.log(about);
-					console.log(skills);
-					console.log(experience);
-					console.log(projects);
 				}}>Save</button>
 			</div>
 		</div>
