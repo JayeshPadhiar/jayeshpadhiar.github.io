@@ -16,8 +16,8 @@ export default function Skills() {
         <section id="skills" className={styles.container}>
             <h1 className={styles.title}>Skills</h1>
             <div className="flex flex-col md:grid md:grid-cols-2 md:gap-y-16 md:gap-x-8 gap-y-8 w-full">
-                {skills.map((skill: { id: number, title: string, skills: string[], icon: string }) => (
-                    <div className={styles.skillContainer} key={skill.id}>
+                {skills.map((skill: { title: string, skills: string[], icon: string }, index: number) => (
+                    <div className={styles.skillContainer} key={index}> 
                         <div className="flex flex-row items-center justify-start gap-2 w-full">
                             <h2 className={styles.subTitle}>{skill.title}</h2>
                             <i className={`${skill.icon}`}></i>

@@ -20,16 +20,16 @@ export default function Experience() {
         <section id="experience" className={styles.container}>
             <h1 className={styles.title}>Experience</h1>
             <div className={styles.timelineContainer}>
-                {experience.map((exp) => (
-                    <div className={styles.timelineItem} key={exp.id}>
+                {experience.map((exp, index) => (
+                    <div className={styles.timelineItem} key={index}>
                         <div className={styles.dot}></div>
                         <div className="w-full h-full flex flex-row items-center justify-between gap-2">
                             <h1 className={styles.timelineItemCompany}>{exp.company}</h1>
                             <span className="text-xs text-foreground/40">{exp.location}</span>
                         </div>
                         <div className="w-full h-full flex flex-col items-start justify-start gap-4">
-                            {exp.roles.map((role) => (
-                                <div className="w-full h-full flex flex-col items-start justify-start gap-2" key={role.id}>
+                            {exp.roles.map((role, index) => (
+                                <div className="w-full h-full flex flex-col items-start justify-start gap-2" key={index}>
                                     <div className="w-full h-full flex flex-row items-center justify-between gap-2">
                                         <h3 className={styles.timelineItemTitle}>{role.title}</h3>
                                         <h3 className={styles.timelineItemPeriod}>{role.period}</h3>
