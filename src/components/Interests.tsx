@@ -6,7 +6,35 @@ import home from "@/static/home.json";
 export default function Interests() {
 
 	const [selectedInterest, setSelectedInterest] = useState("Books");
-	const interests = Object.keys(home.interests);
+	const interests = {
+		"Books": {
+			"icon": "fa-solid fa-book",
+			"currentlyReading": [
+				{
+					"title": "Frankenstein",
+					"author": "Mary Shelley"
+				}
+			],
+			"recentlyFinished": [
+				{
+					"title": "Days at the Morisaki Bookstore",
+					"author": "Satoshi Yagisawa"
+				}
+			]
+		},
+		"Music": {
+			"icon": "fa-solid fa-music",
+			"content": "I love exploring new genres, from electronic swing to indie rock. Music is my go-to for focus, relaxation, and inspiration. Currently vibing to electro-swing and classic rock playlists."
+		},
+		"Mountaineering": {
+			"icon": "fa-solid fa-mountain",
+			"content": "I love to go on hikes and explore the mountains. My dream is to climb the Himalayas someday and experience the thrill and peace of high-altitude adventures."
+		},
+		"Football": {
+			"icon": "fa-solid fa-futbol",
+			"content": "I am a huge FC Barcelona fan. Whether it's watching La Liga matches or playing with friends, football is my favorite way to unwind and stay active. Força Barça!"
+		}
+	};
 
 	const styles = {
 		container: "w-full flex flex-col md:flex-row items-start justify-center gap-8 py-16 border-t-1 border-foreground/10",
@@ -23,9 +51,9 @@ export default function Interests() {
 			<div className="w-full md:w-1/3 flex flex-col items-start justify-start gap-4">
 				<h1 className={styles.title}>Interests</h1>
 				<div className={styles.interestList}>
-					{interests.map((interest, idx) => (
+					{Object.keys(interests).map((interest, idx) => (
 						<div className={selectedInterest === interest ? styles.interestContainerSelected : styles.interestContainer} key={idx} onClick={() => setSelectedInterest(interest)}>
-							<i className={`${home.interests[interest as keyof typeof home.interests].icon} ${styles.interestIcon}`}></i>
+							<i className={`${interests[interest as keyof typeof interests].icon} ${styles.interestIcon}`}></i>
 							<h2 className={styles.interestTitle}>{interest}</h2>
 						</div>
 
@@ -39,13 +67,13 @@ export default function Interests() {
 						<div className="w-full h-full flex flex-col items-start justify-start gap-4">
 							<div className="flex flex-col items-start justify-start gap-4 w-full">
 								<h1>I'm currently reading:</h1>
-								{home.interests[selectedInterest].currentlyReading.map((book: { title: string, author: string }) => (
+								{interests["Books"].currentlyReading.map((book: { title: string, author: string }) => (
 									<BookCard key={book.title} title={book.title} author={book.author} description="" status="reading" />
 								))}
 							</div>
 							<div className="flex flex-col items-start justify-start gap-4 w-full">
 								<h1>Just finished reading:</h1>
-								{home.interests[selectedInterest].recentlyFinished.map((book: { title: string, author: string }) => (
+								{interests["Books"].recentlyFinished.map((book: { title: string, author: string }) => (
 									<BookCard key={book.title} title={book.title} author={book.author} description="" status="finished" />
 								))}
 							</div>
@@ -58,7 +86,7 @@ export default function Interests() {
 					selectedInterest !== "Books" && (
 						<div className="w-full h-full flex flex-col items-start justify-start gap-4">
 							{/* @ts-ignore */}
-							<p>{home.interests[selectedInterest].content}</p>
+							<p>{interests[selectedInterest as keyof typeof interests].content}</p>
 						</div>
 					)
 				}

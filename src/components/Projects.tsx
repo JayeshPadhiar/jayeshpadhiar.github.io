@@ -2,7 +2,7 @@ import GitHubCalendar from "react-github-calendar";
 import home from "@/static/home.json";
 
 export default function Projects() {
-	const projects = home.projects.featured;
+	const projects = home.projects;
 	const gitHubCalendarTheme = {
 		dark: ['lightgrey', 'green']
 	};

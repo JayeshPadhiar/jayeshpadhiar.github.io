@@ -123,7 +123,7 @@
       "company": "Jio",
       "title": "Fullstack Web Developer (SDE-1)",
       "location": "Mumbai, MH",
-      "sections": [
+      "roles": [
         {
           "id": 1,
           "period": "July 2023 — Present",
@@ -155,7 +155,7 @@
       "company": "Eshopbox",
       "title": "Fullstack Web Developer (Freelance)",
       "location": "Pune, MH",
-      "sections": [
+      "roles": [
         {
           "id": 1,
           "period": "Jan 2021 - July 2021",
@@ -168,8 +168,7 @@
       ]
     }
   ],
-  "projects": {
-    "featured": [
+  "projects": [
       {
         "title": "Resume Analyzer",
         "description": "An open-source Resume Analyzer and Ranking tool for recruiters and candidates.",
@@ -185,36 +184,5 @@
         "description": "A Python Script to automate searching of available vaccination centers in the city and hence booking.",
         "url": "https://github.com/JayeshPadhiar/CowinVaccineScheduler"
       }
-    ],
-    "githubUsername": "jayeshpadhiar"
-  },
-  "interests": {
-    "Books": {
-      "icon": "fa-solid fa-book",
-      "currentlyReading": [
-        {
-          "title": "Frankenstein",
-          "author": "Mary Shelley"
-        }
-      ],
-      "recentlyFinished": [
-        {
-          "title": "Days at the Morisaki Bookstore",
-          "author": "Satoshi Yagisawa"
-        }
-      ]
-    },
-    "Music": {
-      "icon": "fa-solid fa-music",
-      "content": "I love exploring new genres, from electronic swing to indie rock. Music is my go-to for focus, relaxation, and inspiration. Currently vibing to electro-swing and classic rock playlists."
-    },
-    "Mountaineering": {
-      "icon": "fa-solid fa-mountain",
-      "content": "I love to go on hikes and explore the mountains. My dream is to climb the Himalayas someday and experience the thrill and peace of high-altitude adventures."
-    },
-    "Football": {
-      "icon": "fa-solid fa-futbol",
-      "content": "I am a huge FC Barcelona fan. Whether it's watching La Liga matches or playing with friends, football is my favorite way to unwind and stay active. Força Barça!"
-    }
-  }
+  ]
 }

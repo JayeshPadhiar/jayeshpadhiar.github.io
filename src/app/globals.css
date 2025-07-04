@@ -71,10 +71,20 @@ input:focus, textarea:focus {
 
 /* transparent scrollbar */
 ::-webkit-scrollbar {
-  width: 0.2rem !important;
+  width: 0.1rem !important;
   background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--foreground)
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

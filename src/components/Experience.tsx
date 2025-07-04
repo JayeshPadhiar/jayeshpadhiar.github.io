@@ -28,14 +28,14 @@ export default function Experience() {
                             <span className="text-xs text-foreground/40">{exp.location}</span>
                         </div>
                         <div className="w-full h-full flex flex-col items-start justify-start gap-4">
-                            {exp.sections.map((section) => (
-                                <div className="w-full h-full flex flex-col items-start justify-start gap-2" key={section.id}>
+                            {exp.roles.map((role) => (
+                                <div className="w-full h-full flex flex-col items-start justify-start gap-2" key={role.id}>
                                     <div className="w-full h-full flex flex-row items-center justify-between gap-2">
-                                        <h3 className={styles.timelineItemTitle}>{section.title}</h3>
-                                        <h3 className={styles.timelineItemPeriod}>{section.period}</h3>
+                                        <h3 className={styles.timelineItemTitle}>{role.title}</h3>
+                                        <h3 className={styles.timelineItemPeriod}>{role.period}</h3>
                                     </div>
                                     <ul className={styles.timelineItemDescriptionList}>
-                                        {section.description.map((desc, idx) => (
+                                        {role.description.map((desc, idx) => (
                                             <li className={styles.timelineItemDescription} key={idx}>{desc}</li>
                                         ))}
                                     </ul>
