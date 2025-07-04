@@ -39,7 +39,8 @@ export default function HeroSettings( { hero, setHero }: { hero: any, setHero: a
 						<label className={styles.label}>URL</label>
 						<input type="text" placeholder={`Social Link ${index + 1}`} className={styles.input} value={socialLink.url} onChange={(e) => changeSocialLink(index, "url", e.target.value)} />
 						<label className={styles.label}>Icon</label>
-						<input type="text" placeholder={`Icon ${index + 1}`} className={styles.input} value={socialLink.icon} onChange={(e) => changeSocialLink(index, "icon", e.target.value)} />
+						<input type="text" placeholder={`fa-solid fa-${socialLink.platform}`} className={styles.input} value={socialLink.icon} onChange={(e) => changeSocialLink(index, "icon", e.target.value)} />
+						<i className={`${socialLink.icon} text-2xl`}></i>
 						<button type="button" className={styles.addButton} onClick={() => changeSocialLink(index, "delete", true)}> <i className="fa-solid fa-trash"></i> </button>
 					</div>
 				))}
