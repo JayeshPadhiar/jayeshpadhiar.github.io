@@ -25,7 +25,7 @@ export default function AdminPage() {
 	const [experience, setExperience] = useState({});
 	const [projects, setProjects] = useState({});
 
-	function selectPage(page) {
+	function selectPage(page: any) {
 		setSelectedPage(page);
 		setLoading(true);
 		fetch(`/api/v1/${page.toLowerCase()}`)
