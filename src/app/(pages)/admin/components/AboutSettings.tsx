@@ -6,6 +6,7 @@ export default function AboutSettings({ about, setAbout }: { about: any, setAbou
 		textarea: "py-1 rounded-full border-1 border-foreground/10 w-full h-24 text-xs no-scrollbar",
 		addButton: "flex justify-center items-center h-8 min-w-8 py-4 bg-foreground/10 rounded-full ml-auto",
 		section: "flex flex-col w-full gap-2 items-start",
+		sectionHeader: "flex flex-row w-full gap-2 items-center text-2xl font-bold",
 	}
 
 	function changeAbout(index: number, key: string, value: string | boolean) {
@@ -22,7 +23,7 @@ export default function AboutSettings({ about, setAbout }: { about: any, setAbou
 
 	return (
 		<section className={styles.section}>
-			<h1 className="text-lg font-bold">About</h1>
+			<h1 className={styles.sectionHeader}>About</h1>
 			{about?.map((content: string, index: number) => (
 				<div key={index} className="flex flex-col w-full h-full gap-2 items-start">
 					<textarea

@@ -13,15 +13,16 @@ export default function HeroSettings( { hero, setHero }: { hero: any, setHero: a
 
 	const styles = {
 		label: "text-sm text-foreground/60 font-bold",
-		input: "py-1 rounded-full border-1 border-foreground/10 w-full text-xs",
-		textarea: "py-1 rounded-full border-1 border-foreground/10 w-full h-24 text-xs no-scrollbar",
-		addButton: "flex justify-center items-center h-8 min-w-8 py-4 bg-foreground/10 rounded-full ml-auto",
+		input: "py-1 rounded-full border-1 border-foreground/10 w-full text-xs text-foreground/80",
+		textarea: "py-1 rounded-full border-1 border-foreground/10 w-full h-24 text-xs no-scrollbar text-foreground/80",
+		addButton: "flex justify-center items-center h-8 min-w-8 py-4 gap-2 bg-foreground/10 rounded-full ml-auto",
 		section: "flex flex-col w-full gap-2 items-start",
+		sectionHeader: "flex flex-row w-full gap-2 items-center text-2xl font-bold",
 	}
 
 	return (
 		<section className={styles.section}>
-			<h1 className="text-lg font-bold">Hero</h1>
+			<h1 className={styles.sectionHeader}>Hero</h1>
 			<label className={styles.label}>Name</label>
 			<input type="text" placeholder="Name" className={styles.input} value={hero?.name} onChange={(e) => setHero({ ...hero, name: e.target.value })} />
 			<label className={styles.label}>Title</label>

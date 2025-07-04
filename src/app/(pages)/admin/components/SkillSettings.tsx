@@ -6,6 +6,7 @@ export default function SkillSettings({ skills, setSkills }: { skills: any, setS
 		textarea: "py-1 rounded-full border-1 border-foreground/10 w-full h-24 text-xs no-scrollbar",
 		addButton: "flex justify-center items-center h-8 min-w-8 py-4 gap-2 bg-foreground/10 rounded-full ml-auto",
 		section: "flex flex-col w-full gap-2 items-start",
+		sectionHeader: "flex flex-row w-full gap-2 items-center text-2xl font-bold",
 	}
 
 	function changeSkillCategory(index: number, key: string, value: string | boolean) {
@@ -13,7 +14,7 @@ export default function SkillSettings({ skills, setSkills }: { skills: any, setS
 		if (key === "delete") {
 			newSkills.splice(index, 1);
 		} else if (key === "add") {
-			newSkills.push({ id: newSkills.length + 1, title: "", icon: "", skills: [] });
+			newSkills.push({ id: newSkills.length + 1, title: "Skillset", icon: "fa-solid fa-toolbox", skills: [] });
 		} else {
 			newSkills[index][key] = value;
 		}
@@ -34,10 +35,14 @@ export default function SkillSettings({ skills, setSkills }: { skills: any, setS
 
 	return (
 		<section className={styles.section}>
-			<h1 className="text-lg font-bold">Skills</h1>
+			<h1 className={styles.sectionHeader}>Skills</h1>
 			<div className="flex flex-row w-full gap-2 items-center flex-wrap">
 				{skills?.map((category: { title: string, icon: string, skills: string[] }, categoryIndex: number) => (
 					<div key={categoryIndex} className="flex flex-col w-full gap-2 items-start">
+						<div className="flex flex-row w-full gap-2 items-center">
+							<h1 className="text-lg font-bold">{category.title}</h1>
+							<button type="button" className={styles.addButton} onClick={() => changeSkillCategory(categoryIndex, "delete", true)}> <i className="fa-solid fa-trash"></i> Delete Skill Category </button>
+						</div>
 						<label className={styles.label}>Category Name</label>
 						<input type="text" placeholder="Category Name" className={styles.input} value={category.title} onChange={(e) => changeSkillCategory(categoryIndex, "title", e.target.value)} />
 
@@ -55,7 +60,6 @@ export default function SkillSettings({ skills, setSkills }: { skills: any, setS
 							</div>
 						))}
 						<button type="button" className={styles.addButton} onClick={() => changeSkill(categoryIndex, category.skills.length, "add", true)}> <i className="fa-solid fa-plus"></i> Add Skill </button>
-						<button type="button" className={styles.addButton} onClick={() => changeSkillCategory(categoryIndex, "delete", true)}> <i className="fa-solid fa-trash"></i> Delete Skill Category </button>
 					</div>
 				))}
 				<button type="button" className={styles.addButton} onClick={() => changeSkillCategory(skills.length, "add", true)}> <i className="fa-solid fa-plus"></i> Add Skill Category </button>

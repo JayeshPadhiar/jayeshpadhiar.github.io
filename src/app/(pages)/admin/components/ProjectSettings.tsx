@@ -6,11 +6,12 @@ export default function ProjectSettings( { projects, setProjects }: { projects: 
 		textarea: "py-1 rounded-full border-1 border-foreground/10 w-full h-24 text-xs no-scrollbar",
 		addButton: "flex justify-center items-center h-8 min-w-8 py-4 bg-foreground/10 rounded-full ml-auto",
 		section: "flex flex-col w-full gap-2 items-start",
+		sectionHeader: "flex flex-row w-full gap-2 items-center text-2xl font-bold",
 	}
 
 	return (
 		<section className={styles.section}>
-		<h1 className="text-lg font-bold">Projects</h1>
+		<h1 className={styles.sectionHeader}>Projects</h1>
 		{projects?.map((project: { title: string, description: string, url: string }, index: number) => (
 			<div key={index} className="flex flex-col w-full h-full gap-2 items-start">
 				<h1 className="text-lg font-bold mt-4">Project {index + 1}</h1>
