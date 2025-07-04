@@ -17,7 +17,6 @@ import ProjectSettings from "./components/ProjectSettings";
 export default function AdminPage() {
 	const [selectedPage, setSelectedPage] = useState("Home");
 
-	const [data, setData] = useState({});
 	const [loading, setLoading] = useState(true);
 
 	const [hero, setHero] = useState({});
@@ -37,9 +36,25 @@ export default function AdminPage() {
 				setSkills(data?.skills);
 				setExperience(data?.experience);
 				setProjects(data?.projects);
-				setData(data);
 				setLoading(false);
 			});
+	}
+
+	function update() {
+		const updatedData = {
+			hero,
+			about,
+			skills,
+			experience,
+			projects,
+		}
+		console.log(updatedData);
+		fetch(`/api/v1/home`, {
+			method: "PUT",
+			body: JSON.stringify(updatedData),
+		}).then(res => res.json()).then(data => {
+			console.log(data);
+		});
 	}
 
 	useEffect(() => {
@@ -86,8 +101,7 @@ export default function AdminPage() {
 						</div>
 					)}
 				</div>
-				<button className="flex justify-center items-center w-[100px] h-12 py-4 bg-foreground/10 rounded-full ml-auto" onClick={() => {
-				}}>Save</button>
+				<button className="flex justify-center items-center w-[100px] h-12 py-4 bg-foreground/10 rounded-full ml-auto" onClick={update}>Update</button>
 			</div>
 		</div>
 	);
