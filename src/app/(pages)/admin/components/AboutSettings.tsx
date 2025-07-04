@@ -4,7 +4,7 @@ export default function AboutSettings({ about, setAbout }: { about: any, setAbou
 		label: "text-sm text-foreground/60 font-bold",
 		input: "py-1 rounded-full border-1 border-foreground/10 w-full text-xs",
 		textarea: "py-1 rounded-full border-1 border-foreground/10 w-full h-24 text-xs no-scrollbar",
-		addButton: "flex justify-center items-center h-8 min-w-8 py-4 bg-foreground/10 rounded-full ml-auto",
+		addButton: "flex justify-center items-center h-8 min-w-8 py-4 gap-2 bg-foreground/10 rounded-full ml-auto",
 		section: "flex flex-col w-full gap-2 items-start",
 		sectionHeader: "flex flex-row w-full gap-2 items-center text-2xl font-bold",
 	}
