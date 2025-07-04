@@ -1,8 +1,6 @@
 import Image from "next/image";
-import home from "@/static/home.json";
 
-export default function Hero() {
-  const heroData = home.hero;
+export default function Hero({ heroData }: { heroData: any }) {
   return (
     <section id="hero" className="w-full md:w-[32%] md:h-full h-screen flex flex-col items-center justify-center p-8 text-center">
       <Image src="/images/profile.jpeg" className="rounded-full aspect-square object-cover" alt="Profile" width={140} height={140} />
