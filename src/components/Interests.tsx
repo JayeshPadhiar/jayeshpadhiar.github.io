@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { BookCard } from "@/app/(pages)/books/components/BookCard";
-import home from "@/static/home.json";
 
 export default function Interests() {
 
