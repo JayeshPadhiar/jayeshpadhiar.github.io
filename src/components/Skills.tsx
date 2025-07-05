@@ -1,7 +1,4 @@
-import home from "@/static/home.json";
-
-export default function Skills() {
-    const skills = home.skills;
+export default function Skills({ skills }: { skills: any }) {
     
     const styles = {
         container: "w-full flex flex-col items-start justify-start gap-8 py-16 border-t-1 border-foreground/10",

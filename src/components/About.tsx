@@ -1,7 +1,4 @@
-import home from "@/static/home.json";
-
-export default function About() {
-    const about = home.about;
+export default function About({ about }: { about: any }) {
 
     return (
         <section id="about" className="w-full flex flex-col items-start justify-start gap-8 py-16">

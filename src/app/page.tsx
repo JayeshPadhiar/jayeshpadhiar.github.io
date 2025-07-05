@@ -14,14 +14,14 @@ import home from "@/static/home.json";
 
 export default function Home() {
 
-  const [homeData, setHomeData] = useState(home);
+  const [homeContent, setHomeContent] = useState(home);
 
   useEffect(() => {
     const fetchHomeData = async () => {
       try {
       const response = await fetch("/api/v1/home");
         const data = await response.json();
-        setHomeData(data);
+        setHomeContent(data);
       } catch (error) {
         console.error("Error fetching home data:", error);
       }
@@ -31,13 +31,13 @@ export default function Home() {
 
   return (
     <div className="min-h-full w-full flex flex-col md:flex-row items-start justify-start" id="home">
-      <Hero heroData={homeData.hero} />
+      <Hero hero={homeContent.hero} />
       <div className="w-[0.5px] h-full bg-foreground/20"></div>
       <MainContent>
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
+        <About about={homeContent.about} />
+        <Skills skills={homeContent.skills} />
+        <Experience experience={homeContent.experience} />
+        <Projects projects={homeContent.projects} />
         <Interests />
         <Contact />
         <Footer />

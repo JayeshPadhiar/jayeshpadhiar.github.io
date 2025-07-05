@@ -1,8 +1,4 @@
-import home from "@/static/home.json";
-
-export default function Experience() {
-
-    const experience = home.experience;
+export default function Experience({ experience }: { experience: any }) {
 
     const styles = {
         container: "w-full flex flex-col items-start justify-start gap-4 py-16 border-t-1 border-foreground/10",
@@ -20,7 +16,7 @@ export default function Experience() {
         <section id="experience" className={styles.container}>
             <h1 className={styles.title}>Experience</h1>
             <div className={styles.timelineContainer}>
-                {experience.map((exp, index) => (
+                {experience.map((exp: any, index: number) => (
                     <div className={styles.timelineItem} key={index}>
                         <div className={styles.dot}></div>
                         <div className="w-full h-full flex flex-row items-center justify-between gap-2">
@@ -28,14 +24,14 @@ export default function Experience() {
                             <span className="text-xs text-foreground/40">{exp.location}</span>
                         </div>
                         <div className="w-full h-full flex flex-col items-start justify-start gap-4">
-                            {exp.roles.map((role, index) => (
+                            {exp.roles.map((role: any, index: number) => (
                                 <div className="w-full h-full flex flex-col items-start justify-start gap-2" key={index}>
                                     <div className="w-full h-full flex flex-row items-center justify-between gap-2">
                                         <h3 className={styles.timelineItemTitle}>{role.title}</h3>
                                         <h3 className={styles.timelineItemPeriod}>{role.period}</h3>
                                     </div>
                                     <ul className={styles.timelineItemDescriptionList}>
-                                        {role.description.map((desc, idx) => (
+                                        {role.description.map((desc: any, idx: number) => (
                                             <li className={styles.timelineItemDescription} key={idx}>{desc}</li>
                                         ))}
                                     </ul>
