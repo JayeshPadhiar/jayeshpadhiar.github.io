@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--foreground) var(--background);
+}
+
 /* Light and dark theme configuration */
 :root {
   /* Light theme defaults */
@@ -71,7 +76,6 @@ input:focus, textarea:focus {
 
 /* transparent scrollbar */
 ::-webkit-scrollbar {
-  width: 0.1rem !important;
   background: transparent;
 }
 

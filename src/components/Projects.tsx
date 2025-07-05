@@ -8,7 +8,6 @@ export default function Projects({ projects }: { projects: any }) {
 	return (
 		<section id="projects" className="w-full flex flex-col items-start justify-start gap-4 py-16 border-t-1 border-foreground/10">
 			<h1 className="text-2xl font-bold">Projects</h1>
-
 			<div className="flex flex-row flex-wrap gap-4 justify-start items-start w-full">
 				{projects.map((project: { title: string, description: string, url: string }, idx: number) => (
 					<ProjectCard key={idx} title={project.title} description={project.description} url={project.url} />
@@ -27,7 +26,9 @@ export default function Projects({ projects }: { projects: any }) {
 					username="jayeshpadhiar"
 					blockSize={10}
 					fontSize={12}
-					style={{ width: '100%' }}
+					style={{ width: '100%', scrollbarWidth: 'none' }}
+					showWeekdayLabels={true}
+					blockRadius={4}
 				/>
 			</div>
 		</section>
