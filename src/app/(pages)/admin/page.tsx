@@ -1,11 +1,3 @@
-// this page is for the admin to edit the homepage sections, books and now page
-// this page consists of 3 sections on the left side of the page
-// 1. Homepage Sections
-// 2. Books
-// 3. Now
-
-// on the right side of the page, there will be a form to edit the selected page data
-
 "use client";
 import { useState, useEffect } from "react";
 import HeroSettings from "./components/HeroSettings";
