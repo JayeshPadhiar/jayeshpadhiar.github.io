@@ -1,6 +1,5 @@
 "use client";
 
-import bcrypt from "bcryptjs";
 import { useState, use } from "react";
 import MainContent from "@/components/MainContent";
 
@@ -9,19 +8,18 @@ export default function Auth({ params }: { params: Promise<{ page: string }> }) 
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");	
-	
+
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const payload = {
 			username,
-			password: bcrypt.hashSync(password, 10),
+			password,
 		};
 		const response = await fetch(`/api/v1/auth/${page}`, {
 			method: "POST",
 			body: JSON.stringify(payload),
 		});
 		const data = await response.json();
-		console.log(data);
 	};
 
 	return page === "login" || page === "signup" ? (
