@@ -5,10 +5,13 @@ import AboutSettings from "./components/AboutSettings";
 import SkillSettings from "./components/SkillSettings";
 import ExperienceSettings from "./components/ExperienceSettings";
 import ProjectSettings from "./components/ProjectSettings";
+import { useRouter } from "next/navigation";
 
 export default function AdminPage() {
-	const [selectedPage, setSelectedPage] = useState("Home");
+	const router = useRouter();
 
+	const [token, setToken] = useState<string | null>(null);
+	const [selectedPage, setSelectedPage] = useState("Home");
 	const [loading, setLoading] = useState(true);
 
 	const [hero, setHero] = useState({});
@@ -50,6 +53,12 @@ export default function AdminPage() {
 	}
 
 	useEffect(() => {
+		const token = localStorage.getItem("token");
+		if (!token) {
+			router.push("/auth/login");
+			return;
+		}
+		setToken(token);
 		selectPage(selectedPage);
 	}, [selectedPage]);
 
