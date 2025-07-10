@@ -1,4 +1,37 @@
+import { useState } from "react";
+
 export default function Contact() {
+
+	const [email, setEmail] = useState("");
+	const [subject, setSubject] = useState("");
+	const [message, setMessage] = useState("");
+
+	const sendEmail = async () => {
+		try {
+			const response = await fetch("/api/v1/send-email", {
+				method: "POST",
+				body: JSON.stringify({ email, subject, message }),
+				headers: {
+					"Content-Type": "application/json"
+				}
+			});
+			const data = await response.json();
+
+			if (data.code === "EMAIL_SENT_SUCCESSFULLY") {
+				alert("Email sent successfully");
+				setEmail("");
+				setSubject("");
+				setMessage("");
+			} else {
+				alert(data.message);
+				setEmail("");
+				setSubject("");
+				setMessage("");
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	}
 
 	const contactDetails = [
 		{
@@ -39,10 +72,10 @@ export default function Contact() {
 			<div className="flex flex-col items-start justify-start gap-4 w-full md:w-2/3 h-full">
 				<h1 className="text-2xl font-bold">Leave a message</h1>
 				<div className="flex flex-col items-start justify-start gap-4 w-full">
-					<input type="email" placeholder="Email" className="w-full h-10" />
-					<input type="text" placeholder="Subject" className="w-full h-10" />
-					<textarea placeholder="Message" className="w-full h-32" />
-					<button className="bg-secondary-foreground text-background px-4 py-2 rounded-md" disabled={true}>Send</button>
+					<input type="email" placeholder="Email" className="w-full h-10" value={email} onChange={(e) => setEmail(e.target.value)} />
+					<input type="text" placeholder="Subject" className="w-full h-10" value={subject} onChange={(e) => setSubject(e.target.value)} />
+					<textarea placeholder="Message" className="w-full h-32" value={message} onChange={(e) => setMessage(e.target.value)} />
+					<button className="bg-secondary-foreground text-background px-4 py-2 rounded-md" onClick={sendEmail}>Send</button>
 				</div>
 			</div>
 		</section>
