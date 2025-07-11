@@ -5,6 +5,7 @@ import AboutSettings from "./components/AboutSettings";
 import SkillSettings from "./components/SkillSettings";
 import ExperienceSettings from "./components/ExperienceSettings";
 import ProjectSettings from "./components/ProjectSettings";
+import BookSettings from "./components/BookSettings";
 import { useRouter } from "next/navigation";
 
 export default function AdminPage() {
@@ -19,37 +20,53 @@ export default function AdminPage() {
 	const [skills, setSkills] = useState({});
 	const [experience, setExperience] = useState({});
 	const [projects, setProjects] = useState({});
+	const [books, setBooks] = useState([]);
+	const [now, setNow] = useState([]);
 
-	function selectPage(page: any) {
+	async function selectPage(page: any) {
 		setSelectedPage(page);
 		setLoading(true);
-		fetch(`/api/v1/${page.toLowerCase()}`)
-			.then(res => res.json())
-			.then(data => {
-				setHero(data?.hero);
-				setAbout(data?.about);
-				setSkills(data?.skills);
-				setExperience(data?.experience);
-				setProjects(data?.projects);
-				setLoading(false);
-			});
+
+		const response = await fetch(`/api/v1/${page.toLowerCase()}`).then(res => res.json());
+		if (page === "Home") {
+			setHero(response?.hero);
+			setAbout(response?.about);
+			setSkills(response?.skills);
+			setExperience(response?.experience);
+			setProjects(response?.projects);
+		} else if (page === "Books") {
+			setBooks(response.books);
+		} else if (page === "Now") {
+			setNow(response);
+		}
+		setLoading(false);
 	}
 
-	function update() {
-		const updatedData = {
-			hero,
-			about,
-			skills,
-			experience,
-			projects,
+	const update = async () => {
+		let updatedData: any;
+		if (selectedPage === "Home") {
+			updatedData = {
+				hero,
+				about,
+				skills,
+				experience,
+				projects,
+			}
+		} else if (selectedPage === "Books") {
+			updatedData = books;
+		} else {
+			updatedData = now;
 		}
-		console.log(updatedData);
-		fetch(`/api/v1/home`, {
-			method: "PUT",
+		const response = await fetch(`/api/v1/${selectedPage.toLowerCase()}`, {
+			method: "POST",
 			body: JSON.stringify(updatedData),
-		}).then(res => res.json()).then(data => {
-			console.log(data);
 		});
+		const data = await response.json();
+		if (data.success) {
+			alert("Data updated successfully");
+		} else {
+			alert(data.message);
+		}
 	}
 
 	useEffect(() => {
@@ -94,7 +111,7 @@ export default function AdminPage() {
 					)}
 					{selectedPage === "Books" && !loading && (
 						<div className="flex flex-col w-full h-full gap-2 mt-4 items-center">
-
+							<BookSettings books={books} setBooks={setBooks} />
 						</div>
 					)}
 					{selectedPage === "Now" && !loading && (

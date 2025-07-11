@@ -12,7 +12,7 @@ export default function Books() {
 		const fetchBooks = async () => {
 			try {
 				const booksResponse = await fetch("/api/v1/books").then(res => res.json());
-				setBooksData(booksResponse);
+				setBooksData(booksResponse.books);
 			} catch (error) {
 				setBooksData(books);
 			}
