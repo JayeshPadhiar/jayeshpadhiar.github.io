@@ -13,7 +13,7 @@ export default function Now() {
 			try {
 				const response = await fetch("/api/v1/now");
 				const data = await response.json();
-				setNowData(data);
+				setNowData(data?.now);
 			} catch (error) {
 				setNowData(now);
 			}

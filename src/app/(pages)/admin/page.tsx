@@ -7,6 +7,7 @@ import ExperienceSettings from "./components/ExperienceSettings";
 import ProjectSettings from "./components/ProjectSettings";
 import BookSettings from "./components/BookSettings";
 import { useRouter } from "next/navigation";
+import NowSettings from "./components/NowSettings";
 
 export default function AdminPage() {
 	const router = useRouter();
@@ -35,9 +36,9 @@ export default function AdminPage() {
 			setExperience(response?.experience);
 			setProjects(response?.projects);
 		} else if (page === "Books") {
-			setBooks(response.books);
+			setBooks(response?.books);
 		} else if (page === "Now") {
-			setNow(response);
+			setNow(response?.now);
 		}
 		setLoading(false);
 	}
@@ -116,6 +117,7 @@ export default function AdminPage() {
 					)}
 					{selectedPage === "Now" && !loading && (
 						<div className="flex flex-col w-full h-full gap-2 mt-4 items-center">
+							<NowSettings now={now} setNow={setNow} />
 						</div>
 					)}
 				</div>
