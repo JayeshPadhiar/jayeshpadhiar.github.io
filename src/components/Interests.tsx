@@ -10,8 +10,8 @@ export default function Interests() {
 			"icon": "fa-solid fa-book",
 			"currentlyReading": [
 				{
-					"title": "Frankenstein",
-					"author": "Mary Shelley"
+					"title": "The Stranger",
+					"author": "Albert Camus"
 				}
 			],
 			"recentlyFinished": [
