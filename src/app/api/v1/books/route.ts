@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getMongoClient } from "@/lib/db/mongo";
+import { ObjectId } from "mongodb";
 
 export async function GET() {
   try {
@@ -17,9 +18,9 @@ export async function POST(request: Request) {
   const mongoClient = await getMongoClient();
   const db = mongoClient.db(process.env.MONGO_DB);
     const books = await request.json();
-    
+
     books.forEach(async (book: any) => {
-      const result = await db.collection("books").updateOne({_id: book._id}, {$set: book}, {upsert: true});
+      const result = await db.collection("books").updateOne({_id: new ObjectId(book._id)}, {$set: { ...book, _id: new ObjectId(book._id) }}, {upsert: true,});
     });
     
     return NextResponse.json({ success: true, message: "Books updated successfully", code: 'BOOKS_UPDATED' }, { status: 200 });

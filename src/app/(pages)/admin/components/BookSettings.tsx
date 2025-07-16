@@ -11,47 +11,47 @@ export default function BookSettings({ books, setBooks }: { books: any, setBooks
 		select: "py-1 px-2 rounded-md border-1 border-foreground/40 w-full text-xs text-foreground/80",
 	}
 
-	function editBook(sectionIndex: number, bookIndex: number, key: string, value: string) {
+	function editBook(bookIndex: number, key: string, value: string) {
 		if (key === "delete") {
 			let newBooks = [...books];
-			newBooks[sectionIndex].books.splice(bookIndex, 1);
+			newBooks.splice(bookIndex, 1);
 			setBooks(newBooks);
 		} else if (key === "add") {
 			let newBooks = [...books];
-			newBooks[sectionIndex].books.push({ title: "", author: "", description: "", status: "reading" });
+			newBooks.push({ title: "", author: "", description: "", status: "reading", type: "fiction", image: "" });
 			setBooks(newBooks);
 		} else {
 			let newBooks = [...books];
-			newBooks[sectionIndex].books[bookIndex][key] = value;
+			newBooks[bookIndex][key] = value;
 			setBooks(newBooks);
 		}
 	}
 
 	return (
 		<section className={styles.section}>
-			{books.map((section: any, sectionIndex: number) => (
-				<div key={sectionIndex} className="flex flex-col w-full gap-4 items-start">
-					<h2 className="text-lg font-bold">{section.type}</h2>
-					<div className="flex flex-row w-full gap-4 items-start justify-start flex-wrap">
-						{section.books.map((book: any, bookIndex: number) => (
-							<div key={bookIndex} className={styles.bookCard}>
-								<div className="flex flex-row w-full gap-2 items-center">
-									<input type="text" placeholder="Book Title" className={styles.input} value={book.title} onChange={(e) => editBook(sectionIndex, bookIndex, "title", e.target.value)} />
-									<button type="button" className={styles.button} onClick={() => editBook(sectionIndex, bookIndex, "delete", "")}> <i className="fa-solid fa-trash"></i> </button>
-								</div>
-								<input type="text" placeholder="Author" className={styles.input} value={book.author} onChange={(e) => editBook(sectionIndex, bookIndex, "author", e.target.value)} />
-								<textarea placeholder="Description" className={styles.textarea} value={book.description} onChange={(e) => editBook(sectionIndex, bookIndex, "description", e.target.value)} />
-								<select className={styles.select} value={book.status} onChange={(e) => editBook(sectionIndex, bookIndex, "status", e.target.value)}>
-									{["reading", "finished"].map((status) => (
-										<option key={status} value={status}>{status}</option>
-									))}
-								</select>
-							</div>
-						))}
+			<button type="button" className={styles.button} onClick={() => editBook(0, "add", "")}> <i className="fa-solid fa-plus"></i> Add Book </button>
+			<div className="flex flex-row w-full gap-2 items-start justify-start flex-wrap">
+				{books.map((book: any, bookIndex: number) => (
+					<div key={bookIndex} className={styles.bookCard}>
+						<div className="flex flex-row w-full gap-2 items-center">
+							<input type="text" placeholder="Book Title" className={styles.input} value={book.title} onChange={(e) => editBook(bookIndex, "title", e.target.value)} />
+							<button type="button" className={styles.button} onClick={() => editBook(bookIndex, "delete", "")}> <i className="fa-solid fa-trash"></i> </button>
+						</div>
+						<input type="text" placeholder="Author" className={styles.input} value={book.author} onChange={(e) => editBook(bookIndex, "author", e.target.value)} />
+						<textarea placeholder="Description" className={styles.textarea} value={book.description} onChange={(e) => editBook(bookIndex, "description", e.target.value)} />
+						<select className={styles.select} value={book.type} onChange={(e) => editBook(bookIndex, "type", e.target.value)}>
+							{["fiction", "non-fiction"].map((type) => (
+								<option key={type} value={type}>{type}</option>
+							))}
+						</select>
+						<select className={styles.select} value={book.status} onChange={(e) => editBook(bookIndex, "status", e.target.value)}>
+							{["reading", "finished"].map((status) => (
+								<option key={status} value={status}>{status}</option>
+							))}
+						</select>
 					</div>
-					<button type="button" className={styles.button} onClick={() => editBook(sectionIndex, section.books.length, "add", "")}> <i className="fa-solid fa-plus"></i> Add Book </button>
-				</div>
-			))}
+				))}
+			</div>
 		</section>
 	)
 }
