@@ -1,8 +1,14 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Header() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    const currentTheme = localStorage.getItem('theme');
+    changeTheme(currentTheme || 'dark');
+  }, []);
+
   const tabs = [
     {
       name: "Home",
@@ -43,13 +49,11 @@ export default function Header() {
   ];
 
 
-  const toggleTheme = () => {
+  const changeTheme = (theme: string) => {
+    setTheme(theme);
+    localStorage.setItem('theme', theme);
     const root = document.documentElement;
-    const currentTheme = root.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    setTheme(newTheme);
+    root.setAttribute('data-theme', theme);
   };
 
   return (
@@ -61,7 +65,7 @@ export default function Header() {
             </a>
           ))}
 
-          <div className="flex flex-row items-center justify-center gap-2 cursor-pointer" onClick={toggleTheme}>
+          <div className="flex flex-row items-center justify-center gap-2 cursor-pointer" onClick={() => changeTheme(theme === 'dark' ? 'light' : 'dark')}>
             <i className={`${theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon'}`}></i>
           </div>
       </nav>

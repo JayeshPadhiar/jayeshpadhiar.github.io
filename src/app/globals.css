@@ -5,8 +5,16 @@
   scrollbar-color: var(--foreground) var(--background);
 }
 
-/* Light and dark theme configuration */
 :root {
+  --background: rgb(17 24 39);
+  --foreground: rgb(229 231 235);
+  --secondary-foreground: #ff4040;
+  --button-shadow-light: rgb(23 32 52);
+  --button-shadow-dark: rgb(11 16 26);
+}
+
+/* Light and dark theme configuration */
+:root[data-theme="light"] {
   /* Light theme defaults */
   --background: #e0e0e0;
   --foreground: #1e1e1e;
