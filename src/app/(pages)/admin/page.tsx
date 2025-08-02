@@ -81,10 +81,10 @@ export default function AdminPage() {
 	}, [selectedPage]);
 
 	return (
-		<div className="flex flex-row w-full h-full gap-4">
-			<div className="flex flex-col w-[25%] h-full p-8 justify-start items-center">
+		<div className="flex md:flex-row flex-col w-full h-full md:gap-4 gap-0">
+			<div className="flex flex-col md:w-[25%] w-full h-full p-8 justify-start items-center">
 				<h1 className="text-2xl font-bold">Admin</h1>
-				<div className="flex flex-col w-full h-full gap-2 mt-4 items-center">
+				<div className="flex md:flex-col flex-row w-full h-full gap-2 mt-4 items-center">
 					{["Home", "Books", "Now"].map((page) => (
 						<div key={page} className={`flex justify-center items-center w-full h-12 py-4 rounded-full cursor-pointer ${selectedPage === page ? "border-1 border-foreground/80" : "border-1 border-foreground/10"}`}
 							onClick={() => setSelectedPage(page)}>
