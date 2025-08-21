@@ -26,7 +26,7 @@ export default function Blogs() {
 				<h1 className="text-2xl font-bold">Blogs</h1>
 				<div className="w-full flex flex-col  items-start justify-start gap-4">
 					{blogs.map((blog) => (
-						<BlogCard key={blog.guid} title={blog.title} link={blog.link} pubDate={blog.pubDate} categories={blog.categories} />
+						<BlogCard key={blog.guid} title={blog.title} link={blog.link} pubDate={blog.pubDate} categories={blog.categories} image={blog.image} />
 					))}
 				</div>
 
