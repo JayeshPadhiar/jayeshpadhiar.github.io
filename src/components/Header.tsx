@@ -35,12 +35,16 @@ export default function Header() {
       href: "/#interests"
     },*/
     {
-      name: "Now",
-      href: "/now"
+      name: "Blogs",
+      href: "/blogs"
     },
     {
       name: "Books",
       href: "/books"
+    },
+    {
+      name: "Now",
+      href: "/now"
     },
     {
       name: "Contact",
