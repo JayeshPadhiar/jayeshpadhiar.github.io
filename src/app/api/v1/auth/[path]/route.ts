@@ -47,8 +47,8 @@ const login = async (req: NextRequest) => {
 		}
 
 		const token = jwt.sign({ userId: user._id, username: user.username }, process.env.JWT_SECRET);
-		const redisClient = await getRedisClient();
-		await redisClient.set(token, user._id.toString());
+		//const redisClient = await getRedisClient();
+		//await redisClient.set(token, user._id.toString());
 		return NextResponse.json({ message: "Login successful", code: 'LOGIN_SUCCESS', user: user, token: token }, { status: 200 });
 	} catch (error) {
 		return NextResponse.json({ message: "Error logging in", code: 'LOGIN_ERROR', error: error }, { status: 500 });
