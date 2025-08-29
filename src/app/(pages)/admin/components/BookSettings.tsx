@@ -18,7 +18,7 @@ export default function BookSettings({ books, setBooks }: { books: any, setBooks
 			setBooks(newBooks);
 		} else if (key === "add") {
 			let newBooks = [...books];
-			newBooks.push({ title: "", author: "", description: "", status: "reading", type: "fiction", image: "" });
+			newBooks.unshift({ title: "", author: "", description: "", status: "reading", type: "fiction", image: "" });
 			setBooks(newBooks);
 		} else {
 			let newBooks = [...books];

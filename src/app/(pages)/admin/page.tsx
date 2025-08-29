@@ -70,6 +70,7 @@ export default function AdminPage() {
 		const data = await response.json();
 		if (data.success) {
 			alert("Data updated successfully");
+			selectPage(selectedPage);
 		} else {
 			alert(data.message);
 		}
