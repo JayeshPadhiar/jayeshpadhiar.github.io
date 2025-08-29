@@ -24,9 +24,9 @@ export default function Blogs() {
 		<MainContent>
 			<section id="blogs" className="w-full h-full flex flex-col items-start justify-start gap-8 py-16 mx-auto">
 				<h1 className="text-2xl font-bold">Blogs</h1>
-				<div className="w-full flex flex-col  items-start justify-start gap-4">
-					{blogs.map((blog) => (
-						<BlogCard key={blog.guid} title={blog.title} link={blog.link} pubDate={blog.pubDate} categories={blog.categories} image={blog.image} />
+				<div className="w-full flex flex-col  items-start justify-start gap-4 overflow-y-auto">
+					{blogs.map((blog, index) => (
+						<BlogCard key={index} title={blog.title} link={blog.link} categories={blog.categories} image={blog.image} date={blog.date} description={blog.description} />
 					))}
 				</div>
 
