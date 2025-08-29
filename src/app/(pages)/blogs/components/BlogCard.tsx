@@ -37,7 +37,7 @@ export default function BlogCard({ title, link, categories, image, date, descrip
 			<img
 				src={image || blogMetadata?.data?.image?.url || blogMetadata?.data?.logo?.url}
 				alt={title}
-				className="rounded-md h-full object-cover md:aspect-square md:w-36 w-full m-auto p-2"
+				className="rounded-[20px] h-full object-cover md:aspect-square md:w-36 md:h-36 w-full max-h-[168px] m-auto p-2"
 				onError={(e) => {
 					e.currentTarget.style.display = 'none';
 				}}
