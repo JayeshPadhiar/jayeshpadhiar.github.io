@@ -22,7 +22,7 @@ export default function Blogs() {
 
 	return (
 		<MainContent>
-			<section id="blogs" className="w-full h-full flex flex-col items-start justify-start gap-8 py-16 mx-auto">
+			<section id="blogs" className="w-full md:max-w-4xl h-full flex flex-col items-start justify-start gap-8 py-16 mx-auto">
 				<h1 className="text-2xl font-bold">Blogs</h1>
 				<div className="w-full flex flex-col  items-start justify-start gap-4 overflow-y-auto">
 					{blogs.map((blog, index) => (

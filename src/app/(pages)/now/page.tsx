@@ -24,7 +24,7 @@ export default function Now() {
 
 	return (
 		<MainContent>
-			<section className="w-full md:w-1/2 flex flex-col items-start justify-start gap-8 py-16 mx-auto">
+			<section className="w-full md:max-w-4xl flex flex-col items-start justify-start gap-8 py-16 mx-auto">
 				<div className="flex flex-col items-start justify-start gap-2">
 					<h1 className="text-2xl font-bold">So! Currently...</h1>
 				</div>
