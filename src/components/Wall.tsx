@@ -8,8 +8,7 @@ export default function Wall() {
 		container: "w-full flex flex-col items-start justify-start gap-4 py-16 border-t-1 border-foreground/10",
 		title: "text-2xl font-bold",
 		wall: "w-full h-[400px] border-1 border-foreground/10 rounded-[10px] relative overflow-hidden",
-		toggleButton: "absolute top-2 right-2 p-2 z-10 w-fit",
-		center: "top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]",
+		toggleButton: "absolute top-2 right-2 p-2 z-10 w-fit rounded-full",
 	}
 
 	const FullscreenIcon = () => (
@@ -42,7 +41,7 @@ export default function Wall() {
 				} : {}}
 			>
 				<button
-					className={`${styles.toggleButton} ${isFullscreen ? '' : styles.center}`}
+					className={styles.toggleButton}
 					onClick={() => setIsFullscreen(!isFullscreen)}
 					title={isFullscreen ? "Exit fullscreen" : "Open in fullscreen"}
 				>
