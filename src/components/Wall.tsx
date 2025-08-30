@@ -8,7 +8,8 @@ export default function Wall() {
 		container: "w-full flex flex-col items-start justify-start gap-4 py-16 border-t-1 border-foreground/10",
 		title: "text-2xl font-bold",
 		wall: "w-full h-[400px] border-1 border-foreground/10 rounded-[10px] relative overflow-hidden",
-		fullscreenButton: "absolute top-2 right-2 p-2 bg-background/80 hover:bg-background border-1 border-foreground/20 rounded-md cursor-pointer transition-colors z-10",
+		toggleButton: "absolute top-2 right-2 p-2 z-10 w-fit",
+		center: "top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]",
 	}
 
 	const FullscreenIcon = () => (
@@ -24,10 +25,10 @@ export default function Wall() {
 		</svg>
 	);
 
-		return (
+	return (
 		<section id="wall" className={styles.container}>
 			<h1 className={styles.title}>My Digital Wall</h1>
-			<div 
+			<div
 				className={`${styles.wall} transition-all duration-300 ease-in-out`}
 				style={isFullscreen ? {
 					position: 'fixed',
@@ -40,8 +41,8 @@ export default function Wall() {
 					backgroundColor: 'rgba(0, 0, 0, 0.9)'
 				} : {}}
 			>
-				<button 
-					className={styles.fullscreenButton}
+				<button
+					className={`${styles.toggleButton} ${isFullscreen ? '' : styles.center}`}
 					onClick={() => setIsFullscreen(!isFullscreen)}
 					title={isFullscreen ? "Exit fullscreen" : "Open in fullscreen"}
 				>
@@ -52,8 +53,10 @@ export default function Wall() {
 					frameBorder="0"
 					className="w-full h-full"
 					style={isFullscreen ? {
-						transform: 'scale(1)',
-						transformOrigin: 'center'
+						transform: 'scale(0.75)',
+						transformOrigin: 'top left',
+						width: '133.33%',
+						height: '133.33%'
 					} : {
 						transform: 'scale(0.75)',
 						transformOrigin: 'top left',
