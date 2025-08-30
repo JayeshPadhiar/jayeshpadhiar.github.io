@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 
 import home from "@/static/home.json";
 import Blogs from "@/components/Blogs";
+import Wall from "@/components/Wall";
 
 export default function Home() {
 
@@ -48,6 +49,7 @@ export default function Home() {
         <Projects projects={homeContent.projects} />
         <Blogs blogs={blogs} />
         <Interests />
+        <Wall />
         <Contact />
         <Footer />
       </MainContent>
