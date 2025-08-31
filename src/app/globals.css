@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 * {
   scrollbar-width: thin;
@@ -99,4 +100,19 @@ input:focus, textarea:focus {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+}
+
+pre {
+  background: var(--background) !important;
+  color: var(--foreground) !important;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 0.5px solid var(--foreground);
+}
+
+.preview * {
+  max-width: unset !important;
+  @apply prose prose-slate;
+  color: var(--foreground) !important;
+  background: var(--background) !important;
 }
