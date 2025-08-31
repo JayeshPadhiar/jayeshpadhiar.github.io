@@ -110,7 +110,7 @@ pre {
   border: 0.5px solid var(--foreground);
 }
 
-.preview * {
+.markdown-preview  * {
   max-width: unset !important;
   @apply prose prose-slate;
   color: var(--foreground) !important;

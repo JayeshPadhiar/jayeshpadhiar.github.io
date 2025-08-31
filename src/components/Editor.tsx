@@ -1,52 +1,37 @@
 "use client";
-import { useEffect, useState } from "react";
-import "quill/dist/quill.snow.css";
 import { marked } from "marked";
+import { useState } from "react";
 
-export default function Editor() {
-
+export default function Editor({ text, setText }: { text: string, setText: (text: string) => void }) {
+	const [isPreview, setIsPreview] = useState(false);
 	const styles = {
-		container: {
-			margin: "0 auto",
-			width: "100%",
-			height: "100%",
-		},
-		editor: {
-			width: "100%",
-			height: "100%",
-			flex: 1,
-		},
+		container: "w-full h-full flex flex-row items-start justify-start gap-4 p-2",
+		editor: "w-full h-full flex flex-col items-start justify-start gap-4 overflow-auto",
 		preview: {
-			padding: "1rem",
 			width: "100%",
 			height: "100%",
-			flex: 1,
 			overflow: "auto",
+			padding: "0.5rem",
+			position: "relative" as const,
+			border: "0.5px solid var(--foreground)",
+			borderRadius: "10px",
+		},
+		previewButton: {
+			position: "absolute" as const,
+			top: "0.5rem",
+			right: "0.5rem",
 		},
 	}
 
-	const [text, setText] = useState<string>("");
-
-	useEffect(() => {
-
-		import("quill").then(({ default: Quill }) => {
-			const editor = document.getElementById("editor");
-			if (editor) {
-				const quill = new Quill(editor, {
-					theme: "snow",
-					});
-			}
-		});
-	});
-
 	return (
 		//markdown editor with editor on the left and preview on the right
-		<div style={styles.container} className="flex flex-row">
-			<div style={styles.editor}>
-				<textarea style={styles.editor} value={text} onChange={(e) => setText(e.target.value)}></textarea>
+		<div className={styles.container}>
+			<div className={`${isPreview ? 'hidden' : styles.editor}`}>
+				<textarea id="textarea" className={styles.editor} value={text} onChange={(e) => setText(e.target.value)}></textarea>
 			</div>
-			<div style={styles.preview} className="preview">
-				<div dangerouslySetInnerHTML={{ __html: marked(text) }} style={styles.preview}></div>
+			<div className={`markdown-preview`} style={styles.preview as any}>
+				<button style={styles.previewButton} onClick={() => setIsPreview(!isPreview)}> <i className="fa-solid fa-eye"></i> </button>
+				<div dangerouslySetInnerHTML={{ __html: marked(text) }}></div>
 			</div>
 		</div>
 	);
