@@ -91,7 +91,7 @@ export default function AdminPage() {
 			<div className="flex flex-col md:w-[25%] w-full h-full p-8 justify-start items-center">
 				<h1 className="text-2xl font-bold">Admin</h1>
 				<div className="flex md:flex-col flex-row w-full h-full gap-2 mt-4 items-center">
-					{["Home", "Books", "Blogs", "Now"].map((page) => (
+					{["Home", "Blogs", "Books", "Now"].map((page) => (
 						<div key={page} className={`flex justify-center items-center w-full h-12 py-4 rounded-full cursor-pointer ${selectedPage === page ? "border-1 border-foreground/80" : "border-1 border-foreground/10"}`}
 							onClick={() => setSelectedPage(page)}>
 							<h1 className="text-sm font-bold">{page}</h1>
