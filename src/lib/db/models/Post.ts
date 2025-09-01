@@ -4,7 +4,7 @@ const PostSchema = new Schema({
 	title: { type: String, required: true, unique: true },
 	slug: { type: String, unique: true },
 	description: { type: String },
-	link: { type: String, required: true, unique: true },
+	link: { type: String, unique: true },
 	status: { type: String, default: "draft", enum: ["draft", "published", "archived"] },
 	categories: { type: String },
 	image: { type: String },
@@ -30,7 +30,7 @@ PostSchema.pre('save', function (next) {
 
 	//if it is an original post, set the link
 	if (this.isOriginal) {
-		this.link = `/${this.type}s/${this.slug}`;
+		this.link = `/posts/${this.slug}`;
 	}
 
 	//extract first image from markdown post

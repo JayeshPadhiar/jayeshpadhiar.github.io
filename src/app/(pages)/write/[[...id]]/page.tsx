@@ -13,8 +13,20 @@ export default function WritePage({ params }: { params: Promise<{ id: string }> 
 	useEffect(() => {
 		params.then((data) => {
 			console.log(data);
+			setId(data.id);
 		});
 	});
+
+	const publishPost = async () => {
+		const payload = { title, content, type, tags, isOriginal: true };
+		console.log(payload);
+		const response = await fetch(`/api/v1/posts`, {
+			method: "POST",
+			body: JSON.stringify(payload),
+		});
+		const data = await response.json();
+		console.log(data);
+	}
 
 	const styles = {
 		section: 'w-full h-full flex flex-col items-start justify-start gap-4 overflow-hidden p-2',
@@ -30,19 +42,19 @@ export default function WritePage({ params }: { params: Promise<{ id: string }> 
 			<section className={styles.section}>
 				<div className={styles.contentContainer}>
 
-				<div className={styles.container}>
-					<input type="text" placeholder="Title" className={styles.input} value={title} onChange={(e) => setTitle(e.target.value)} />
-					<button> Draft </button>
-					<button> Publish </button>
-				</div>
+					<div className={styles.container}>
+						<input type="text" placeholder="Title" className={styles.input} value={title} onChange={(e) => setTitle(e.target.value)} />
+						<button> Draft </button>
+						<button onClick={publishPost}> Publish </button>
+					</div>
 
-				<div className={styles.container}>
-					<input type="text" placeholder="Tags" className={styles.input} value={tags} onChange={(e) => setTags(e.target.value)} />
-					<select className={styles.type} value={type} onChange={(e) => setType(e.target.value)}>
-						<option value="article"> Article </option>
-						<option value="blog"> Blog </option>
-					</select>
-				</div>
+					<div className={styles.container}>
+						<input type="text" placeholder="Tags" className={styles.input} value={tags} onChange={(e) => setTags(e.target.value)} />
+						<select className={styles.type} value={type} onChange={(e) => setType(e.target.value)}>
+							<option value="article"> Article </option>
+							<option value="blog"> Blog </option>
+						</select>
+					</div>
 				</div>
 
 				<div className={styles.editor}>
