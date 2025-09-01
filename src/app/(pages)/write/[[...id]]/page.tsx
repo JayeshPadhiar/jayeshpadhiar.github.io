@@ -1,13 +1,20 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Editor from "@/components/Editor";
 import MainContent from "@/components/MainContent";
 
-export default function WritePage() {
+export default function WritePage({ params }: { params: Promise<{ id: string }> }) {
+	const [id, setId] = useState("");
 	const [content, setContent] = useState("");
 	const [type, setType] = useState("");
 	const [title, setTitle] = useState("");
 	const [tags, setTags] = useState('');
+
+	useEffect(() => {
+		params.then((data) => {
+			console.log(data);
+		});
+	});
 
 	const styles = {
 		section: 'w-full h-full flex flex-col items-start justify-start gap-4 overflow-hidden p-2',
