@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import HeroSettings from "./components/HeroSettings";
 import AboutSettings from "./components/AboutSettings";
@@ -7,7 +8,7 @@ import ExperienceSettings from "./components/ExperienceSettings";
 import ProjectSettings from "./components/ProjectSettings";
 import BookSettings from "./components/BookSettings";
 import BlogSettings from "./components/BlogSettings";
-import { useRouter } from "next/navigation";
+import ContentSettings from "./components/ContentSettings";
 import NowSettings from "./components/NowSettings";
 
 export default function AdminPage() {
@@ -24,12 +25,19 @@ export default function AdminPage() {
 	const [books, setBooks] = useState([]);
 	const [blogs, setBlogs] = useState([]);
 	const [now, setNow] = useState([]);
+	const [content, setContent] = useState([]);
 
 	async function selectPage(page: any) {
 		setSelectedPage(page);
 		setLoading(true);
 
-		const response = await fetch(`/api/v1/${page.toLowerCase()}`).then(res => res.json());
+		const response = await fetch(`/api/v1/${page.toLowerCase()}`)
+		.then(res => res.json())
+		.catch(err => {
+			console.error(err);
+			return { error: err };
+		});
+		
 		if (page === "Home") {
 			setHero(response?.hero);
 			setAbout(response?.about);
@@ -40,6 +48,8 @@ export default function AdminPage() {
 			setBooks(response?.books);
 		} else if (page === "Blogs") {
 			setBlogs(response?.blogs);
+		} else if (page === "Content") {
+			setContent(response?.content);
 		} else if (page === "Now") {
 			setNow(response?.now);
 		}
@@ -60,6 +70,8 @@ export default function AdminPage() {
 			updatedData = books;
 		} else if (selectedPage === "Blogs") {
 			updatedData = blogs;
+		} else if (selectedPage === "Content") {
+			updatedData = content;
 		} else {
 			updatedData = now;
 		}
@@ -91,7 +103,7 @@ export default function AdminPage() {
 			<div className="flex flex-col md:w-[25%] w-full h-full p-8 justify-start items-center">
 				<h1 className="text-2xl font-bold">Admin</h1>
 				<div className="flex md:flex-col flex-row w-full h-full gap-2 mt-4 items-center">
-					{["Home", "Blogs", "Books", "Now"].map((page) => (
+					{["Home", "Blogs", "Content", "Books", "Now"].map((page) => (
 						<div key={page} className={`flex justify-center items-center w-full h-12 py-4 rounded-full cursor-pointer ${selectedPage === page ? "border-1 border-foreground/80" : "border-1 border-foreground/10"}`}
 							onClick={() => setSelectedPage(page)}>
 							<h1 className="text-sm font-bold">{page}</h1>
@@ -124,6 +136,11 @@ export default function AdminPage() {
 					{selectedPage === "Blogs" && !loading && (
 						<div className="flex flex-col w-full h-full gap-2 mt-4 items-center">
 							<BlogSettings blogs={blogs} setBlogs={setBlogs} />
+						</div>
+					)}
+					{selectedPage === "Content" && !loading && (
+						<div className="flex flex-col w-full h-full gap-2 mt-4 items-center">
+							<ContentSettings content={content} setContent={setContent} />
 						</div>
 					)}
 					{selectedPage === "Now" && !loading && (
