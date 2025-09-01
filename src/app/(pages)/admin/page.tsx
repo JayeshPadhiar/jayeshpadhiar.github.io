@@ -8,7 +8,7 @@ import ExperienceSettings from "./components/ExperienceSettings";
 import ProjectSettings from "./components/ProjectSettings";
 import BookSettings from "./components/BookSettings";
 import BlogSettings from "./components/BlogSettings";
-import ContentSettings from "./components/ContentSettings";
+import PostSettings from "./components/PostSettings";
 import NowSettings from "./components/NowSettings";
 
 export default function AdminPage() {
@@ -25,7 +25,7 @@ export default function AdminPage() {
 	const [books, setBooks] = useState([]);
 	const [blogs, setBlogs] = useState([]);
 	const [now, setNow] = useState([]);
-	const [content, setContent] = useState([]);
+	const [posts, setPosts] = useState([]);
 
 	async function selectPage(page: any) {
 		setSelectedPage(page);
@@ -48,8 +48,8 @@ export default function AdminPage() {
 			setBooks(response?.books);
 		} else if (page === "Blogs") {
 			setBlogs(response?.blogs);
-		} else if (page === "Content") {
-			setContent(response?.content);
+		} else if (page === "Posts") {
+			setPosts(response?.posts);
 		} else if (page === "Now") {
 			setNow(response?.now);
 		}
@@ -70,8 +70,8 @@ export default function AdminPage() {
 			updatedData = books;
 		} else if (selectedPage === "Blogs") {
 			updatedData = blogs;
-		} else if (selectedPage === "Content") {
-			updatedData = content;
+		} else if (selectedPage === "Posts") {
+			updatedData = posts;
 		} else {
 			updatedData = now;
 		}
@@ -103,7 +103,7 @@ export default function AdminPage() {
 			<div className="flex flex-col md:w-[25%] w-full h-full p-8 justify-start items-center">
 				<h1 className="text-2xl font-bold">Admin</h1>
 				<div className="flex md:flex-col flex-row w-full h-full gap-2 mt-4 items-center">
-					{["Home", "Blogs", "Content", "Books", "Now"].map((page) => (
+					{["Home", "Blogs", "Posts", "Books", "Now"].map((page) => (
 						<div key={page} className={`flex justify-center items-center w-full h-12 py-4 rounded-full cursor-pointer ${selectedPage === page ? "border-1 border-foreground/80" : "border-1 border-foreground/10"}`}
 							onClick={() => setSelectedPage(page)}>
 							<h1 className="text-sm font-bold">{page}</h1>
@@ -138,9 +138,9 @@ export default function AdminPage() {
 							<BlogSettings blogs={blogs} setBlogs={setBlogs} />
 						</div>
 					)}
-					{selectedPage === "Content" && !loading && (
+					{selectedPage === "Posts" && !loading && (
 						<div className="flex flex-col w-full h-full gap-2 mt-4 items-center">
-							<ContentSettings content={content} setContent={setContent} />
+							<PostSettings posts={posts} setPosts={setPosts} />
 						</div>
 					)}
 					{selectedPage === "Now" && !loading && (

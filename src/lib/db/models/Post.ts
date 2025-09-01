@@ -1,6 +1,6 @@
 import mongoose, { Schema, model } from "mongoose";
 
-const ContentSchema = new Schema({
+const PostSchema = new Schema({
 	title: { type: String, required: true, unique: true },
 	slug: { type: String, unique: true },
 	description: { type: String },
@@ -11,24 +11,16 @@ const ContentSchema = new Schema({
 	author: { type: String, default: "Jayesh Padhiar" },
 	content: { type: String, required: true, default: "" },
 	isOriginal: { type: Boolean, default: false, required: true },
-	seo: {
-		title: { type: String },
-		description: { type: String },
-		keywords: { type: String },
-		image: { type: String },
-	},
 	type: { type: String, default: "blog", enum: ["blog", "article"] },
+	readingTime: { type: Number, default: 1 },
 },
 	{
 		timestamps: true,
 	}
 );
 
-ContentSchema.virtual('readingTime').get(function () {
-	return Math.ceil((this.content || '')?.length / 200) || 0;
-});
-
-ContentSchema.pre('save', function (next) {
+//generate slug and set link
+PostSchema.pre('save', function (next) {
 	this.slug = this.title
 		.toLowerCase()
 		.replace(/[^a-z0-9\s-]/g, '')
@@ -36,12 +28,12 @@ ContentSchema.pre('save', function (next) {
 		.replace(/-+/g, '-')
 		.trim();
 
-	//if it is an original content, set the link
+	//if it is an original post, set the link
 	if (this.isOriginal) {
 		this.link = `/${this.type}s/${this.slug}`;
 	}
 
-	//extract first image from markdown content
+	//extract first image from markdown post
 	if (!this.image) {
 		const allImages = this.content.match(/!\[.*?\]\((.*?)\)/g);
 		if (allImages) {
@@ -49,9 +41,10 @@ ContentSchema.pre('save', function (next) {
 		}
 	}
 
+	this.readingTime = Math.ceil((this.content || '').split(' ').length / 200) || 0;
+
 	next();
 });
 
-const Content = mongoose.models.Content || model("Content", ContentSchema);
-
-export default Content;
+const Post = mongoose.models.Post || model("Post", PostSchema);
+export default Post;
