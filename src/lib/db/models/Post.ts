@@ -30,7 +30,7 @@ PostSchema.pre('save', function (next) {
 
 	//if it is an original post, set the link
 	if (this.isOriginal) {
-		this.link = `/posts/${this.slug}`;
+		this.link = `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/posts/${this.slug}`;
 	}
 
 	if(!this.description) {
