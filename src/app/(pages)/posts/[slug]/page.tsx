@@ -3,7 +3,7 @@ import MainContent from "@/components/MainContent";
 import { Metadata } from "next";
 
 // Generate metadata for SEO
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
 	try {
 		const { slug } = await params;
 		const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/v1/posts/${slug}`);
@@ -34,8 +34,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 // Server component - fetch data directly
-export default async function Post({ params }: { params: { slug: string } }) {
-	const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/v1/posts/${params.slug}`);
+export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
+	const { slug } = await params;
+	const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/v1/posts/${slug}`);
 	const data = await response.json();
 	const post = data.post;
 
