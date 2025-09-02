@@ -36,7 +36,11 @@ export default function Header() {
     },*/
     {
       name: "Blogs",
-      href: "/blogs"
+      href: "/posts?type=blog"
+    },
+    {
+      name: "Articles",
+      href: "/posts?type=article"
     },
     {
       name: "Books",
@@ -46,10 +50,18 @@ export default function Header() {
       name: "Now",
       href: "/now"
     },
+    /*{
+      name: "Write",
+      href: "/write"
+    },*/
     {
       name: "Contact",
       href: "/#contact"
-    }
+    },
+    /*{
+      name: "Admin",
+      href: "/admin"
+    }*/
   ];
 
 

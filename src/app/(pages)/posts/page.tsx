@@ -4,29 +4,38 @@ import MainContent from "@/components/MainContent"
 import { useEffect, useState } from "react";
 import PostCard from "./components/PostCard";
 
-export default function Posts() {
+export default function Posts({ searchParams }: { searchParams: Promise<{ type: string }> }) {
 
 	const [posts, setPosts] = useState<any[]>([]);
+	const [type, setType] = useState<string>('blog');
 
 	async function fetchPosts() {
-		const response = await fetch("/api/v1/posts");
-		const data = await response.json();
-		return data;
+		const { type } = await searchParams;
+		setType(type);
+		try {
+			const response = await fetch(`/api/v1/posts?type=${type}`);
+			const data = await response.json();
+			return data;
+		} catch (error) {
+			console.error(error);
+		}
 	}
 
 	useEffect(() => {
 		fetchPosts().then((data) => {
 			setPosts(data.posts);
+		}).catch((error) => {
+			console.error(error);
 		});
-	}, []);
+	}, [searchParams]);
 
 	return (
 		<MainContent>
-			<section id="posts" className="w-full md:max-w-4xl flex flex-col items-start justify-start gap-8 py-16 mx-auto">
-				<h1 className="text-2xl font-bold">Posts</h1>
+			<section id="posts" className="w-full h-full md:max-w-4xl flex flex-col items-start justify-start gap-4 py-8 mx-auto">
+				<h1 className="text-2xl font-bold">{type === 'blog' ? 'Blogs' : type === 'article' ? 'Articles' : 'Posts'}</h1>
 				<div className="w-full flex flex-col  items-start justify-start gap-4 overflow-y-auto">
 					{posts.map((post, index) => (
-						<PostCard key={index} title={post.title} link={post.link} categories={post.categories} image={post.image} date={post.date} description={post.description} />
+						<PostCard key={index} title={post.title} link={post.link} categories={post.categories} image={post.image} createdAt={post.createdAt} description={post.description} />
 					))}
 				</div>
 

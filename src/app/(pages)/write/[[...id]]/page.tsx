@@ -6,26 +6,53 @@ import MainContent from "@/components/MainContent";
 export default function WritePage({ params }: { params: Promise<{ id: string }> }) {
 	const [id, setId] = useState("");
 	const [content, setContent] = useState("");
-	const [type, setType] = useState("");
+	const [type, setType] = useState("blog");
 	const [title, setTitle] = useState("");
 	const [tags, setTags] = useState('');
 
 	useEffect(() => {
 		params.then((data) => {
-			console.log(data);
-			setId(data.id);
+			if (data?.id?.length) {
+				setId(data.id[0]);
+				fetchPost(data.id[0]);
+			}
 		});
-	});
+	}, []);
 
-	const publishPost = async () => {
-		const payload = { title, content, type, tags, isOriginal: true };
-		console.log(payload);
-		const response = await fetch(`/api/v1/posts`, {
-			method: "POST",
-			body: JSON.stringify(payload),
-		});
+	async function fetchPost(id: string) {
+		const response = await fetch(`/api/v1/posts/${id}`);
 		const data = await response.json();
-		console.log(data);
+		setTitle(data.post.title);
+		setContent(data.post.content);
+		setType(data.post.type);
+		setTags(data.post.tags);
+	}
+
+	async function publishPost() {
+		const payload = { title, content, type, tags, isOriginal: true };
+		if (id) {
+			const response = await fetch(`/api/v1/posts/${id}`, {
+				method: "PUT",
+				body: JSON.stringify(payload),
+			});
+			const data = await response.json();
+			if (data.success) {
+				alert("Post updated successfully");
+			} else {
+				alert(data.error);
+			}
+		} else {
+			const response = await fetch(`/api/v1/posts`, {
+				method: "POST",
+				body: JSON.stringify(payload),
+			});
+			const data = await response.json();
+			if (data.success) {
+				alert("Post created successfully");
+			} else {
+				alert(data.error);
+			}
+		}
 	}
 
 	const styles = {
@@ -43,13 +70,13 @@ export default function WritePage({ params }: { params: Promise<{ id: string }> 
 				<div className={styles.contentContainer}>
 
 					<div className={styles.container}>
-						<input type="text" placeholder="Title" className={styles.input} value={title} onChange={(e) => setTitle(e.target.value)} />
+						<input type="text" placeholder="Title" className={styles.input} value={title || ""} onChange={(e) => setTitle(e.target.value)} />
 						<button> Draft </button>
 						<button onClick={publishPost}> Publish </button>
 					</div>
 
 					<div className={styles.container}>
-						<input type="text" placeholder="Tags" className={styles.input} value={tags} onChange={(e) => setTags(e.target.value)} />
+						<input type="text" placeholder="Tags" className={styles.input} value={tags || ""} onChange={(e) => setTags(e.target.value)} />
 						<select className={styles.type} value={type} onChange={(e) => setType(e.target.value)}>
 							<option value="article"> Article </option>
 							<option value="blog"> Blog </option>

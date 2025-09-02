@@ -9,7 +9,7 @@ const PostSchema = new Schema({
 	categories: { type: String },
 	image: { type: String },
 	author: { type: String, default: "Jayesh Padhiar" },
-	content: { type: String, required: true, default: "" },
+	content: { type: String, default: "" },
 	isOriginal: { type: Boolean, default: false, required: true },
 	type: { type: String, default: "blog", enum: ["blog", "article"] },
 	readingTime: { type: Number, default: 1 },
@@ -31,6 +31,10 @@ PostSchema.pre('save', function (next) {
 	//if it is an original post, set the link
 	if (this.isOriginal) {
 		this.link = `/posts/${this.slug}`;
+	}
+
+	if(!this.description) {
+		this.description = this.content?.substring(0, 160);
 	}
 
 	//extract first image from markdown post

@@ -111,6 +111,10 @@ pre {
 }
 
 .markdown-preview  * {
+  img {
+    width: 100% !important;
+    height: auto !important;
+  }
   max-width: unset !important;
   @apply prose prose-slate;
   color: var(--foreground) !important;

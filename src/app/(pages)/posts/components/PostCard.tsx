@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from "react";
 
-export default function PostCard({ title, link, categories, image, date, description }: { title: string, link: string, categories: string, image?: string, date?: string, description?: string }) {
+export default function PostCard({ title, link, categories, image, createdAt, description }: { title: string, link: string, categories: string, image?: string, createdAt?: string, description?: string }) {
 	
 	const [postMetadata, setPostMetadata] = useState<any>(null);
 	async function fetchPostMetadata() {
@@ -32,16 +32,15 @@ export default function PostCard({ title, link, categories, image, date, descrip
 							))}
 						</div>
 					)}
-					<p className="text-foreground/50 text-xs">{date || postMetadata?.data?.date}</p>
+					<p className="text-foreground/50 text-xs">{(createdAt || postMetadata?.data?.date).split("T")[0]}</p>
 			</div>
-			<img
+			{(image || postMetadata?.data?.image?.url || postMetadata?.data?.logo?.url) && <img
 				src={image || postMetadata?.data?.image?.url || postMetadata?.data?.logo?.url}
-				alt={title}
 				className="rounded-[20px] h-full object-cover md:aspect-square md:w-36 md:h-36 w-full max-h-[168px] m-auto p-2"
 				onError={(e) => {
 					e.currentTarget.style.display = 'none';
 				}}
-			/>
+			/>}
 		</div>
 	);
 }
