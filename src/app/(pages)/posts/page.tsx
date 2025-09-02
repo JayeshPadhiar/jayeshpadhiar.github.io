@@ -1,31 +1,18 @@
-'use client';
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import PostCard from "./components/PostCard";
 import MainContent from "@/components/MainContent"
 
-export default function Posts() {
-	const searchParams = useSearchParams();
-	const [posts, setPosts] = useState<any[]>([]);
-	const [type, setType] = useState<string>("");
+export default async function Posts({ searchParams }: { searchParams: Promise<{ type: string }> }) {
+	const { type } = await searchParams;
+	let posts: any[] = [];
 
-	useEffect(() => {
-		const postType = searchParams.get('type') || '';
-		setType(postType);
-
-		const fetchPosts = async () => {
-			try {
-				const response = await fetch(`/api/v1/posts?type=${postType}`);
-				const data = await response.json();
-				setPosts(data?.posts || []);
-			} catch (error) {
-				console.error('Error fetching posts:', error);
-				setPosts([]);
-			} finally { }
-		};
-
-		fetchPosts();
-	}, [searchParams]);
+	try {
+		const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/v1/posts?type=${type || ''}`);
+		const data = await response.json();
+		posts = data?.posts || [];
+	} catch (error) {
+		console.error('Error fetching posts:', error);
+		posts = [];
+	} finally { }
 
 	return (
 		<MainContent>
