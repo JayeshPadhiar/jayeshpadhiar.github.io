@@ -1,8 +1,7 @@
 'use client';
-
-import MainContent from "@/components/MainContent"
 import { useEffect, useState } from "react";
 import PostCard from "./components/PostCard";
+import MainContent from "@/components/MainContent"
 
 export default function Posts({ searchParams }: { searchParams: Promise<{ type: string }> }) {
 	const [posts, setPosts] = useState<any[]>([]);
@@ -10,9 +9,10 @@ export default function Posts({ searchParams }: { searchParams: Promise<{ type: 
 
 	async function fetchPosts() {
 		const { type } = await searchParams;
+		console.log(type);
 		setType(type || '');
 		try {
-			const response = await fetch(`/api/v1/posts?type=${type || ''}`);
+			const response = await fetch(`/api/v1/posts?type=${type}`);
 			const data = await response.json();
 			return data;
 		} catch (error) {
