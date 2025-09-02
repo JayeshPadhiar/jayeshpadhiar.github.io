@@ -11,7 +11,7 @@ import Projects from "@/components/Projects";
 import { useEffect, useState } from "react";
 
 import home from "@/static/home.json";
-import Blogs from "@/components/Blogs";
+import Posts from "@/components/Posts";
 import Wall from "@/components/Wall";
 
 export default function Home() {
@@ -47,7 +47,8 @@ export default function Home() {
         <Skills skills={homeContent.skills} />
         <Experience experience={homeContent.experience} />
         <Projects projects={homeContent.projects} />
-        <Blogs blogs={blogs} />
+        <Posts type="article" />
+        <Posts type="blog" />
         <Interests />
         <Wall />
         <Contact />

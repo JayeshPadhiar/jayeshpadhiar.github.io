@@ -2,8 +2,11 @@
 import { useState, useEffect } from "react";
 import Editor from "@/components/Editor";
 import MainContent from "@/components/MainContent";
+import { useRouter } from "next/navigation";
 
 export default function WritePage({ params }: { params: Promise<{ id: string }> }) {
+	const router = useRouter();
+	const [token, setToken] = useState<string | null>(null);
 	const [id, setId] = useState("");
 	const [content, setContent] = useState("");
 	const [type, setType] = useState("blog");
@@ -11,6 +14,13 @@ export default function WritePage({ params }: { params: Promise<{ id: string }> 
 	const [tags, setTags] = useState('');
 
 	useEffect(() => {
+		const token = localStorage.getItem("token");
+		if (!token) {
+			router.push("/auth/login");
+			return;
+		}
+		setToken(token);
+		
 		params.then((data) => {
 			if (data?.id?.length) {
 				setId(data.id[0]);

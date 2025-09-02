@@ -5,15 +5,14 @@ import { useEffect, useState } from "react";
 import PostCard from "./components/PostCard";
 
 export default function Posts({ searchParams }: { searchParams: Promise<{ type: string }> }) {
-
 	const [posts, setPosts] = useState<any[]>([]);
-	const [type, setType] = useState<string>('blog');
+	const [type, setType] = useState<string>("");
 
 	async function fetchPosts() {
 		const { type } = await searchParams;
-		setType(type);
+		setType(type || '');
 		try {
-			const response = await fetch(`/api/v1/posts?type=${type}`);
+			const response = await fetch(`/api/v1/posts?type=${type || ''}`);
 			const data = await response.json();
 			return data;
 		} catch (error) {
