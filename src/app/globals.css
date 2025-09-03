@@ -114,12 +114,16 @@ pre {
 }
 
 .markdown-preview {
+  @apply prose;
+  max-width: unset !important;
+
+  * {
+    color: var(--foreground) !important;
+    background: var(--background) !important;
+  }
+
   img {
     width: 100% !important;
     height: auto !important;
   }
-  max-width: unset !important;
-  @apply prose;
-  color: var(--foreground) !important;
-  background: var(--background) !important;
 }
