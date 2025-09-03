@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from "react";
 
-export default function BlogCard({ title, link, categories, image, date, description }: { title: string, link: string, categories: string, image?: string, date?: string, description?: string }) {
+export default function BlogCard({ title, link, tags, image, date, description }: { title: string, link: string, tags: string, image?: string, date?: string, description?: string }) {
 	
 	const [blogMetadata, setBlogMetadata] = useState<any>(null);
 	async function fetchBlogMetadata() {
@@ -25,9 +25,9 @@ export default function BlogCard({ title, link, categories, image, date, descrip
 				<h1 className="text-xl text-foreground font-bold">{title || blogMetadata?.data?.title}</h1>
 				<p className="text-foreground/50 text-xs">{description || blogMetadata?.data?.description}</p>
 
-					{categories && categories.length > 0 && (
+					{tags && tags.length > 0 && (
 						<div className="flex flex-row items-center justify-start gap-2 flex-wrap mt-auto">
-							{categories.split(",").map((category: string, index: number) => (
+							{tags.split(",").map((category: string, index: number) => (
 								<span key={index} className="text-foreground/50 text-xs bg-foreground/10 px-2 py-1 rounded-md">{category}</span>
 							))}
 						</div>

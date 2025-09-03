@@ -19,7 +19,7 @@ export default function Posts({ type = "" }: { type?: string }) {
 			<h1 className="text-2xl font-bold">{type === 'blog' ? 'Blogs' : type === 'article' ? 'Articles' : 'Posts'}</h1>
 			<div className="flex flex-row flex-wrap gap-4 justify-start items-start w-full">
 				{posts.map((post, index) => (
-					<PostCard key={index} title={post.title} link={post.link} categories={post.categories} image={post.image} createdAt={post.createdAt} description={post.description} />
+					<PostCard key={index} title={post.title} link={post.link} tags={post.tags} image={post.image} createdAt={post.createdAt} description={post.description} />
 				))}
 			</div>
 			<a href={`/posts?type=${type}`} className="flex flex-row items-center justify-start gap-2 text-foreground/80">

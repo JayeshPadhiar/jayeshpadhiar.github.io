@@ -9,11 +9,13 @@ function PostsContent() {
 	const [posts, setPosts] = useState<any[]>([]);
 	const [type, setType] = useState<string>("");
 	const [loading, setLoading] = useState(true);
-
+	const [token, setToken] = useState<string | null>(null);
 	useEffect(() => {
+		const token = localStorage.getItem('token');
+		setToken(token);
 		const postType = searchParams.get('type') || '';
 		setType(postType);
-		
+
 		const fetchPosts = async () => {
 			try {
 				setLoading(true);
@@ -34,10 +36,18 @@ function PostsContent() {
 	return (
 		<MainContent>
 			<section id="posts" className="w-full h-full md:max-w-4xl flex flex-col items-start justify-start gap-4 py-8 mx-auto">
-				<h1 className="text-2xl font-bold">
-					{type === 'blog' ? 'Blogs' : type === 'article' ? 'Articles' : 'Posts'}
-				</h1>
-				
+				<div className="w-full flex flex-row items-center justify-between gap-2">
+					<h1 className="text-2xl font-bold">
+						{type === 'blog' ? 'Blogs' : type === 'article' ? 'Articles' : 'Posts'}
+					</h1>
+					{
+						token && (
+							<button type="button" className="bg-foreground/10 text-foreground/50 px-2 py-1 rounded-md" onClick={() => window.location.href = `/write`}>
+								<i className="fa-solid fa-plus"></i>
+							</button>
+						)}
+				</div>
+
 				{loading ? (
 					<div className="w-full flex justify-center items-center py-8">
 						<div className="animate-spin rounded-full h-8 w-8 border-b-2 border-foreground/50"></div>
@@ -46,14 +56,14 @@ function PostsContent() {
 					<div className="w-full flex flex-col items-start justify-start gap-4 overflow-y-auto">
 						{posts.length > 0 ? (
 							posts.map((post, index) => (
-								<PostCard 
-									key={post._id || index} 
-									title={post.title} 
-									link={post.link} 
-									categories={post.categories} 
-									image={post.image} 
-									createdAt={post.createdAt} 
-									description={post.description} 
+								<PostCard
+									key={post._id || index}
+									title={post.title}
+									link={post.link}
+									tags={post.tags}
+									image={post.image}
+									createdAt={post.createdAt}
+									description={post.description}
 								/>
 							))
 						) : (

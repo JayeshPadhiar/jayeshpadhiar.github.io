@@ -18,7 +18,7 @@ export default function BlogSettings({ blogs, setBlogs }: { blogs: any, setBlogs
 			setBlogs(newBlogs);
 		} else if (key === "add") {
 			let newBlogs = [...blogs];
-			newBlogs.unshift({ title: "", description: "", link: "", categories: "", image: "", date: new Date().toLocaleDateString() });
+			newBlogs.unshift({ title: "", description: "", link: "", tags: "", image: "", date: new Date().toLocaleDateString() });
 			setBlogs(newBlogs);
 		} else {
 			let newBlogs = [...blogs];
@@ -41,7 +41,7 @@ export default function BlogSettings({ blogs, setBlogs }: { blogs: any, setBlogs
 						<textarea placeholder="Description" className={styles.textarea} value={blog.description} onChange={(e) => editBlog(blogIndex, "description", e.target.value)} />
 							<input type="text" placeholder="Image URL" className={styles.input} value={blog.image} onChange={(e) => editBlog(blogIndex, "image", e.target.value)} />
 						<div className="flex flex-row w-full gap-2 items-center">
-							<input type="text" placeholder="Categories" className={styles.input} value={blog.categories} onChange={(e) => editBlog(blogIndex, "categories", e.target.value)} />
+							<input type="text" placeholder="tags" className={styles.input} value={blog.tags} onChange={(e) => editBlog(blogIndex, "tags", e.target.value)} />
 							<input type="text" placeholder="Date" className={styles.input} value={blog.date} onChange={(e) => editBlog(blogIndex, "date", e.target.value)} />
 						</div>
 					</div>

@@ -14,7 +14,7 @@ export default function PostSettings({ posts, setPosts }: { posts: any, setPosts
 	function editPost(postIndex: number, key: string, value: string) {
 		if (key === "add") {
 			let newPost = [...posts];
-			newPost.unshift({ title: "", description: "", link: "", categories: "", image: "", date: new Date().toLocaleDateString(), type: "blog" });
+			newPost.unshift({ title: "", description: "", link: "", tags: "", image: "", type: "blog" });
 			setPosts(newPost);
 		} else {
 			let newPost = [...posts];
@@ -84,8 +84,7 @@ export default function PostSettings({ posts, setPosts }: { posts: any, setPosts
 						<textarea placeholder="Description" className={styles.textarea} value={post.description} onChange={(e) => editPost(postIndex, "description", e.target.value)} />
 						<input type="text" placeholder="Image URL" className={styles?.input} value={post.image} onChange={(e) => editPost(postIndex, "image", e.target.value)} />
 						<div className="flex flex-row w-full gap-2 items-center">
-							<input type="text" placeholder="Categories" className={styles.input} value={post.categories} onChange={(e) => editPost(postIndex, "categories", e.target.value)} />
-							<input type="datetime-local" placeholder="Date" className={styles.input} value={post.createdAt} onChange={(e) => editPost(postIndex, "createdAt", e.target.value)} />
+							<input type="text" placeholder="tags" className={styles.input} value={post.tags} onChange={(e) => editPost(postIndex, "tags", e.target.value)} />
 							<select name="" id="" className={styles.select} value={post.type} onChange={(e) => editPost(postIndex, "type", e.target.value)}>
 								<option value="blog">Blog</option>
 								<option value="article">Article</option>

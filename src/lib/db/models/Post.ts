@@ -6,7 +6,7 @@ const PostSchema = new Schema({
 	description: { type: String },
 	link: { type: String, unique: true },
 	status: { type: String, default: "draft", enum: ["draft", "published", "archived"] },
-	categories: { type: String },
+	tags: { type: String },
 	image: { type: String },
 	author: { type: String, default: "Jayesh Padhiar" },
 	content: { type: String, default: "" },

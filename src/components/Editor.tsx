@@ -11,10 +11,12 @@ export default function Editor({ content, setContent }: { content: string, setCo
 			width: "100%",
 			height: "100%",
 			overflow: "auto",
+			maxWidth: "56rem",
 			padding: "0.5rem",
 			position: "relative" as const,
 			border: "0.5px solid var(--foreground)",
 			borderRadius: "10px",
+			margin: "0 auto",
 		},
 		previewButton: {
 			position: "absolute" as const,
