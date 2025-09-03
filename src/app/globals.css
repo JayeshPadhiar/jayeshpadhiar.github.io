@@ -68,7 +68,8 @@ button:disabled {
   opacity: 0.5;
 }
 
-input, textarea {
+input,
+textarea {
   border-radius: 10px;
   background: var(--background);
   padding: 0.4rem 1rem;
@@ -78,7 +79,8 @@ input, textarea {
   border: 0.5px solid var(--foreground);
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   box-shadow: inset 2px 2px 6px var(--button-shadow-light), inset -2px -2px 6px var(--button-shadow-dark);
 }
 
@@ -96,6 +98,7 @@ input:focus, textarea:focus {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -110,13 +113,13 @@ pre {
   border: 0.5px solid var(--foreground);
 }
 
-.markdown-preview  * {
+.markdown-preview * {
   img {
     width: 100% !important;
     height: auto !important;
   }
   max-width: unset !important;
-  @apply prose prose-slate;
+  @apply prose;
   color: var(--foreground) !important;
   background: var(--background) !important;
 }
