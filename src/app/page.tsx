@@ -17,7 +17,6 @@ import Wall from "@/components/Wall";
 export default function Home() {
 
   const [homeContent, setHomeContent] = useState(home);
-  const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
     const fetchHomeData = async () => {
@@ -29,13 +28,7 @@ export default function Home() {
         console.error("Error fetching home data:", error);
       }
     };
-    const fetchBlogs = async () => {
-      const response = await fetch("/api/v1/blogs");
-      const data = await response.json();
-      setBlogs(data.blogs.slice(0, 3));
-    };
     fetchHomeData();
-    fetchBlogs();
   }, []);
 
   return (
