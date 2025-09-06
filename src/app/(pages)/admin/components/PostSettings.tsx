@@ -1,3 +1,6 @@
+"use client";
+import { useEffect, useState } from "react";
+
 export default function PostSettings({ posts, setPosts }: { posts: any, setPosts: any }) {
 
 	const styles = {
@@ -10,6 +13,13 @@ export default function PostSettings({ posts, setPosts }: { posts: any, setPosts
 		sectionHeader: "flex flex-row w-full gap-2 items-center text-2xl font-bold",
 		select: "py-1 px-2 rounded-md border-1 border-foreground/40 w-full text-xs text-foreground/80 overflow-hidden",
 	}
+
+	const [token, setToken] = useState<string | null>(null);
+
+	useEffect(() => {
+		const token = localStorage.getItem("token");
+		setToken(token);
+	}, []);
 
 	function editPost(postIndex: number, key: string, value: string) {
 		if (key === "add") {
@@ -26,6 +36,9 @@ export default function PostSettings({ posts, setPosts }: { posts: any, setPosts
 	async function deletePost(postIndex: number) {
 	 	const response = await fetch(`/api/v1/posts/${posts[postIndex].slug}`, {
 			method: "DELETE",
+			headers: {
+				"Authorization": token || "",
+			},		
 		});
 		const data = await response.json();
 		if (data?.success) {
@@ -46,11 +59,17 @@ export default function PostSettings({ posts, setPosts }: { posts: any, setPosts
 		const payload = { ...posts[postIndex] };
 		if (payload.slug) {
 			response = await fetch(`/api/v1/posts/${payload.slug}`, {
+				headers: {
+					"Authorization": token || "",
+				},		
 				method: "PUT",
 				body: JSON.stringify(payload),
 			});
 		} else {
 			response = await fetch(`/api/v1/posts`, {
+				headers: {
+					"Authorization": token || "",
+				},		
 				method: "POST",
 				body: JSON.stringify(payload),
 			});

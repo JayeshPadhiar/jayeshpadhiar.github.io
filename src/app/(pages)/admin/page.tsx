@@ -71,6 +71,9 @@ export default function AdminPage() {
 		}
 		const response = await fetch(`/api/v1/${selectedPage.toLowerCase()}`, {
 			method: "POST",
+			headers: {
+				"Authorization": token || "",
+			},		
 			body: JSON.stringify(updatedData),
 		});
 		const data = await response.json();

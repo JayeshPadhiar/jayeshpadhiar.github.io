@@ -43,6 +43,9 @@ export default function WritePage({ params }: { params: Promise<{ id: string }> 
 		if (id) {
 			const response = await fetch(`/api/v1/posts/${id}`, {
 				method: "PUT",
+				headers: {
+					"Authorization": token || "",
+				},		
 				body: JSON.stringify(payload),
 			});
 			const data = await response.json();
@@ -54,6 +57,9 @@ export default function WritePage({ params }: { params: Promise<{ id: string }> 
 		} else {
 			const response = await fetch(`/api/v1/posts`, {
 				method: "POST",
+				headers: {
+					"Authorization": token || "",
+				},		
 				body: JSON.stringify(payload),
 			});
 			const data = await response.json();
