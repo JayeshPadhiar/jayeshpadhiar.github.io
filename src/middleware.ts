@@ -25,6 +25,10 @@ export default async function middleware(request: NextRequest) {
 
 export const config = {
 	matcher: [
-		"/api/v1/:path*",
+		"/api/v1/posts",
+		"/api/v1/posts/:path*",
+		"/api/v1/home",
+		"/api/v1/books",
+		"/api/v1/now",
 	],
 };
