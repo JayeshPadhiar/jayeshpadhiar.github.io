@@ -30,12 +30,12 @@ export default function AdminPage() {
 		setLoading(true);
 
 		const response = await fetch(`/api/v1/${page.toLowerCase()}`)
-		.then(res => res.json())
-		.catch(err => {
-			console.error(err);
-			return { error: err };
-		});
-		
+			.then(res => res.json())
+			.catch(err => {
+				console.error(err);
+				return { error: err };
+			});
+
 		if (page === "Home") {
 			setHero(response?.hero);
 			setAbout(response?.about);
@@ -73,7 +73,7 @@ export default function AdminPage() {
 			method: "POST",
 			headers: {
 				"Authorization": token || "",
-			},		
+			},
 			body: JSON.stringify(updatedData),
 		});
 		const data = await response.json();
@@ -141,7 +141,7 @@ export default function AdminPage() {
 						</div>
 					)}
 				</div>
-				<button className="flex justify-center items-center w-[100px] h-12 py-4 bg-foreground/10 rounded-full ml-auto" onClick={update}>Update</button>
+				{selectedPage !== 'Posts' && <button className="flex justify-center items-center w-[100px] h-12 py-4 bg-foreground/10 rounded-full ml-auto" onClick={update}>Update</button>}
 			</div>
 		</div>
 	);
