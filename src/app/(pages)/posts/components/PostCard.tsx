@@ -25,7 +25,7 @@ export default function PostCard({ title, link, tags, image, createdAt, descript
 		<div className="w-full flex md:flex-row flex-col-reverse items-start justify-start gap-4 border border-foreground/10 rounded-md cursor-pointer hover:border-foreground/60 transition-all duration-300">
 			<div onClick={() => window.open(link, "_blank")} className="w-full flex flex-col items-start justify-start gap-4 p-4 h-full">
 				<h1 className="text-xl text-foreground font-bold">{title || postMetadata?.data?.title}</h1>
-				<p className="text-foreground/50 text-xs break-all">{description || postMetadata?.data?.description}</p>
+				<p className="text-foreground/70 text-xs break-all">{description || postMetadata?.data?.description}</p>
 
 					{tags && tags.length > 0 && (
 						<div className="flex flex-row items-center justify-start gap-2 flex-wrap mt-auto">
