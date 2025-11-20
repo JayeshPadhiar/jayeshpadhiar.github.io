@@ -54,7 +54,7 @@ export default function Header() {
       href: "/posts?type=article"
     },
     {
-      name: "Books",
+      name: "Bookshelf",
       href: "/books"
     },
     {

@@ -13,11 +13,18 @@ export default function Books() {
 		const fetchBooks = async () => {
 			try {
 				const booksResponse = await fetch("/api/v1/books").then(res => res.json());
-				const types = [...new Set(booksResponse.books.map((book: any) => book.type))];
+				const allTypes: string[] = [];
+				booksResponse.books.map((book: any) => {
+					book.type.forEach((type: string) => {
+						allTypes.push(type);
+					});
+				});
+				const types = [...new Set(allTypes)];
+				types.sort((a: string, b: string) => a.localeCompare(b));
 				const booksByType = types.map((type: any) => {
 					return {
 						type,
-						books: booksResponse.books.filter((book: any) => book.type === type).sort((a: any, b: any) => a.status.localeCompare(b.status))
+						books: booksResponse.books.filter((book: any) => book.type.includes(type)).sort((a: any, b: any) => a.status.localeCompare(b.status))
 					}
 				});
 				setBooksData(booksByType);

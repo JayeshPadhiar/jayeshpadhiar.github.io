@@ -1,3 +1,5 @@
+import Papa from 'papaparse';
+
 export default function BookSettings({ books, setBooks }: { books: any, setBooks: any }) {
 
 	const styles = {
@@ -9,49 +11,101 @@ export default function BookSettings({ books, setBooks }: { books: any, setBooks
 		bookCard: "flex flex-col min-w-[300px] w-full max-w-[30%] gap-2 items-start my-4",
 		sectionHeader: "flex flex-row w-full gap-2 items-center text-2xl font-bold",
 		select: "py-1 px-2 rounded-md border-1 border-foreground/40 w-full text-xs text-foreground/80",
+		table: "w-full border-collapse border border-foreground/10 p-4",
+		tr: "border-b border-foreground/10",
+		th: "text-left p-2",
+		td: "text-left px-4 py-2",
 	}
 
-	function editBook(bookIndex: number, key: string, value: string) {
-		if (key === "delete") {
-			let newBooks = [...books];
-			newBooks.splice(bookIndex, 1);
-			setBooks(newBooks);
-		} else if (key === "add") {
-			let newBooks = [...books];
-			newBooks.unshift({ title: "", author: "", description: "", status: "reading", type: "fiction", image: "" });
-			setBooks(newBooks);
+	async function saveBooks() {
+		const response = await fetch(`/api/v1/books`, {
+			method: "POST",
+			body: JSON.stringify(books),
+		});
+		const data = await response.json();
+		if (data.success) {
+			alert("Books saved successfully");
 		} else {
-			let newBooks = [...books];
-			newBooks[bookIndex][key] = value;
-			setBooks(newBooks);
+			alert(data.error);
+		}
+	}
+
+	function uploadCSV(e: React.ChangeEvent<HTMLInputElement>) {
+		const file = e.target.files?.[0];
+		if (file) {
+			Papa.parse(file, {
+				header: true,
+				skipEmptyLines: true,
+				complete: (results) => {
+					const parsedBooks = results.data.map((row: any) => {
+						// Determine status: "read" shelf means "finished", otherwise "reading"
+						const status = row['Exclusive Shelf'];
+
+						// You can use the description field for additional info or leave it empty
+						const yearPublished = row['Year Published'] || row['Original Publication Year'] || 'N/A';
+						const numberOfPages = row['Number of Pages'] || 'N/A';
+						const myRating = row['My Rating'] || 'N/A';
+						const description = `Published: ${yearPublished} | Pages: ${numberOfPages} | Rating: ${myRating}/5`;
+
+						const book = {
+							title: row['Title'] || "",
+							author: row['Author'] || "",
+							description: description,
+							status: status,
+							type: row['Bookshelves'].split(',').map((type: string) => type.trim()) || [], // Default to fiction, can be manually changed
+							image: "",
+							myRating: row['My Rating'] || "",
+							averageRating: row['Average Rating'] || "",
+							numberOfPages: row['Number of Pages'] || "",
+							yearPublished: row['Year Published'] || row['Original Publication Year'] || "",
+							dateRead: row['Date Read'] || "",
+							publisher: row['Publisher'] || "",
+							isbn: row['ISBN'] || "",
+							isbn13: row['ISBN13'] || "",
+							myReview: row['My Review'] || "",
+							binding: row['Binding'] || "",
+						};
+						return book;
+					});
+
+					// descending order
+					const sortedBooks = parsedBooks.sort((a: any, b: any) => new Date(b.dateRead).getTime() - new Date(a.dateRead).getTime());
+					setBooks(sortedBooks);
+					alert(`Successfully uploaded ${sortedBooks.length} books!`);
+				},
+				error: (error) => {
+					console.error('Error parsing CSV:', error);
+					alert('Error parsing CSV file. Please check the file format.');
+				}
+			});
 		}
 	}
 
 	return (
 		<section className={styles.section}>
-			<button type="button" className={styles.button} onClick={() => editBook(0, "add", "")}> <i className="fa-solid fa-plus"></i> Add Book </button>
-			<div className="flex flex-row w-full gap-2 items-start justify-start flex-wrap">
-				{books.map((book: any, bookIndex: number) => (
-					<div key={bookIndex} className={styles.bookCard}>
-						<div className="flex flex-row w-full gap-2 items-center">
-							<input type="text" placeholder="Book Title" className={styles.input} value={book.title} onChange={(e) => editBook(bookIndex, "title", e.target.value)} />
-							<button type="button" className={styles.button} onClick={() => editBook(bookIndex, "delete", "")}> <i className="fa-solid fa-trash"></i> </button>
-						</div>
-						<input type="text" placeholder="Author" className={styles.input} value={book.author} onChange={(e) => editBook(bookIndex, "author", e.target.value)} />
-						<textarea placeholder="Description" className={styles.textarea} value={book.description} onChange={(e) => editBook(bookIndex, "description", e.target.value)} />
-						<select className={styles.select} value={book.type} onChange={(e) => editBook(bookIndex, "type", e.target.value)}>
-							{["fiction", "non-fiction"].map((type) => (
-								<option key={type} value={type}>{type}</option>
-							))}
-						</select>
-						<select className={styles.select} value={book.status} onChange={(e) => editBook(bookIndex, "status", e.target.value)}>
-							{["reading", "finished"].map((status) => (
-								<option key={status} value={status}>{status}</option>
-							))}
-						</select>
-					</div>
-				))}
-			</div>
+			<input type="file" accept=".csv" onChange={uploadCSV} />
+			<table className={styles.table}>
+				<thead>
+					<tr className={styles.tr}>
+						<th className={styles.th}>Title</th>
+						<th className={styles.th}>Author</th>
+						<th className={styles.th}>Status</th>
+						<th className={styles.th}>Type</th>
+						<th className={styles.th}>My Rating</th>
+					</tr>
+				</thead>
+				<tbody>
+					{books.map((book: any, bookIndex: number) => (
+						<tr key={bookIndex} className={styles.tr}>
+							<td className={styles.td}>{book.title}</td>
+							<td className={styles.td}>{book.author}</td>
+							<td className={styles.td}>{book.status}</td>
+							<td className={styles.td}>{book.type.join(', ')}</td>
+							<td className={styles.td}>{book.myRating}</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
 		</section>
 	)
 }
