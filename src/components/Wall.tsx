@@ -28,7 +28,7 @@ export default function Wall() {
 		<section id="wall" className={styles.container}>
 			<h1 className={styles.title}>My Wall</h1>
 			<p className="text-foreground/80 text-sm mb-4">
-				This is my boundless canvas for shared expression. <br /> Share your thoughts, leave a note, or simply mark your presence. <br /> I'd love to know you stopped by :) <br /> PS: Fullscreen mode recommended for better experience.
+				I'd love to know you stopped by :) <br /> PS: Fullscreen mode recommended for better experience.
 			</p>
 			<div
 				className={`${styles.wall} transition-all duration-300 ease-in-out`}
