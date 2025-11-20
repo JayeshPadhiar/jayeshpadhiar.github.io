@@ -28,6 +28,7 @@ export default function Now() {
 				setCurrentlyReading([]);
 			}
 		};
+		fetchBooks();
 		fetchNowData();
 	}, []);
 
@@ -50,8 +51,10 @@ export default function Now() {
 							<h2 className="text-xl font-bold">{section.title || "No title available"}</h2>
 							<p className="text-md text-foreground/80 mb-2">{section.description || "No description available"}</p>
 							<ul className="list-disc list-inside space-y-1 ml-4">
-								{section.items.map((item: string, idx: number) => (
-									<li key={idx} className="text-md text-foreground/80 list-outside">{item}</li>
+								{section.items.map((item: any, idx: number) => (
+									<li key={idx} className="text-md text-foreground/80 list-outside">
+										{typeof item === 'string' ? item : JSON.stringify(item)}
+									</li>
 								))}
 
 							</ul>
