@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 export default function Now() {
 
 	const [nowData, setNowData] = useState<any>(now);
+	const [currentlyReading, setCurrentlyReading] = useState<any[]>([]);
 
 	useEffect(() => {
 		const fetchNowData = async () => {
@@ -16,6 +17,15 @@ export default function Now() {
 				setNowData(data?.now);
 			} catch (error) {
 				setNowData(now);
+			}
+		};
+		const fetchBooks = async () => {
+			try {
+				const response = await fetch("/api/v1/books");
+				const { books } = await response.json();
+				setCurrentlyReading(books.filter((book: any) => book.status === "currently-reading"));
+			} catch (error) {
+				setCurrentlyReading([]);
 			}
 		};
 		fetchNowData();
@@ -29,6 +39,10 @@ export default function Now() {
 					<h1 className="text-2xl font-bold">So! Currently...</h1>
 				</div>
 
+				{currentlyReading.map((item: { title: string, author: string, description: string, status: string, averageRating: number, myRating: number, myReview: string, numberOfPages: number, type: string }, idx: number) => (
+					<BookCard key={idx} title={item.title} author={item.author} description={item.description} status={item.status} averageRating={item.averageRating} myRating={item.myRating} myReview={item.myReview} numberOfPages={item.numberOfPages} type={item.type} />
+				))}
+
 				{nowData?.sections.map((section: any, index: number) => {
 					if (typeof section === 'string') return null;
 					return (
@@ -36,13 +50,10 @@ export default function Now() {
 							<h2 className="text-xl font-bold">{section.title || "No title available"}</h2>
 							<p className="text-md text-foreground/80 mb-2">{section.description || "No description available"}</p>
 							<ul className="list-disc list-inside space-y-1 ml-4">
-								{section.items?.map((item: string | { title: string, author: string, description: string }, idx: number) => (
-									<li key={idx} className="text-md text-foreground/80 list-outside">
-										{typeof item === 'string' ? item : (
-											<BookCard key={idx} title={item.title} author={item.author} description={item.description} status={"reading"} />
-										)}
-									</li>
+								{section.items.map((item: string, idx: number) => (
+									<li key={idx} className="text-md text-foreground/80 list-outside">{item}</li>
 								))}
+
 							</ul>
 						</div>
 					);

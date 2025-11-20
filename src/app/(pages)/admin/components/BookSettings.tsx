@@ -42,7 +42,7 @@ export default function BookSettings({ books, setBooks }: { books: any, setBooks
 						const status = row['Exclusive Shelf'];
 
 						// You can use the description field for additional info or leave it empty
-						const yearPublished = row['Year Published'] || row['Original Publication Year'] || 'N/A';
+						const yearPublished = row['Original Publication Year'] || row['Year Published'] || 'N/A';
 						const numberOfPages = row['Number of Pages'] || 'N/A';
 						const myRating = row['My Rating'] || 'N/A';
 						const description = `Published: ${yearPublished} | Pages: ${numberOfPages} | Rating: ${myRating}/5`;
