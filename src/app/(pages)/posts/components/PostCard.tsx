@@ -6,7 +6,6 @@ export default function PostCard({ title, link, tags, image, createdAt, descript
 	const [postMetadata, setPostMetadata] = useState<any>(null);
 	async function fetchPostMetadata() {
 		try {
-			console.log(tags);
 			const medatada = await fetch(`https://api.microlink.io/?url=${link}`);
 			const metadata = await medatada.json();
 			//console.log(metadata);
@@ -17,7 +16,6 @@ export default function PostCard({ title, link, tags, image, createdAt, descript
 	}
 
 	useEffect(() => {
-		console.log(tags);
 		fetchPostMetadata();
 	}, [link]);
 

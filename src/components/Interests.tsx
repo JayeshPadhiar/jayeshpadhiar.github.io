@@ -1,25 +1,38 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BookCard } from "@/app/(pages)/books/components/BookCard";
 
 export default function Interests() {
 
+	const [currentlyReading, setCurrentlyReading] = useState([]);
+	const [recentlyFinished, setRecentlyFinished] = useState([]);
+
+	const fetchBooks = async () => {
+		try {
+			const response = await fetch("/api/v1/books");
+			const {books} = await response.json();
+			const currentlyReading = books.filter((book: any) => book.status === "currently-reading");
+			const recentlyFinished = books.filter((book: any) => book.status === "read");
+			setCurrentlyReading(currentlyReading);
+			setRecentlyFinished(recentlyFinished.slice(0, 2));
+		} catch (error) {
+			console.error(error);
+			setCurrentlyReading([]);
+			setRecentlyFinished([]);
+		}
+	}
+
+	useEffect(() => {
+		fetchBooks();
+	}, []);
+
 	const [selectedInterest, setSelectedInterest] = useState("Books");
+	
 	const interests = {
 		"Books": {
 			"icon": "fa-solid fa-book",
-			"currentlyReading": [
-				{
-					"title": "The Stranger",
-					"author": "Albert Camus"
-				}
-			],
-			"recentlyFinished": [
-				{
-					"title": "Days at the Morisaki Bookstore",
-					"author": "Satoshi Yagisawa"
-				}
-			]
+			"currentlyReading": [],
+			"recentlyFinished": []
 		},
 		"Music": {
 			"icon": "fa-solid fa-music",
@@ -66,14 +79,14 @@ export default function Interests() {
 						<div className="w-full h-full flex flex-col items-start justify-start gap-4">
 							<div className="flex flex-col items-start justify-start gap-4 w-full">
 								<h1>I'm currently reading:</h1>
-								{interests["Books"].currentlyReading.map((book: { title: string, author: string }) => (
-									<BookCard key={book.title} title={book.title} author={book.author} description="" status="reading" />
+								{currentlyReading.map((book: { title: string, author: string, status: string }) => (
+									<BookCard key={book.title} title={book.title} author={book.author} description="" status={book.status} />
 								))}
 							</div>
 							<div className="flex flex-col items-start justify-start gap-4 w-full">
 								<h1>Just finished reading:</h1>
-								{interests["Books"].recentlyFinished.map((book: { title: string, author: string }) => (
-									<BookCard key={book.title} title={book.title} author={book.author} description="" status="finished" />
+								{recentlyFinished.map((book: { title: string, author: string, status: string }) => (
+									<BookCard key={book.title} title={book.title} author={book.author} description="" status={book.status} />
 								))}
 							</div>
 							<a href="/books" className="flex flex-row items-center justify-start gap-2 text-sm text-foreground/80 hover:text-foreground hover:underline">I've read more books :) <i className={`fa-solid fa-arrow-right`}></i></a>
