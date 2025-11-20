@@ -79,14 +79,14 @@ export default function Interests() {
 						<div className="w-full h-full flex flex-col items-start justify-start gap-4">
 							<div className="flex flex-col items-start justify-start gap-4 w-full">
 								<h1>I'm currently reading:</h1>
-								{currentlyReading.map((book: { title: string, author: string, status: string, averageRating: number, myRating: number, myReview: string, numberOfPages: number, type: string }) => (
-									<BookCard key={book.title} title={book.title} author={book.author} description="" status={book.status} averageRating={book.averageRating} myRating={book.myRating} myReview={book.myReview} numberOfPages={book.numberOfPages} type={book.type} />
+								{currentlyReading.map((book: { title: string, author: string, status: string, averageRating: number, myRating: number, myReview: string, numberOfPages: number, type: string, yearPublished: string }) => (
+									<BookCard key={book.title} title={book.title} author={book.author} description="" status={book.status} averageRating={book.averageRating} myRating={book.myRating} myReview={book.myReview} numberOfPages={book.numberOfPages} type={book.type} yearPublished={book.yearPublished} />
 								))}
 							</div>
 							<div className="flex flex-col items-start justify-start gap-4 w-full">
 								<h1>Just finished reading:</h1>
-								{recentlyFinished.map((book: { title: string, author: string, status: string, averageRating: number, myRating: number, myReview: string, numberOfPages: number, type: string }) => (
-									<BookCard key={book.title} title={book.title} author={book.author} description="" status={book.status} averageRating={book.averageRating} myRating={book.myRating} myReview={book.myReview} numberOfPages={book.numberOfPages} type={book.type} />
+								{recentlyFinished.map((book: { title: string, author: string, status: string, averageRating: number, myRating: number, myReview: string, numberOfPages: number, type: string, yearPublished: string }) => (
+									<BookCard key={book.title} title={book.title} author={book.author} description="" status={book.status} averageRating={book.averageRating} myRating={book.myRating} myReview={book.myReview} numberOfPages={book.numberOfPages} type={book.type} yearPublished={book.yearPublished} />
 								))}
 							</div>
 							<a href="/books" className="flex flex-row items-center justify-start gap-2 text-sm text-foreground/80 hover:text-foreground hover:underline">I've read more books :) <i className={`fa-solid fa-arrow-right`}></i></a>

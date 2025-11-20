@@ -42,22 +42,17 @@ export default function BookSettings({ books, setBooks }: { books: any, setBooks
 						const status = row['Exclusive Shelf'];
 
 						// You can use the description field for additional info or leave it empty
-						const yearPublished = row['Original Publication Year'] || row['Year Published'] || 'N/A';
-						const numberOfPages = row['Number of Pages'] || 'N/A';
-						const myRating = row['My Rating'] || 'N/A';
-						const description = `Published: ${yearPublished} | Pages: ${numberOfPages} | Rating: ${myRating}/5`;
-
 						const book = {
 							title: row['Title'] || "",
 							author: row['Author'] || "",
-							description: description,
+							description: "",
 							status: status,
 							type: row['Bookshelves'].split(',').map((type: string) => type.trim()) || [], // Default to fiction, can be manually changed
 							image: "",
 							myRating: row['My Rating'] || "",
 							averageRating: row['Average Rating'] || "",
 							numberOfPages: row['Number of Pages'] || "",
-							yearPublished: row['Year Published'] || row['Original Publication Year'] || "",
+							yearPublished: row['Original Publication Year'] || row['Year Published'] || "",
 							dateRead: row['Date Read'] || "",
 							publisher: row['Publisher'] || "",
 							isbn: row['ISBN'] || "",

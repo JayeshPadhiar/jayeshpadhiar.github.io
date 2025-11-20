@@ -40,8 +40,8 @@ export default function Now() {
 					<h1 className="text-2xl font-bold">So! Currently...</h1>
 				</div>
 
-				{currentlyReading.map((item: { title: string, author: string, description: string, status: string, averageRating: number, myRating: number, myReview: string, numberOfPages: number, type: string }, idx: number) => (
-					<BookCard key={idx} title={item.title} author={item.author} description={item.description} status={item.status} averageRating={item.averageRating} myRating={item.myRating} myReview={item.myReview} numberOfPages={item.numberOfPages} type={item.type} />
+				{currentlyReading.map((item: { title: string, author: string, description: string, status: string, averageRating: number, myRating: number, myReview: string, numberOfPages: number, type: string, yearPublished: string }, idx: number) => (
+					<BookCard key={idx} title={item.title} author={item.author} description={item.description} status={item.status} averageRating={item.averageRating} myRating={item.myRating} myReview={item.myReview} numberOfPages={item.numberOfPages} type={item.type} yearPublished={item.yearPublished} />
 				))}
 
 				{nowData?.sections.map((section: any, index: number) => {
