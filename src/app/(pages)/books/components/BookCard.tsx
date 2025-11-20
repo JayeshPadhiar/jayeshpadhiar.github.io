@@ -26,7 +26,6 @@ export function BookCard({ title, author, description = "", status = "finished",
 		for (let i = 0; i < emptyStars; i++) {
 			stars.push(<i key={`empty-${i}`} className="fa-regular fa-star text-yellow-500"></i>);
 		}
-
 		return stars;
 	};
 
