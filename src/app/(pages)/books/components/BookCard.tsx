@@ -46,12 +46,14 @@ export function BookCard({ title, author, description = "", status = "finished",
 			>
 				<h2 className="text-lg font-bold">{title}</h2>
 				<p className="text-xs text-foreground/80 mb-2">{author}</p>
-				<div className="flex items-center gap-2 text-xs text-foreground/80">
-							<span className="font-semibold">I rated:</span>
-							<div className="flex gap-1">
-								{renderStars(myRating)}
-							</div>
-						</div>
+				{
+				status === "read" && (<div className="flex items-center gap-2 text-xs text-foreground/80">
+					<span className="font-semibold">I rated:</span>
+					<div className="flex gap-1">
+						{renderStars(myRating)}
+					</div>
+				</div>)
+				}
 				{isExpanded && (
 					<div className="flex flex-col items-start justify-start w-full gap-y-2">
 						<div className="flex items-center gap-2 text-xs text-foreground/80">
@@ -61,7 +63,7 @@ export function BookCard({ title, author, description = "", status = "finished",
 							</div>
 							<span className="text-foreground/60">({averageRating})</span>
 						</div>
-						
+
 						{myReview && (
 							<div className="text-xs text-foreground/80">
 								<span className="font-semibold">My Review:</span>
