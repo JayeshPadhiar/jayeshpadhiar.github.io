@@ -6,7 +6,7 @@ export function BookCard({ title, author, description = "", status = "finished" 
 			<p className="text-sm text-foreground/60 my-2">{description}</p>
 			<p className={`text-xs text-foreground/60 mt-auto ${status === "read" ? "text-green-700" : "text-yellow-600"}`}>
 				{status === "read" ? "Finished" : "Reading"}
-				<span> <i className={`fa-solid ${status === "finished" ? "fa-circle-check" : "fa-book-open-reader"}`}></i> </span>
+				<span> <i className={`fa-solid ${status === "read" ? "fa-circle-check" : "fa-book-open-reader"}`}></i> </span>
 			</p>
 		</div>
 	);
