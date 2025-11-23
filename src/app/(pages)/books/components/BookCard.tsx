@@ -42,7 +42,7 @@ export function BookCard({ title, author, description = "", status = "finished",
 			{/* Book card */}
 			<div
 				onClick={() => setIsExpanded(!isExpanded)}
-				className={`flex flex-col items-start justify-start gap-y-2 border-1 border-foreground/10 rounded-xl px-4 py-2 w-full md:max-w-[400px] self-stretch hover:border-foreground/60 transition-all duration-300 cursor-pointer ${isExpanded ? "fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-background z-50 border-1 border-foreground/20 shadow-2xl" : ""}`}
+				className={`flex flex-col items-start justify-start gap-y-2 border-1 border-foreground/10 rounded-xl px-4 py-2 w-full md:max-w-[400px] self-stretch hover:border-foreground/60 transition-all duration-300 cursor-pointer ${isExpanded ? "fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-background z-50 border-1 border-foreground/20 shadow-2xl md:max-w-[800px] max-h-[600px]" : ""}`}
 			>
 				<h2 className="text-lg font-bold">{title}</h2>
 				<p className="text-xs text-foreground/80 mb-2">{author}</p>
@@ -55,7 +55,7 @@ export function BookCard({ title, author, description = "", status = "finished",
 				</div>)
 				}
 				{isExpanded && (
-					<div className="flex flex-col items-start justify-start w-full gap-y-2">
+					<div className="flex flex-col items-start justify-start w-full gap-y-2 h-full">
 						<div className="flex items-center gap-2 text-xs text-foreground/80">
 							<span className="font-semibold">Average Rating:</span>
 							<div className="flex gap-1">
@@ -67,7 +67,7 @@ export function BookCard({ title, author, description = "", status = "finished",
 						{myReview && (
 							<div className="text-xs text-foreground/80">
 								<span className="font-semibold">My Review:</span>
-								<div className="flex gap-1 overflow-auto max-h-[200px] w-full p-2">
+								<div className="flex gap-1 overflow-auto h-full max-h-[300px] w-full p-2">
 									<p className="mt-1" dangerouslySetInnerHTML={{ __html: myReview }}></p>
 								</div>
 							</div>
