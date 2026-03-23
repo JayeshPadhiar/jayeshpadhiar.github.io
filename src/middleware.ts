@@ -30,5 +30,6 @@ export const config = {
 		"/api/v1/home",
 		"/api/v1/books",
 		"/api/v1/now",
+		"/api/v1/resume",
 	],
 };

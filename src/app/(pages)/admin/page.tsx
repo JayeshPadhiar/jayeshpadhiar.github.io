@@ -9,6 +9,7 @@ import ProjectSettings from "./components/ProjectSettings";
 import BookSettings from "./components/BookSettings";
 import PostSettings from "./components/PostSettings";
 import NowSettings from "./components/NowSettings";
+import ResumeSettings from "./components/ResumeSettings";
 
 export default function AdminPage() {
 	const router = useRouter();
@@ -24,6 +25,7 @@ export default function AdminPage() {
 	const [books, setBooks] = useState([]);
 	const [now, setNow] = useState([]);
 	const [posts, setPosts] = useState([]);
+	const [resumeHtml, setResumeHtml] = useState("");
 
 	async function selectPage(page: any) {
 		setSelectedPage(page);
@@ -48,6 +50,8 @@ export default function AdminPage() {
 			setPosts(response?.posts);
 		} else if (page === "Now") {
 			setNow(response?.now);
+		} else if (page === "Resume") {
+			setResumeHtml(response?.html || "");
 		}
 		setLoading(false);
 	}
@@ -66,6 +70,8 @@ export default function AdminPage() {
 			updatedData = books;
 		} else if (selectedPage === "Posts") {
 			updatedData = posts;
+		} else if (selectedPage === "Resume") {
+			updatedData = { html: resumeHtml };
 		} else {
 			updatedData = now;
 		}
@@ -100,7 +106,7 @@ export default function AdminPage() {
 			<div className="flex flex-col md:w-[25%] w-full h-full p-8 justify-start items-center">
 				<h1 className="text-2xl font-bold">Admin</h1>
 				<div className="flex md:flex-col flex-row w-full h-full gap-2 mt-4 items-center">
-					{["Home", "Posts", "Books", "Now"].map((page) => (
+					{["Home", "Posts", "Books", "Now", "Resume"].map((page) => (
 						<div key={page} className={`flex justify-center items-center w-full h-12 py-4 rounded-full cursor-pointer ${selectedPage === page ? "border-1 border-foreground/80" : "border-1 border-foreground/10"}`}
 							onClick={() => setSelectedPage(page)}>
 							<h1 className="text-sm font-bold">{page}</h1>
@@ -138,6 +144,11 @@ export default function AdminPage() {
 					{selectedPage === "Now" && !loading && (
 						<div className="flex flex-col w-full h-full gap-2 mt-4 items-center">
 							<NowSettings now={now} setNow={setNow} />
+						</div>
+					)}
+					{selectedPage === "Resume" && !loading && (
+						<div className="flex flex-col w-full h-full gap-2 mt-4 items-center">
+							<ResumeSettings resumeHtml={resumeHtml} setResumeHtml={setResumeHtml} />
 						</div>
 					)}
 				</div>

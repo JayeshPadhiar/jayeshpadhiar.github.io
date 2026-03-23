@@ -18,11 +18,13 @@ export default function Hero({ hero }: { hero: any }) {
         ))}
       </div>
       <div className="flex gap-4 mt-6">
-        {hero.buttons.map((button: { label: string, url: string }, idx: number) => (
-          <a href={button.url} target="_blank" rel="noopener noreferrer" key={idx}>
-            <button>{button.label}</button>
-          </a>
-        ))}
+        {hero.buttons.map((button: { label: string, url: string }, idx: number) => {
+          return (
+            <a href={button.url} target="_blank" rel="noopener noreferrer" key={idx}>
+              <button>{button.label}</button>
+            </a>
+          );
+        })}
       </div>
     </section>
   );
