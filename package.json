@@ -16,7 +16,7 @@
     "marked": "^16.2.1",
     "mongodb": "^6.17.0",
     "mongoose": "^8.18.0",
-    "next": "15.3.4",
+    "next": "15.3.8",
     "node-fetch": "^3.3.2",
     "nodemailer": "^7.0.5",
     "papaparse": "^5.5.3",
