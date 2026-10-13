@@ -1,129 +1,125 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--foreground) var(--background);
+  scrollbar-color: var(--border-strong) transparent;
 }
 
+/*
+ * Design tokens. Light is the default; the inline script in layout.tsx sets data-theme before first paint.
+ * Use these via Tailwind (text-muted, bg-surface, border-border, ...) instead of fading foreground with
+ * opacity: foreground/50 on white is only 3.4:1, below WCAG AA for text.
+ */
 :root {
-  --background: rgb(17 24 39);
-  --foreground: rgb(229 231 235);
-  --secondary-foreground: #ff4040;
-  --button-shadow-light: rgb(23 32 52);
-  --button-shadow-dark: rgb(11 16 26);
-}
-
-/* Light and dark theme configuration */
-:root[data-theme="light"] {
-  /* Light theme defaults */
-  --background: #e0e0e0;
-  --foreground: #1e1e1e;
-  --secondary-foreground: #ff2400;
-  --button-shadow-light: #bebebe;
-  --button-shadow-dark: #efefef;
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #171717;
+  --muted: #4d4d4d; /* secondary text */
+  --subtle: #6b6b6b; /* captions, tertiary text */
+  --surface: #f2f2f2; /* chips, hover fills */
+  --border: #ebebeb;
+  --border-strong: #c9c9c9;
+  --focus: #0070f3;
+  --success: #147a3a;
+  --warning: #9a5c06;
+  --star: #d97706;
+  /* Sticky header height on md+; the sticky hero uses it. */
+  --header-h: 4.0625rem;
 }
 
 :root[data-theme="dark"] {
-  --background: rgb(17 24 39);
-  --foreground: rgb(229 231 235);
-  --secondary-foreground: #ff4040;
-  --button-shadow-light: rgb(23 32 52);
-  --button-shadow-dark: rgb(11 16 26);
+  color-scheme: dark;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --muted: #a1a1a1;
+  --subtle: #878787;
+  --surface: #1a1a1a;
+  --border: #2e2e2e;
+  --border-strong: #454545;
+  --focus: #3291ff;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --star: #fbbf24;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-focus: var(--focus);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-star: var(--star);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-roboto-mono);
-  scroll-behavior: smooth;
-}
-
-button {
-  border-radius: 10px;
-  background: var(--background);
-  padding: 0.4rem 1rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s;
-  border: 0.5px solid var(--foreground);
-  color: var(--foreground);
-}
-
-button:hover {
-  box-shadow: 2px 2px 6px var(--button-shadow-light), -2px -2px 6px var(--button-shadow-dark);
-}
-
-button:active {
-  box-shadow: inset 2px 2px 6px var(--button-shadow-light), inset -2px -2px 6px var(--button-shadow-dark);
-}
-
-button:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-
-input,
-textarea {
-  border-radius: 10px;
-  background: var(--background);
-  padding: 0.4rem 1rem;
-  font-size: 1rem;
-  outline: none;
-  transition: all .5s;
-  border: 0.5px solid var(--foreground);
-}
-
-input:focus,
-textarea:focus {
-  box-shadow: inset 2px 2px 6px var(--button-shadow-light), inset -2px -2px 6px var(--button-shadow-dark);
-}
-
-
-/* transparent scrollbar */
-::-webkit-scrollbar {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--foreground)
-}
-
-@layer utilities {
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
+@layer base {
+  html {
+    /* Anchors like /#contact must clear the sticky header (taller than --header-h when the nav wraps on mobile). */
+    scroll-padding-top: 5rem;
   }
 
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
   }
 }
 
-pre {
-  background: var(--background) !important;
-  color: var(--foreground) !important;
-  padding: 1rem;
-  border-radius: 10px;
-  border: 0.5px solid var(--foreground);
+@layer components {
+  /* Flat, Vercel-style buttons: hairline border, solid-dark primary variant. */
+  .btn {
+    display: inline-block;
+    border-radius: 6px;
+    border: 1px solid var(--border-strong);
+    background: var(--background);
+    color: var(--foreground);
+    padding: 0.4rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+  }
+
+  .btn:hover {
+    background: var(--surface);
+  }
+
+  .btn-primary {
+    border-color: var(--foreground);
+    background: var(--foreground);
+    color: var(--background);
+  }
+
+  .btn-primary:hover {
+    border-color: var(--muted);
+    background: var(--muted);
+  }
 }
 
-.markdown-preview {
-  @apply prose;
-  max-width: unset !important;
+/* Theme icons: unlayered on purpose, because Font Awesome's .fa-solid sets display and is unlayered. */
+.theme-toggle .theme-icon-sun {
+  display: none;
+}
 
-  * {
-    color: var(--foreground) !important;
-    background: var(--background) !important;
-  }
+:root[data-theme="dark"] .theme-toggle .theme-icon-sun {
+  display: inline-block;
+}
 
-  img {
-    width: 100% !important;
-    height: auto !important;
-  }
+:root[data-theme="dark"] .theme-toggle .theme-icon-moon {
+  display: none;
 }

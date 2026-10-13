@@ -1,10 +1,9 @@
-export default function About({ about }: { about: any }) {
-
+export default function About({ about }: { about: string[] }) {
     return (
         <section id="about" className="w-full flex flex-col items-start justify-start gap-8 py-16">
-            <h1 className="text-2xl font-bold">About</h1>
-            {about.map((content: string, index: number) => (
-                <p className="text-md text-foreground/80" key={index}>
+            <h2 className="text-2xl font-bold">About</h2>
+            {about.map((content, index) => (
+                <p className="text-md text-muted" key={index}>
                     {content}
                 </p>
             ))}

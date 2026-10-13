@@ -1,70 +1,48 @@
 {
+  "attribution": "This page is inspired by <a href='https://nownownow.com/about' class='underline' target='_blank' rel='noopener noreferrer'>nownownow.com</a>",
   "lastUpdated": "June 2025",
   "sections": [
     {
       "title": "Current Work",
-      "description": "Pretending to be a Fullstack Developer at Jio (they haven't caught on yet).",
+      "description": "Full-stack developer at Jio.",
       "items": [
-        "Breaking and occasionally fixing high-traffic web apps.",
-        "Leading fullstack development for B2B/B2C platforms (mostly by Googling stuff).",
-        "Optimizing backend services and API performance, or at least trying not to make them worse."
+        "Primarily focused on backend development",
+        "Optimizing backend services and API performance"
       ]
     },
     {
       "title": "Side Projects",
       "description": "Building things nobody asked for, but everyone will definitely need (someday).",
       "items": [
-        "Personal portfolio website using Next.js and TypeScript, because why not?",
-        "Contributing to open-source projects and hoping someone notices.",
-        "Exploring new web technologies and frameworks, mostly to avoid actual work."
+        "Recently grabbed a domain and building out a fresh idea — aiming to launch it soon!",
+        "Personal portfolio site built with Next.js and TypeScript",
+        "Dabbling in new web tech and frameworks"
       ]
     },
     {
       "title": "Learning",
-      "description": "Currently expanding my knowledge in things I'll probably forget by next week.",
+      "description": "Currently expanding my knowledge in things:",
       "items": [
-        "Data Structures and Algorithms (so I can finally understand those LeetCode memes)."
-      ]
-    },
-    {
-      "title": "Reading",
-      "description": "Books I'm currently reading (or at least pretending to read on Zoom calls):",
-      "items": [
-        {
-          "status": "reading",
-          "title": "Frankenstein",
-          "author": "Mary Shelley",
-          "description": "A novel about the creation and tragic consequences of a monster."
-        }
+        "Diving deeper into AI and Cloud Computing right now.",
+        "Brushing up on Data Structures and Algorithms"
       ]
     },
     {
       "title": "Health & Habits",
-      "description": "Trying to be healthy so I can live long enough to finish my Netflix watchlist.",
+      "description": "Trying to be healthy!",
       "items": [
-        "Regular exercise and strength training (lifting groceries counts, right?)",
-        "Maintaining a consistent sleep schedule (consistently ignoring it, that is).",
-        "Practicing mindfulness and meditation, or just staring at the ceiling."
-      ]
-    },
-    {
-      "title": "Personal Life",
-      "description": "What's keeping me busy outside of work (besides existential dread):",
-      "items": [
-        "Planning upcoming travels (to the fridge and back).",
-        "Learning a new skill: perfecting the art of procrastination.",
-        "Spending time with family and friends, mostly convincing them I have a real job."
+        "Been running every morning since January and steadily improving!",
+        "Hitting calisthenics 3 times a week",
+        "Sticking to a solid sleep schedule."
       ]
     },
     {
       "title": "Upcoming Goals",
-      "description": "What I'm looking forward to (besides the weekend):",
+      "description": "What I'm looking forward to this month:",
       "items": [
-        "Launching new features for current projects (and hoping nothing breaks).",
-        "Completing advanced certifications (so my LinkedIn looks cooler).",
-        "Contributing more to the dev community, or at least retweeting smart people."
+        "Run a 15K sometime in February.",
+        "Launch the MVP of my current side project idea."
       ]
     }
-  ],
-  "attribution": "This page is inspired by <a href='https://nownownow.com/about' class='underline' target='_blank' rel='noopener noreferrer'>nownownow.com</a>"
+  ]
 }

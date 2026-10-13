@@ -1,18 +1,10 @@
 const Footer = () => {
 	const currentYear = new Date().getFullYear();
 
-	const styles = {
-		container: "w-full flex flex-col items-start justify-start gap-4 py-4 border-t-1 border-foreground/10",
-		copyright: "text-sm text-foreground/80",
-		socialContainer: "flex flex-row items-center justify-center gap-8 flex-wrap",
-		iconLink: "cursor-pointer hover:text-secondary-foreground transition-colors duration-300",
-		icon: "w-6 h-6"
-	};
-
 	return (
-		<footer className={styles.container}>
+		<footer className="w-full flex flex-col items-start justify-start gap-4 py-4 border-t-1 border-border">
 			<div className="w-full flex flex-col md:flex-row justify-between items-center gap-4">
-				<p className={styles.copyright}>
+				<p className="text-sm text-muted">
 					© {currentYear} Jayesh Padhiar. All rights reserved.
 				</p>
 			</div>

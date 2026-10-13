@@ -1,72 +1,40 @@
-import GitHubCalendar from "react-github-calendar";
+import ContributionCalendar from "./ContributionCalendar";
+import type { Project } from "@/lib/content";
 
-export default function Projects({ projects }: { projects: any }) {
-	const gitHubCalendarTheme = {
-		dark: ['lightgrey', 'green']
-	};
-
-	const selectLastHalfYear = (contributions: any) => {
-		const currentYear = new Date().getFullYear();
-		const currentMonth = new Date().getMonth();
-		const shownMonths = 6;
-	
-		return contributions.filter((activity: any) => {
-			const date = new Date(activity.date);
-			const monthOfDay = date.getMonth();
-	
-			return (
-				date.getFullYear() === currentYear &&
-				monthOfDay > currentMonth - shownMonths &&
-				monthOfDay <= currentMonth
-			);
-		});
-	};
-
+export default function Projects({ projects }: { projects: Project[] }) {
 	return (
-		<section id="projects" className="w-full flex flex-col items-start justify-start gap-4 py-16 border-t-1 border-foreground/10">
-			<h1 className="text-2xl font-bold">Projects</h1>
+		<section id="projects" className="w-full flex flex-col items-start justify-start gap-4 py-16 border-t-1 border-border">
+			<h2 className="text-2xl font-bold">Projects</h2>
 			<div className="flex flex-row flex-wrap gap-4 justify-start items-start w-full">
-				{projects.map((project: { title: string, description: string, url: string }, idx: number) => (
-					<ProjectCard key={idx} title={project.title} description={project.description} url={project.url} />
+				{projects.map((project) => (
+					<ProjectCard key={project.url} title={project.title} description={project.description} url={project.url} />
 				))}
 			</div>
-			<a href="https://github.com/jayeshpadhiar?tab=repositories" target="_blank" rel="noopener noreferrer" className="flex flex-row items-center justify-start gap-2 text-foreground/80">
+			<a href="https://github.com/jayeshpadhiar?tab=repositories" target="_blank" rel="noopener noreferrer" className="flex flex-row items-center justify-start gap-2 text-muted">
 				View All Projects
 				<span>
-					<i className={`fa-solid fa-arrow-right`}></i>
+					<i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
 				</span>
 			</a>
 			<div className="w-full flex flex-col items-start justify-start gap-4 mt-8">
-				<h2 className="text-lg font-semibold">Contribution Activity</h2>
-				<GitHubCalendar
-					theme={gitHubCalendarTheme}
-					username="jayeshpadhiar"
-					blockSize={10}
-					fontSize={12}
-					style={{ width: '100%', scrollbarWidth: 'none' }}
-					showWeekdayLabels={true}
-					blockRadius={4}
-					transformData={selectLastHalfYear}
-					labels={{
-						totalCount: '{{count}} contributions in the last 6 months',
-					}}
-				/>
+				<h3 className="text-lg font-semibold">Contribution Activity</h3>
+				<ContributionCalendar />
 			</div>
 		</section>
-	)
+	);
 }
 
-const ProjectCard = ({ title, description, url }: { title: string, description: string, url: string }) => {
+const ProjectCard = ({ title, description, url }: Project) => {
 	return (
-		<div className="w-full md:w-1/3 md:min-w-[300px] md:max-w-[400px] flex flex-col items-start justify-start gap-4 px-4 py-4 border-1 border-foreground/20 cursor-pointer" style={{ borderRadius: "10px", alignSelf: "stretch" }}>
-			<h1>{title}</h1>
-			<p className="text-sm text-foreground/60">{description}</p>
-			<a href={url} target="_blank" rel="noopener noreferrer" className="flex flex-row items-center justify-start gap-2 text-foreground/80 mt-auto hover:underline">
+		<div className="w-full md:w-1/3 md:min-w-[300px] md:max-w-[400px] flex flex-col items-start justify-start gap-4 px-4 py-4 border-1 border-border rounded-lg self-stretch">
+			<h3>{title}</h3>
+			<p className="text-sm text-muted">{description}</p>
+			<a href={url} target="_blank" rel="noopener noreferrer" className="flex flex-row items-center justify-start gap-2 text-muted mt-auto hover:underline">
 				View Project
 				<span>
-					<i className={`fa-solid fa-arrow-right`}></i>
+					<i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
 				</span>
 			</a>
 		</div>
-	)
-}
+	);
+};

@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Claude Code: A Beginner's Complete Guide",
+    "link": "https://dev.to/jayeshpadhiar/everything-you-need-to-know-about-claude-code-1344",
+    "description": "I just finished Anthropic’s “Claude Code in Action” course, and I want to break down everything I…",
+    "tags": "ai, claude, anthropic, claude code",
+    "image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F6h4zmzs2c0t63y0kj4qx.png",
+    "type": "article",
+    "createdAt": "2026-03-26T17:40:58.151Z"
+  },
+  {
+    "title": "East of Eden",
+    "link": "https://jayeshpadhiar.substack.com/p/east-of-eden",
+    "description": "by John Steinbeck",
+    "tags": "",
+    "image": "https://images.unsplash.com/photo-1736184722130-4cb82965c959?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMDAzMzh8MHwxfHNlYXJjaHwxMXx8YWRhbSUyMGV2ZXxlbnwwfHx8fDE3Njk2MTg2NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "type": "blog",
+    "createdAt": "2026-01-29T09:05:19.707Z"
+  },
+  {
+    "title": "The Pearl",
+    "link": "https://jayeshpadhiar.substack.com/p/the-pearl",
+    "description": "by John Steinbeck",
+    "tags": "",
+    "image": "https://images.unsplash.com/photo-1651894860150-66557b7c4a3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMDAzMzh8MHwxfHNlYXJjaHwzfHxveXN0ZXIlMjBwZWFybHxlbnwwfHx8fDE3NjUxMjg5ODR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "type": "blog",
+    "createdAt": "2025-12-08T07:08:31.953Z"
+  },
+  {
+    "title": "Sweet Thursday",
+    "link": "https://jayeshpadhiar.substack.com/p/sweet-thursday",
+    "description": "by John Steinbeck",
+    "tags": "",
+    "image": "https://substackcdn.com/image/fetch/$s_!UpxP!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F58c62199-9d28-4825-80e3-d98dad7cfdbc_1080x810.jpeg",
+    "type": "blog",
+    "createdAt": "2025-12-08T07:08:28.230Z"
+  },
+  {
+    "title": "Cannery Row",
+    "link": "https://jayeshpadhiar.substack.com/p/cannery-row",
+    "description": "by John Steinbeck",
+    "tags": "",
+    "image": "https://images.unsplash.com/photo-1570984786606-f3b70ff21399?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMDAzMzh8MHwxfHNlYXJjaHwxMTd8fGNhbm5lcnklMjByb3d8ZW58MHx8fHwxNzYzODkyMzg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "type": "blog",
+    "createdAt": "2025-11-23T10:12:42.379Z"
+  },
+  {
+    "title": "Of Mice and Men",
+    "link": "https://jayeshpadhiar.substack.com/p/of-mice-and-men",
+    "description": "by John Steinbeck",
+    "tags": "",
+    "image": "https://substackcdn.com/image/fetch/$s_!5kXO!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff45276b0-878f-4cc9-8950-caf6b5e314e9_1600x892.jpeg",
+    "type": "blog",
+    "createdAt": "2025-11-19T13:36:51.640Z"
+  },
+  {
+    "title": "OpenAI API with Node.js: The Complete Beginner’s Guide",
+    "link": "https://www.linkedin.com/pulse/openai-api-nodejs-complete-beginners-guide-jayesh-padhiar-7gxvf/?trackingId=cLrwkKEdKnWytRoqYiyUdw%3D%3D",
+    "description": "Build AI apps with OpenAI APIs. Set up, explore features, and create examples. Great for beginners and experienced developers",
+    "tags": "openai, nodejs, javascript, apis, ai",
+    "image": "https://media.licdn.com/dms/image/v2/D4D12AQF--iu8Y5Yxmw/article-cover_image-shrink_720_1280/B4DZjvyjNXGsAU-/0/1756369666625?e=2147483647&v=beta&t=KGVxTvsN_SacBVWaO0-qqqg76udBBQjEQ490SSXH038",
+    "type": "article",
+    "createdAt": "2025-09-03T16:14:12.550Z"
+  }
+]

@@ -1,6 +1,5 @@
-"use client";
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
-import MainContent from "@/components/MainContent";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
@@ -8,45 +7,39 @@ import Contact from "@/components/Contact";
 import Interests from "@/components/Interests";
 import Footer from "@/components/Footer";
 import Projects from "@/components/Projects";
-import { useEffect, useState } from "react";
+import Posts from "@/components/Posts";
+import PersonJsonLd from "@/components/PersonJsonLd";
+import { getBooks } from "@/lib/books";
 
 import home from "@/static/home.json";
-import Posts from "@/components/Posts";
-import Wall from "@/components/Wall";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
-
-  const [homeContent, setHomeContent] = useState(home);
-
-  useEffect(() => {
-    const fetchHomeData = async () => {
-      try {
-      const response = await fetch("/api/v1/home");
-        const data = await response.json();
-        setHomeContent(data);
-      } catch (error) {
-        console.error("Error fetching home data:", error);
-      }
-    };
-    fetchHomeData();
-  }, []);
+  const books = getBooks();
+  const currentlyReading = books.filter((book) => book.status === "currently-reading");
+  const recentlyFinished = books.filter((book) => book.status === "read").slice(0, 2);
 
   return (
-    <div className="min-h-full w-full flex flex-col md:flex-row items-start justify-start" id="home">
-      <Hero hero={homeContent.hero} />
-      <div className="w-[0.5px] h-full bg-foreground/20"></div>
-      <MainContent>
-        <About about={homeContent.about} />
-        <Skills skills={homeContent.skills} />
-        <Experience experience={homeContent.experience} />
-        <Projects projects={homeContent.projects} />
-        <Posts type="article" />
-        <Posts type="blog" />
-        <Interests />
-        <Wall />
-        <Contact />
-        <Footer />
-      </MainContent>
-    </div>
+    <>
+      <PersonJsonLd />
+      <main id="main" className="w-full flex flex-col md:flex-row items-start justify-start">
+        <Hero hero={home.hero} />
+        <div className="hidden md:block self-stretch w-[0.5px] bg-border"></div>
+        <div className="w-full min-w-0 flex flex-col items-start justify-start px-8 md:px-16">
+          <About about={home.about} />
+          <Skills skills={home.skills} />
+          <Experience experience={home.experience} />
+          <Projects projects={home.projects} />
+          <Posts type="article" />
+          <Posts type="blog" />
+          <Interests currentlyReading={currentlyReading} recentlyFinished={recentlyFinished} />
+          <Contact />
+          <Footer />
+        </div>
+      </main>
+    </>
   );
 }

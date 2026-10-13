@@ -1,9 +1,9 @@
 {
   "hero": {
-    "image": "/images/profile.jpeg",
+    "image": "/images/profile-live.jpg",
     "name": "Jayesh Padhiar",
     "title": "Fullstack Developer",
-    "description": "I create reliable, user-focused web solutions, driven by a passion for meaningful code, innovative side projects, and quiet pursuits like hiking peaks, diving into deep reads, and breathing football.",
+    "description": "I create reliable, user-focused web solutions, driven by a passion for meaningful code, innovative side projects, and quiet pursuits like hiking peaks, diving into deep reads, and breathing football!",
     "socialLinks": [
       {
         "icon": "fa-brands fa-linkedin",
@@ -29,7 +29,7 @@
     "buttons": [
       {
         "label": "Resume",
-        "url": "/resume"
+        "url": "/files/Jayesh_Padhiar_Resume.pdf"
       },
       {
         "label": "Now",
@@ -41,12 +41,12 @@
     "I'm a full-stack developer with a focus on building reliable, scalable web applications. I've worked on high-traffic platforms, real-time systems, and internal tools — mostly using JavaScript, TypeScript, Angular, React, and Node.js. I enjoy being part of teams where code meets real-world impact, and where things are built with care.",
     "Outside of work, I like making side projects that solve small, interesting problems — whether it's automating a task, experimenting with design, or just learning something new. I enjoy working across the stack, especially when I get to keep things simple, fast, and intuitive.",
     "When I'm not at my desk, you'll probably find me in the mountains, reading something existential, or watching/playing football. I like quiet challenges — whether it's climbing a peak, finishing a long book, or just trying to get better at what I do without rushing the process.",
-    "That's me, mostly...the rest changes with the next idea."
+    "That's me, mostly...the rest changes with the next idea!"
   ],
   "skills": [
     {
       "title": "Languages",
-      "icon": "fa-solid fa-code",
+      "icon": "fa-solid fa-language",
       "skills": [
         "JavaScript",
         "TypeScript",
@@ -104,21 +104,15 @@
       "location": "Mumbai, MH",
       "roles": [
         {
-          "period": "July 2023 — Present",
-          "title": "Fullstack Developer (SDE-1)",
+          "period": "July 2022 — Present",
+          "title": "Software Development Engineer",
           "description": [
             "Developed REST APIs for Digital Access Management system and optimised the existing code to reduce API response time by 20%.",
             "Engineered AI tagging and asset parsing logic to process 1TB+ assets efficiently using Elasticsearch, Kibana, Logstash, and Google Cloud Storage.",
             "Contributed to the business logic of several gratification engagements, increasing user participation and backend reliability.",
             "Integrated Redis and RabbitMQ in backend projects, enhancing API response speed and supporting high-throughput, low-latency data processing.",
             "Implemented WebSocket based real-time communication for multiplayer apps, supporting a high volume of concurrent users seamlessly.",
-            "Mentored 5+ junior developers, delivering KT sessions and implementing Agile methodologies to enhance team productivity and code quality."
-          ]
-        },
-        {
-          "period": "July 2022 — July 2023",
-          "title": "Frontend Developer (SDE-1)",
-          "description": [
+            "Mentored 5+ junior developers, delivering KT sessions and implementing Agile methodologies to enhance team productivity and code quality.",
             "Led frontend development for responsive B2B/B2C sites (JioEngage, JioCoupons), driving 50K+ monthly visitors and dynamic CMS content management.",
             "Developed a multiplayer gratification platform for JioCinema, scaling to 150K+ active users and ensuring seamless user experience.",
             "Built a cross-browser JavaScript extension for JioPC, reducing bandwidth latency by 40% and improving media streaming via native communication.",
@@ -132,11 +126,10 @@
       "location": "Pune, MH",
       "roles": [
         {
-          "period": "Jan 2021 - July 2021",
-          "title": "Fullstack Web Developer (Freelance)",
+          "period": "Jan 2022 - July 2022",
+          "title": "Software Developer",
           "description": [
-            "Built a customer portal from scratch using MongoDB, Express, Angular & Node.js.",
-            "Boosted performance by 20% using modular development, efficient schema, and seamless client-server integration."
+            "Used MEAN Stack (MongoDB, Express.js, Angular, Node.js) to develop a customer portal, enabling users to personalize product settings and manage interactions, improving user experience and client satisfaction."
           ]
         }
       ]
@@ -151,12 +144,17 @@
     {
       "title": "Customer Portal",
       "description": "AnjularJS based freelance project designed for companies to provide a solution to the users to create and update profile settings.",
-      "url": "https://github.com/JayeshPadhiar/CustomerPortal"
+      "url": "https://github.com/JayeshPadhiar/customer-portal"
     },
     {
       "title": "Cowin Booking Automation",
       "description": "A Python Script to automate searching of available vaccination centers in the city and hence booking.",
-      "url": "https://github.com/JayeshPadhiar/CowinVaccineScheduler"
+      "url": "https://github.com/JayeshPadhiar/cowin-slot-booking"
+    },
+    {
+      "title": "Markdown To Medium",
+      "description": "A Chrome extension that converts markdown files to Medium.com articles with intelligent parsing and direct content injection.",
+      "url": "https://github.com/JayeshPadhiar/markdown-to-medium"
     }
   ]
 }

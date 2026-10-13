@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# jayeshpadhiar.github.io
 
-## Getting Started
+Personal portfolio built with Next.js (App Router), React, Tailwind CSS and TypeScript. It is a fully static site: no database, no API routes and no environment variables.
 
-First, run the development server:
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run lint       # ESLint
+npm run typecheck  # tsc --noEmit
+npm run build      # production build; all routes are prerendered
+npm run start      # serve the production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Requires Node 20.9 or newer.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Updating content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Everything the site shows lives in `src/static/`. Edit the file and redeploy.
 
-## Learn More
+| File | What it drives |
+| --- | --- |
+| `home.json` | Hero, About, Skills, Experience, Projects |
+| `now.json` | The `/now` page |
+| `posts.json` | Blog and article links (`/posts`, `/posts/blog`, `/posts/article`, and the home sections) |
+| `books.csv` | The bookshelf, parsed at build time |
 
-To learn more about Next.js, take a look at the following resources:
+**Books:** export your library from Goodreads (My Books, then Import and export, then Export Library) and replace `src/static/books.csv` with the file. Only the `read` and `currently-reading` shelves are shown, and newest read comes first. The export includes your review text, so only commit it if you are happy for that to be public.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Resume:** replace `public/files/Jayesh_Padhiar_Resume.pdf`. `/resume` redirects to it.

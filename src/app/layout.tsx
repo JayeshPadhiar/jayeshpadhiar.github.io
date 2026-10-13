@@ -2,17 +2,35 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto_Mono } from "next/font/google";
 import Header from "@/components/Header";
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import { SITE_NAME, SITE_URL } from "@/lib/site";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
   weight: ["400", "700"],
 });
 
+const TITLE = `${SITE_NAME} | Full Stack Developer`;
+const DESCRIPTION =
+  "Jayesh Padhiar is a full stack developer building reliable, user-focused web applications. Projects, writing, bookshelf and what I'm doing now.";
+const SHARE_IMAGE = "/images/profile-live.jpg";
+
 export const metadata: Metadata = {
-  title: "Jayesh Padhiar",
-  description: "Full Stack Developer",
+  metadataBase: new URL(SITE_URL),
+  title: { default: TITLE, template: `%s | ${SITE_NAME}` },
+  description: DESCRIPTION,
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [{ url: SHARE_IMAGE, width: 576, height: 576, alt: SITE_NAME }],
+  },
+  twitter: { card: "summary" },
 };
+
+// Runs before first paint so the saved theme is applied without a flash.
+const themeScript = `try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light")}catch(e){document.documentElement.setAttribute("data-theme","light")}`;
 
 export default function RootLayout({
   children,
@@ -20,14 +38,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`h-screen w-screen ${robotoMono.className} antialiased flex flex-col items-start justify-start overflow-hidden`}
-      >
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className={`${robotoMono.className} antialiased min-h-dvh flex flex-col`}>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:border focus:border-foreground"
+        >
+          Skip to content
+        </a>
         <Header />
-        <div className="w-full h-full flex flex-col items-start justify-start overflow-y-auto">
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );
