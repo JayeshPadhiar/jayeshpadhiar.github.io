@@ -2,8 +2,8 @@
   "hero": {
     "image": "/images/profile-live.jpg",
     "name": "Jayesh Padhiar",
-    "title": "Fullstack Developer",
-    "description": "I create reliable, user-focused web solutions, driven by a passion for meaningful code, innovative side projects, and quiet pursuits like hiking peaks, diving into deep reads, and breathing football!",
+    "title": "Founder & Builder",
+    "description": "Founder building shippin.io, a permanent software discovery directory. By day, an engineer at Jio. Off the screen: climbing peaks, running, deep reads, and football!",
     "socialLinks": [
       {
         "icon": "fa-brands fa-linkedin",
@@ -14,6 +14,11 @@
         "icon": "fa-brands fa-github",
         "platform": "GitHub",
         "url": "https://github.com/jayeshpadhiar"
+      },
+      {
+        "icon": "fa-brands fa-x-twitter",
+        "platform": "X",
+        "url": "https://x.com/JayeshPadhiar"
       },
       {
         "icon": "fa-solid fa-envelope",
@@ -38,10 +43,17 @@
     ]
   },
   "about": [
-    "I'm a full-stack developer with a focus on building reliable, scalable web applications. I've worked on high-traffic platforms, real-time systems, and internal tools — mostly using JavaScript, TypeScript, Angular, React, and Node.js. I enjoy being part of teams where code meets real-world impact, and where things are built with care.",
+    "I'm a founder and builder. I'm building shippin.io, a permanent software discovery directory, and I'm still an engineer at Jio, where I've worked on high-traffic platforms, real-time systems, and internal tools — mostly using JavaScript, TypeScript, Angular, React, and Node.js. I like being where code meets real-world impact, and where things are built with care.",
     "Outside of work, I like making side projects that solve small, interesting problems — whether it's automating a task, experimenting with design, or just learning something new. I enjoy working across the stack, especially when I get to keep things simple, fast, and intuitive.",
-    "When I'm not at my desk, you'll probably find me in the mountains, reading something existential, or watching/playing football. I like quiet challenges — whether it's climbing a peak, finishing a long book, or just trying to get better at what I do without rushing the process.",
+    "When I'm not at my desk, you'll probably find me in the mountains, out on a run, reading something existential, or watching/playing football. I like quiet challenges — whether it's climbing a peak, finishing a long book, or running a half marathon (done!) — and just trying to get better at what I do without rushing the process.",
     "That's me, mostly...the rest changes with the next idea!"
+  ],
+  "products": [
+    {
+      "title": "shippin.io",
+      "description": "A permanent software discovery directory.",
+      "url": "https://shippin.io"
+    }
   ],
   "skills": [
     {
@@ -135,26 +147,29 @@
       ]
     }
   ],
-  "projects": [
-    {
-      "title": "Resume Analyzer",
-      "description": "An open-source Resume Analyzer and Ranking tool for recruiters and candidates.",
-      "url": "https://github.com/Yashdew/Assessor"
-    },
-    {
-      "title": "Customer Portal",
-      "description": "AnjularJS based freelance project designed for companies to provide a solution to the users to create and update profile settings.",
-      "url": "https://github.com/JayeshPadhiar/customer-portal"
-    },
-    {
-      "title": "Cowin Booking Automation",
-      "description": "A Python Script to automate searching of available vaccination centers in the city and hence booking.",
-      "url": "https://github.com/JayeshPadhiar/cowin-slot-booking"
-    },
-    {
-      "title": "Markdown To Medium",
-      "description": "A Chrome extension that converts markdown files to Medium.com articles with intelligent parsing and direct content injection.",
-      "url": "https://github.com/JayeshPadhiar/markdown-to-medium"
-    }
-  ]
+  "projects": {
+    "visible": false,
+    "items": [
+      {
+        "title": "Resume Analyzer",
+        "description": "An open-source Resume Analyzer and Ranking tool for recruiters and candidates.",
+        "url": "https://github.com/Yashdew/Assessor"
+      },
+      {
+        "title": "Customer Portal",
+        "description": "AnjularJS based freelance project designed for companies to provide a solution to the users to create and update profile settings.",
+        "url": "https://github.com/JayeshPadhiar/customer-portal"
+      },
+      {
+        "title": "Cowin Booking Automation",
+        "description": "A Python Script to automate searching of available vaccination centers in the city and hence booking.",
+        "url": "https://github.com/JayeshPadhiar/cowin-slot-booking"
+      },
+      {
+        "title": "Markdown To Medium",
+        "description": "A Chrome extension that converts markdown files to Medium.com articles with intelligent parsing and direct content injection.",
+        "url": "https://github.com/JayeshPadhiar/markdown-to-medium"
+      }
+    ]
+  }
 }

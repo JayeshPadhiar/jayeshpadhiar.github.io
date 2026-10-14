@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PostList from "@/components/PostList";
 import type { PostType } from "@/lib/content";
-import { POST_LABELS, POST_TYPES, postsOfType } from "@/lib/posts";
+import { POST_DESCRIPTIONS, POST_LABELS, POST_TYPES } from "@/lib/posts";
 
 type Props = { params: Promise<{ type: PostType }> };
 
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 	return {
 		title: POST_LABELS[type],
-		description: `${POST_LABELS[type]} written by Jayesh Padhiar.`,
+		description: POST_DESCRIPTIONS[type],
 		alternates: { canonical: `/posts/${type}` },
 	};
 }
@@ -25,5 +25,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PostsByType({ params }: Props) {
 	const { type } = await params;
 
-	return <PostList title={POST_LABELS[type]} posts={postsOfType(type)} />;
+	return <PostList type={type} />;
 }

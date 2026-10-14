@@ -15,6 +15,11 @@ export default function Contact() {
 			icon: "fa-brands fa-linkedin",
 			link: "https://www.linkedin.com/in/jayeshpadhiar/",
 			label: "linkedin.com/in/jayeshpadhiar"
+		},
+		{
+			icon: "fa-brands fa-x-twitter",
+			link: "https://x.com/JayeshPadhiar",
+			label: "x.com/JayeshPadhiar"
 		}
 	]
 	return (

@@ -22,14 +22,14 @@ Jayesh Padhiar's personal portfolio (Next.js 16 App Router, React 19, Tailwind 4
 
 It is a fully static, content-only site: no database, no auth, no API routes, no middleware, no env vars, and visitors' browsers fetch nothing from the site's own server. It used to have a MongoDB-backed admin CMS (`/admin`, `/write`, `/auth`, `/api/v1/*`); that was removed on purpose, so don't reintroduce a backend without asking.
 
-The only third-party request left at runtime is the GitHub contribution calendar (`ContributionCalendar`, calls `github-contributions-api.jogruber.de`), plus hotlinked post images, which are kept on purpose.
+The only third-party request left at runtime is the GitHub contribution calendar (`ContributionCalendar`, calls `github-contributions-api.jogruber.de`; it is the standalone "GitHub Activity" section after Experience), plus hotlinked post images, which are kept on purpose.
 
 ## Architecture
 
 ### Content lives in `src/static/`
 To change what the site shows, edit these files and redeploy:
-- `home.json`: `hero`, `about`, `skills`, `experience`, `projects` for the home page. The hero Resume button links straight to `/files/Jayesh_Padhiar_Resume.pdf`; `Hero` renders `<Link>` for internal routes and `<a target="_blank">` for absolute URLs and `/files/*`.
-- `now.json`: the `/now` page (`sections`, `lastUpdated`, `attribution`).
+- `home.json`: `hero`, `about`, `skills`, `experience`, `products` and `projects` for the home page. The site is positioned as "Founder & Builder" (shippin.io, a permanent software discovery directory), with the Jio engineering role as background. `products` feeds the "Products" section (right after About): one card per product, linking out. `projects` is the open-source/GitHub section (after Experience): it is `{ visible, items }` and is **hidden while `visible` is false** (the entries are kept so it can be shown again by setting `visible` to true and editing `items`). The hero icons include X, and `Contact.tsx` has its own list of links (email and phone there must stay as they are). The hero Resume button links straight to `/files/Jayesh_Padhiar_Resume.pdf`; `Hero` renders `<Link>` for internal routes and `<a target="_blank">` for absolute URLs and `/files/*`.
+- `now.json`: the `/now` page (`sections`, `lastUpdated`, `attribution`). Section list items are rendered as HTML (like the attribution), so a bullet can contain a link; only put trusted text there. Keep `lastUpdated` current when you edit it.
 - `books.csv`: a Goodreads library export, **always read from `src/static/books.csv`**. To update the shelf, replace this file and redeploy. `src/lib/books.ts` (`getBooks()`, guarded with `server-only` because it uses `fs`) parses it with `papaparse` at build time. Client components must only `import type { Book }` from it. Rules in the parser:
   - Only rows whose `Exclusive Shelf` is `read` or `currently-reading` are kept (`to-read` is ignored).
   - `Bookshelves` becomes `type[]` (shelf names). A book with no shelves goes under "uncategorized".
@@ -38,7 +38,7 @@ To change what the site shows, edit these files and redeploy:
   - Columns used: Title, Author, Exclusive Shelf, Bookshelves, My Rating, Average Rating, Number of Pages, Original Publication Year (or Year Published), Date Read, My Review. The review is rendered as HTML, so only commit your own export.
 - `posts.json`: external blog/article links only (dev.to, Substack, LinkedIn). Each entry has `title`, `link`, `description`, `tags` (comma-separated string), `image`, `type` (`blog` or `article`) and `createdAt`, newest first. There are no locally hosted posts, so fill in `description` and `image` by hand; nothing fetches link metadata.
 
-Types for this data are derived from the JSON in `src/lib/content.ts` (`typeof home.hero` etc.) plus an explicit `Post` type; `src/lib/posts.ts` wraps `posts.json` (`postsOfType`, `POST_LABELS`, `POST_TYPES`).
+Types for this data are derived from the JSON in `src/lib/content.ts` (`typeof home.hero` etc.) plus an explicit `Post` type; `src/lib/posts.ts` wraps `posts.json` (`postsOfType`, `POST_LABELS`, `POST_TYPES`) and holds the per-page copy: `POST_SOURCES` (the "For more writing, find me on ..." footer: only the Blogs page has one, linking to Substack; Articles and the all-posts page have none), `POST_INTROS` (the Blogs one-liner: book reviews and other writing) and `POST_DESCRIPTIONS` (metadata). To give another page a footer, add it to `POST_SOURCES`.
 
 ### Routes
 All routes are statically prerendered:

@@ -30,9 +30,7 @@ export default function Now() {
 						<p className="text-md text-muted mb-2">{section.description}</p>
 						<ul className="list-disc list-inside space-y-1 ml-4">
 							{section.items.map((item, idx) => (
-								<li key={idx} className="text-md text-muted list-outside">
-									{item}
-								</li>
+								<li key={idx} className="text-md text-muted list-outside" dangerouslySetInnerHTML={{ __html: item }}></li>
 							))}
 						</ul>
 					</div>

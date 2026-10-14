@@ -10,9 +10,9 @@ const robotoMono = Roboto_Mono({
   weight: ["400", "700"],
 });
 
-const TITLE = `${SITE_NAME} | Full Stack Developer`;
+const TITLE = `${SITE_NAME} | Founder & Builder`;
 const DESCRIPTION =
-  "Jayesh Padhiar is a full stack developer building reliable, user-focused web applications. Projects, writing, bookshelf and what I'm doing now.";
+  "Jayesh Padhiar is a founder and builder working on shippin.io, a permanent software discovery directory, and an engineer at Jio. Writing, bookshelf and what I'm doing now.";
 const SHARE_IMAGE = "/images/profile-live.jpg";
 
 export const metadata: Metadata = {

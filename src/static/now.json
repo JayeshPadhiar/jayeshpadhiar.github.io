@@ -1,47 +1,48 @@
 {
   "attribution": "This page is inspired by <a href='https://nownownow.com/about' class='underline' target='_blank' rel='noopener noreferrer'>nownownow.com</a>",
-  "lastUpdated": "June 2025",
+  "lastUpdated": "October 2026",
   "sections": [
     {
       "title": "Current Work",
-      "description": "Full-stack developer at Jio.",
+      "description": "Founder and builder of shippin.io, and an engineer at Jio.",
       "items": [
-        "Primarily focused on backend development",
-        "Optimizing backend services and API performance"
+        "Building shippin.io, a permanent software discovery directory.",
+        "At Jio, primarily focused on backend development.",
+        "Optimizing backend services and API performance."
       ]
     },
     {
       "title": "Side Projects",
       "description": "Building things nobody asked for, but everyone will definitely need (someday).",
       "items": [
-        "Recently grabbed a domain and building out a fresh idea — aiming to launch it soon!",
         "Personal portfolio site built with Next.js and TypeScript",
         "Dabbling in new web tech and frameworks"
       ]
     },
     {
-      "title": "Learning",
-      "description": "Currently expanding my knowledge in things:",
+      "title": "Focus",
+      "description": "What I'm putting my energy into right now:",
       "items": [
-        "Diving deeper into AI and Cloud Computing right now.",
-        "Brushing up on Data Structures and Algorithms"
+        "Reaching out to more people.",
+        "Growing my X audience.",
+        "Building an audience I can tell more and more about shippin.io."
       ]
     },
     {
       "title": "Health & Habits",
       "description": "Trying to be healthy!",
       "items": [
-        "Been running every morning since January and steadily improving!",
+        "Completed a half marathon! <a href='https://www.strava.com/activities/20440902182' class='underline' target='_blank' rel='noopener noreferrer'>See it on Strava</a>",
         "Hitting calisthenics 3 times a week",
         "Sticking to a solid sleep schedule."
       ]
     },
     {
       "title": "Upcoming Goals",
-      "description": "What I'm looking forward to this month:",
+      "description": "What I'm working toward:",
       "items": [
-        "Run a 15K sometime in February.",
-        "Launch the MVP of my current side project idea."
+        "Train for a full marathon.",
+        "Grow shippin.io."
       ]
     }
   ]

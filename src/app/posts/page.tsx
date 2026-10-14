@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import PostList from "@/components/PostList";
-import { posts } from "@/lib/posts";
 
 export const metadata: Metadata = {
 	title: "Posts",
@@ -9,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function Posts() {
-	return <PostList title="Posts" posts={posts} />;
+	return <PostList />;
 }
