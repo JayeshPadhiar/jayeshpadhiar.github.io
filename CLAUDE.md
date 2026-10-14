@@ -43,7 +43,7 @@ Types for this data are derived from the JSON in `src/lib/content.ts` (`typeof h
 ### Routes
 All routes are statically prerendered:
 - `/` (home), `/books`, `/now`, `/posts` (all posts), `/posts/[type]` (`blog` or `article` via `generateStaticParams`, `dynamicParams = false`, so anything else is a 404), `/sitemap.xml`, `/robots.txt`, plus `src/app/not-found.tsx`.
-- `/resume` is not a page: `next.config.ts` redirects it to the static PDF in `public/files/`. `/posts?type=blog|article` redirects to `/posts/blog|article` (the redirect keeps the query string, which is harmless). To update the resume, replace the PDF.
+- `/resume` is not a page: `next.config.ts` redirects it to the static PDF in `public/files/`. `/posts?type=blog|article` redirects to `/posts/blog|article` (the redirect keeps the query string, which is harmless). To update the resume, edit the LaTeX in `latex/` and run `npm run resume` (`scripts/build-resume.mjs`: latexmk/pdfLaTeX into a temp dir, then copies the PDF over `public/files/Jayesh_Padhiar_Resume.pdf`; it needs a TeX with latexmk: TinyTeX in `~/Library/TinyTeX` or MacTeX, setup in `latex/README.md`, and it leaves the old PDF alone if the compile fails). `npm run build` and Vercel do not compile LaTeX, so the PDF is committed; the template needs `sourcesanspro` and `fontawesome`, so use pdfLaTeX, not Tectonic/XeTeX.
 - Shared components live in `src/components/` (there is no route group, and cards are not imported across route folders).
 
 ### Server vs client components

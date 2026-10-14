@@ -28,4 +28,4 @@ Everything the site shows lives in `src/static/`. Edit the file and redeploy.
 
 **Books:** export your library from Goodreads (My Books, then Import and export, then Export Library) and replace `src/static/books.csv` with the file. Only the `read` and `currently-reading` shelves are shown, and newest read comes first. The export includes your review text, so only commit it if you are happy for that to be public.
 
-**Resume:** replace `public/files/Jayesh_Padhiar_Resume.pdf`. `/resume` redirects to it.
+**Resume:** the LaTeX source is in `latex/`. After changing it, run `npm run resume` (rebuilds `public/files/Jayesh_Padhiar_Resume.pdf`) and commit both. `/resume` redirects to that PDF. See `latex/README.md`.

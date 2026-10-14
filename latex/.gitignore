@@ -1,0 +1,10 @@
+# LaTeX build output. The published PDF is built by CI and committed to public/files/ (see ../.github/workflows/resume.yml).
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.pdf
+.DS_Store

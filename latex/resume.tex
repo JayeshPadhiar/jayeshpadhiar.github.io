@@ -1,0 +1,55 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+
+%====================
+%
+% Files:        resume.tex: Main file
+%               _header.tex: header code
+%               TLCresume.sty: style file containing formatting details
+%               section/objective: https://www.indeed.com/career-advice/resumes-cover-letters/resume-objective-examples
+%               section/skills: table of skills
+%               section/experience: projects or roles
+%               section/education: schools and stuff
+%               section/activities: optional, could comment out in resume.tex.
+%
+%====================
+
+\usepackage{TLCresume}
+\usepackage{fontawesome} %for nice icons
+%====================
+% CONTACT INFORMATION
+%====================
+\def\name{Jayesh Padhiar} % Name Here
+\def\city{Mumbai, IN}
+\def\phone{\href{tel:+917218194049}{+91-7218194049}}
+\def\email{jayeshpadhiar20@gmail.com}
+\def\LinkedIn{jayeshpadhiar} % linkedin.com/in/______
+\def\github{JayeshPadhiar} % github username
+\def\role{Software Development Engineer} % JOB TITLE
+
+\AtBeginDocument{
+  \fontsize{11}{14}\selectfont
+}
+
+\input{_header}
+\begin{document}
+
+\section{Work Experience}
+\input{sections/experience}
+
+\section{Skills}
+\input{sections/skills}
+
+%\section{Projects}
+%\input{sections/projects}
+
+\section{Education}
+\input{sections/education}
+
+\section{Publications}
+\input{sections/publications} 
+
+%\section{Activities}
+%\input{sections/activities}
+
+\end{document}
