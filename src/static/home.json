@@ -6,19 +6,14 @@
     "description": "Founder building shippin.io, a permanent software discovery directory. By day, an engineer at Jio. Off the screen: climbing peaks, running, deep reads, and football!",
     "socialLinks": [
       {
-        "icon": "fa-brands fa-linkedin",
-        "platform": "LinkedIn",
-        "url": "https://linkedin.com/in/jayeshpadhiar"
-      },
-      {
-        "icon": "fa-brands fa-github",
-        "platform": "GitHub",
-        "url": "https://github.com/jayeshpadhiar"
-      },
-      {
         "icon": "fa-brands fa-x-twitter",
         "platform": "X",
         "url": "https://x.com/JayeshPadhiar"
+      },
+      {
+        "icon": "fa-brands fa-linkedin",
+        "platform": "LinkedIn",
+        "url": "https://linkedin.com/in/jayeshpadhiar"
       },
       {
         "icon": "fa-solid fa-envelope",
@@ -26,9 +21,9 @@
         "url": "mailto:jayeshpadhiar20@gmail.com"
       },
       {
-        "icon": "fa-solid fa-phone",
-        "platform": "Phone",
-        "url": "tel:+917218194049"
+        "icon": "fa-brands fa-github",
+        "platform": "GitHub",
+        "url": "https://github.com/jayeshpadhiar"
       }
     ],
     "buttons": [

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import Interests from "@/components/Interests";
@@ -33,7 +32,6 @@ export default function Home() {
         <div className="w-full min-w-0 flex flex-col items-start justify-start px-8 md:px-16">
           <About about={home.about} />
           <Products products={home.products} />
-          <Skills skills={home.skills} />
           <Experience experience={home.experience} />
           <Projects projects={home.projects} />
           <Activity />

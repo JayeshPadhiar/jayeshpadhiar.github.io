@@ -2,14 +2,9 @@ export default function Contact() {
 
 	const contactDetails = [
 		{
-			icon: "fa-solid fa-envelope",
-			link: "mailto:jayeshpadhiar20@gmail.com",
-			label: "jayeshpadhiar20@gmail.com"
-		},
-		{
-			icon: "fa-solid fa-phone",
-			link: "tel:+917218194049",
-			label: "+91-7218194049"
+			icon: "fa-brands fa-x-twitter",
+			link: "https://x.com/JayeshPadhiar",
+			label: "x.com/JayeshPadhiar"
 		},
 		{
 			icon: "fa-brands fa-linkedin",
@@ -17,10 +12,16 @@ export default function Contact() {
 			label: "linkedin.com/in/jayeshpadhiar"
 		},
 		{
-			icon: "fa-brands fa-x-twitter",
-			link: "https://x.com/JayeshPadhiar",
-			label: "x.com/JayeshPadhiar"
-		}
+			icon: "fa-solid fa-envelope",
+			link: "mailto:jayeshpadhiar20@gmail.com",
+			label: "jayeshpadhiar20@gmail.com"
+		},
+		// Hidden for now; uncomment to show the phone number again.
+		// {
+		// 	icon: "fa-solid fa-phone",
+		// 	link: "tel:+917218194049",
+		// 	label: "+91-7218194049"
+		// },
 	]
 	return (
 		<section id="contact" className="w-full flex flex-col items-start justify-start py-16 border-t-1 border-border gap-8">

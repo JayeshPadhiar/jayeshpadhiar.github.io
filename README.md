@@ -21,7 +21,7 @@ Everything the site shows lives in `src/static/`. Edit the file and redeploy.
 
 | File | What it drives |
 | --- | --- |
-| `home.json` | Hero, About, Products, Skills, Experience, and Projects (hidden until `projects.visible` is `true`) |
+| `home.json` | Hero, About, Products, Experience, and Projects (hidden until `projects.visible` is `true`); `skills` is kept but not shown on the home page |
 | `now.json` | The `/now` page |
 | `posts.json` | Blog and article links (`/posts`, `/posts/blog`, `/posts/article`, and the home sections) |
 | `books.csv` | The bookshelf, parsed at build time |
